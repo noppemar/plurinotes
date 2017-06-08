@@ -10,11 +10,14 @@ class FenetrePrincipale : public QMainWindow
         FenetrePrincipale();
 
     public slots:
-        void afficherCreerNotes();
+        void afficherCreerArticle();
+        void afficherCreerTache();
+
+        void afficherEditerArticle();
+        void afficherEditerTache();
 
     private:
-        QPushButton *m_creer_note;
-        QPushButton *m_creer_note2;
+
 
 };
 
