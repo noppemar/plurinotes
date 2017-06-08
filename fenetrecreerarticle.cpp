@@ -2,38 +2,39 @@
 #define FENETRECREERARTICLE_CPP
 
 #include "FenetreCreerArticle.h"
+#include <QDateTime>
 
 
-FenetreCreerArticle::FenetreCreerArticle() : QWidget()
+FenetreCreerArticle::FenetreCreerArticle(QWidget *parent = 0) : QWidget()
 {
-    QPushButton *valider =new QPushButton;
-    QLineEdit *nom = new QLineEdit;
-    QLineEdit *prenom = new QLineEdit;
-    QLineEdit *age = new QLineEdit;
+    QLineEdit *id = new QLineEdit;
+    QLineEdit *titre = new QLineEdit;
+    QLineEdit *texte = new QLineEdit;
 
-    QFormLayout *formulaire = new QFormLayout;          // on crée un layout formualaire pour remplir les champs
-    formulaire->addRow("Votre nom", nom);
-    formulaire->addRow("Votre prénom", prenom);
-    formulaire->addRow("Votre âge", age);
+    QFormLayout *formulaire = new QFormLayout;          // on crée un layout formulaire pour remplir les champs
+    formulaire->addRow("id ", id);
+    formulaire->addRow("titre", titre);
+    formulaire->addRow("texte", texte);
 
-    buttonBox = new QDialogButtonBox;                                       // ici on crée différents voutons qui vont permettre de valider ect
-           buttonBox->addButton(tr("Ok"),QDialogButtonBox::AcceptRole);
-           buttonBox->addButton(QDialogButtonBox::Reset);
+   QPushButton *ok = new QPushButton("Valider");                                       // creation du bouton valider
+   connect(ok, SIGNAL(clicked()), this, SLOT(ajouterArticle()));
 
-           connect(buttonBox, SIGNAL(accepted()),this, SLOT(accept()));
-           connect(buttonBox->button(QDialogButtonBox::Reset),SIGNAL(clicked()), this, SLOT(reset()));
-
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QVBoxLayout *mainLayout = new QVBoxLayout;         // le layout principal permet d'avoir le formulaire ET les différents boutons
         mainLayout->addLayout(formulaire);
-        mainLayout->addWidget(buttonBox);
+        mainLayout->addWidget(ok);
 
 
     this->setLayout(mainLayout);
-
-
-
 }
 
+
+void FenetreCreerArticle::ajouterArticle() {
+
+    QTextStream cin(stdin);
+    QTextStream cout(stdout);
+    Article art(id->text(), titre->text(),texte->text());
+    cout << art.getText() <<endl;
+}
 
 
 #endif // FENETRECREERARTICLE_CPP
