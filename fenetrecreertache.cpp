@@ -5,7 +5,7 @@
 #include <QDateTime>
 
 
-FenetreCreerTache::FenetreCreerTache(QWidget *parent = 0) : QWidget()
+FenetreCreerTache::FenetreCreerTache() : QWidget()
 {
     QLineEdit *id = new QLineEdit;
     QLineEdit *titre = new QLineEdit;
@@ -47,10 +47,7 @@ FenetreCreerTache::FenetreCreerTache(QWidget *parent = 0) : QWidget()
 
 void FenetreCreerTache::ajouterTache() {
 
-    QTextStream cin(stdin);
-    QTextStream cout(stdout);
-    Tache tach(id->text(), titre->text(), action->text(), priorite->currentText(),dateEcheance->date() ,statut->currentText());
-    cout << tach.getTitre() <<endl;
+
 }
 
 

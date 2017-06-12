@@ -1,61 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
+ <widget class="QMainWindow" name="MainWindow" >
+  <property name="geometry" >
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle">
+  <property name="windowTitle" >
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuFichier">
-    <property name="title">
-     <string>Fichier</string>
-    </property>
-    <widget class="QMenu" name="menuNouveau">
-     <property name="title">
-      <string>Nouveau</string>
-     </property>
-     <addaction name="actionNotes"/>
-     <addaction name="actionTache"/>
-    </widget>
-    <addaction name="menuNouveau"/>
-   </widget>
-   <widget class="QMenu" name="menuEdition">
-    <property name="title">
-     <string>Edition</string>
-    </property>
-   </widget>
-   <addaction name="menuFichier"/>
-   <addaction name="menuEdition"/>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionNotes">
-   <property name="text">
-    <string>Article</string>
-   </property>
-  </action>
-  <action name="actionTache">
-   <property name="text">
-    <string>Tache</string>
-   </property>
-  </action>
+  <widget class="QMenuBar" name="menuBar" />
+  <widget class="QToolBar" name="mainToolBar" />
+  <widget class="QWidget" name="centralWidget" />
+  <widget class="QStatusBar" name="statusBar" />
  </widget>
+ <layoutDefault spacing="6" margin="11" />
+ <pixmapfunction></pixmapfunction>
  <resources/>
  <connections/>
 </ui>

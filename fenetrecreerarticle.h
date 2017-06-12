@@ -3,13 +3,13 @@
 
 #include <QtWidgets>
 #include "notes.h"
-
+#include "histonotes.h"
 
 class FenetreCreerArticle : public QWidget
 {
     Q_OBJECT
 public:
-    FenetreCreerArticle(QWidget *parent);
+    FenetreCreerArticle();
 
 private:
     QLineEdit *id;
@@ -21,7 +21,7 @@ signals:
 
 
 public slots:
-    void ajouterArticle();
+    void ajouterArticle(QString id, QString titre, QString texte);
 
 
 };

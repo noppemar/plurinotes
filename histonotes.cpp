@@ -38,9 +38,9 @@ void HistoNoteManager::addHistoArticle(HistoNotes<Article>* h){
 
 }
 void HistoNoteManager::addHistoArticle(QString id, QString tit, QString txt){
-    HistoNotes<Article> h;
-    h.addVersion(id,tit,txt);
-    addHistoArticle(&h);
+    HistoNotes<Article> *h = new HistoNotes<Article>;
+    h->addVersion(id,tit,txt);
+    addHistoArticle(h);
 }
 
 void HistoNoteManager::addHistoTache(HistoNotes<Tache>* h){

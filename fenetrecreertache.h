@@ -3,13 +3,14 @@
 
 #include <QtWidgets>
 #include "notes.h"
+#include "histonotes.h"
 
 
 class FenetreCreerTache : public QWidget
 {
     Q_OBJECT
 public:
-    FenetreCreerTache(QWidget *parent);
+    FenetreCreerTache();
 
 private:
     QLineEdit *id;

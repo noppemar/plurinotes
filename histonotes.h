@@ -45,9 +45,8 @@ private:
     unsigned int nbMaxVersions;
 
 public:
-    HistoNotes():nbVersions(0),nbMaxVersions(0){}
+    HistoNotes():nbVersions(0),nbMaxVersions(0), versions(nullptr){}
 
-    void addVersion(X* n);
     //Je sais pas si c'est à faire faut voir comment ça se passe pour récupérer les trucs avc Qt...
     void addVersion(QString i, QString t, QString txt); //article
     //void addVersion(QString i, QString t, QString a, char c); //tache
@@ -60,7 +59,7 @@ public:
 };
 
 template <class X>
-void HistoNotes<X>::addVersion(X* n){
+void HistoNotes<X>::addVersion(QString i, QString t, QString txt){
     if(nbVersions==nbMaxVersions){
         X** newVersions = new X*[nbMaxVersions+5];
 
@@ -71,7 +70,7 @@ void HistoNotes<X>::addVersion(X* n){
         if(oldVersions) delete[] oldVersions;
 
     }
-    versions[nbVersions++]=n;
+    versions[nbVersions++]= new Article(i,t,txt) ;
 }
 
 template <class X>
@@ -81,11 +80,6 @@ HistoNotes<X>::~HistoNotes(){
     delete[] versions;
 }
 
-template <class X>
-void HistoNotes<X>::addVersion(QString i, QString t, QString txt){
-    Article a=Article(i,t,txt);
-    addVersion(&a);
-} //article
 
 
 #endif // HISTONOTES_H

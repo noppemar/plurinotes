@@ -5,7 +5,7 @@
 #include <QDateTime>
 
 
-FenetreCreerArticle::FenetreCreerArticle(QWidget *parent = 0) : QWidget()
+FenetreCreerArticle::FenetreCreerArticle() : QWidget()
 {
     QLineEdit *id = new QLineEdit;
     QLineEdit *titre = new QLineEdit;
@@ -17,7 +17,7 @@ FenetreCreerArticle::FenetreCreerArticle(QWidget *parent = 0) : QWidget()
     formulaire->addRow("texte", texte);
 
    QPushButton *ok = new QPushButton("Valider");                                       // creation du bouton valider
-   connect(ok, SIGNAL(clicked()), this, SLOT(ajouterArticle()));
+   connect(ok, SIGNAL(clicked()), this, SLOT(ajouterArticle(id->text(), titre->text(), texte->text())));
 
     QVBoxLayout *mainLayout = new QVBoxLayout;         // le layout principal permet d'avoir le formulaire ET les différents boutons
         mainLayout->addLayout(formulaire);
@@ -28,13 +28,8 @@ FenetreCreerArticle::FenetreCreerArticle(QWidget *parent = 0) : QWidget()
 }
 
 
-void FenetreCreerArticle::ajouterArticle() {
-
-    QTextStream cin(stdin);
-    QTextStream cout(stdout);
-    Article art(id->text(), titre->text(),texte->text());
-    cout << art.getText() <<endl;
+void FenetreCreerArticle::ajouterArticle(QString id, QString titre, QString texte) {
+    HistoNoteManager::getInstance().addHistoArticle(id, titre, texte );
 }
-
 
 #endif // FENETRECREERARTICLE_CPP

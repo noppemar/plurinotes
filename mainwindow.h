@@ -2,9 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QTextEdit>
-
-#include "noteediteur.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,8 +16,6 @@ public:
     ~MainWindow();
 
 private:
-
-
     Ui::MainWindow *ui;
 };
 
