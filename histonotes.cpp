@@ -37,6 +37,11 @@ void HistoNoteManager::addHistoArticle(HistoNotes<Article>* h){
     articles[nbArticles++]=h;
 
 }
+void HistoNoteManager::addHistoArticle(QString id, QString tit, QString txt){
+    HistoNotes<Article> h;
+    h.addVersion(id,tit,txt);
+    addHistoArticle(&h);
+}
 
 void HistoNoteManager::addHistoTache(HistoNotes<Tache>* h){
     if(nbTaches==nbMaxTaches){
