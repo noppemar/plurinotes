@@ -80,4 +80,11 @@ HistoNotes<X>::~HistoNotes(){
     delete[] versions;
 }
 
+template <class X>
+void HistoNotes<X>::addVersion(QString i, QString t, QString txt){
+    Article a=Article(i,t,txt);
+    addVersion(&a);
+} //article
+
+
 #endif // HISTONOTES_H
