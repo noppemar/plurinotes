@@ -13,6 +13,8 @@ class FenetrePrincipale : public QMainWindow
         QDockWidget *histoNote;
         QTextEdit *exemple1;
         QTextEdit *exemple2;
+        
+        FenVisuAll *visu;
 
     public slots:
         void afficherCreerArticle();
@@ -20,6 +22,9 @@ class FenetrePrincipale : public QMainWindow
 
         void afficherEditerArticle();
         void afficherEditerTache();
+        
+        void ouvrir_visu(); //pr afficher liste article 
+
 
     private:
 
