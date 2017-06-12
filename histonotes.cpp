@@ -1,6 +1,6 @@
 #include "histonotes.h"
 
-HistoNoteManager::HistoNoteManager():nbTaches(0),nbMaxTaches(0),nbArticles(0),nbMaxArticles(0){}
+HistoNoteManager::HistoNoteManager():nbArticles(0),nbTaches(0),nbMaxArticles(0),nbMaxTaches(0){}
 
 HistoNoteManager::~HistoNoteManager(){
     for(unsigned int i=0; i<nbArticles; i++) delete articles[i];
@@ -37,10 +37,13 @@ void HistoNoteManager::addHistoArticle(HistoNotes<Article>* h){
     articles[nbArticles++]=h;
 
 }
-void HistoNoteManager::addHistoArticle(QString id, QString tit, QString txt){
-    HistoNotes<Article> *h = new HistoNotes<Article>;
-    h->addVersion(id,tit,txt);
-    addHistoArticle(h);
+
+void HistoNoteManager::addHistoArticle(QString id, QString titr, QString txt){
+
+    HistoNotes<Article>* ha= new HistoNotes<Article>();
+    ha->addVersion(id,titr,txt);
+    addHistoArticle(ha);
+
 }
 
 void HistoNoteManager::addHistoTache(HistoNotes<Tache>* h){
@@ -54,4 +57,43 @@ void HistoNoteManager::addHistoTache(HistoNotes<Tache>* h){
     }
     taches[nbTaches++]=h;
 
+}
+
+void HistoNoteManager::addHistoTache(QString id, QString t, QString act, QString stat, QDate d, QString prio){
+
+    HistoNotes<Tache>* ht= new HistoNotes<Tache>();
+    ht->addVersion(id,t,act,stat,d,prio);
+    addHistoTache(ht);
+
+}
+
+HistoNotes<Article>* HistoNoteManager::getHistoArticle(const QString& id){
+    iterator<Article> it=begin_article();
+    while(it!=end_article()){
+        if (it.getCurrent()->getId()==id) return *(it.current);
+        ++it;
+
+    }
+    return nullptr;
+}
+
+HistoNotes<Tache>* HistoNoteManager::getHistoTache(const QString& id){
+    iterator<Tache> it=begin_tache();
+    while(it!=end_tache()){
+        if (it.getCurrent()->getId()==id) return *(it.current);
+        ++it;
+
+    }
+    return nullptr;
+}
+
+const QString HistoNoteManager::makeArticleId(){
+    QString newId="Article"+ QString::number(nbArticles+1); // +1 pour que commence à partir de 1
+    return newId;
+
+}
+
+const QString HistoNoteManager::makeTacheId(){
+    QString newId="Tache"+ QString::number(nbTaches+1);
+    return newId;
 }
