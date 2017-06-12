@@ -40,11 +40,27 @@ FenetrePrincipale::FenetrePrincipale()
              exemple1 = new QTextEdit(ensembleNotes);
              ensembleNotes->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
              addDockWidget(Qt::LeftDockWidgetArea, ensembleNotes);
+    
+         /* Marche pas pour l'instant
+     QWidget *dockContenu = new QWidget;
+     ensembleNotes->setWidget(dockContenu);
+     QVBoxLayout *dockLayout= new QVBoxLayout;
+     FenVisuAll *allArticle= new FenVisuAll;
+     allArticle->show();
+
+     dockLayout->addWidget(allArticle);
+     dockContenu->setLayout(dockLayout); */
 
              histoNote = new QDockWidget("Voici toutes les versions de cette note");
              exemple2 = new QTextEdit(histoNote);
              histoNote->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
              addDockWidget(Qt::RightDockWidgetArea, histoNote);
+    
+    //add Menu Afficher mais jutse en attendant de pouvoir le faire direct
+    QMenu *menuVisu = menuBar()->addMenu("&Afficher");
+    QAction *actionAfficherTousArticles=new QAction("&Article",this);
+    menuVisu->addAction(actionAfficherTousArticles);
+    connect(actionAfficherTousArticles, SIGNAL(triggered()), this, SLOT(ouvrir_visu()));
 
 
 
@@ -69,4 +85,9 @@ void FenetrePrincipale::afficherEditerTache() {
 
 void FenetrePrincipale::afficherEditerArticle() {
 
+}
+
+void FenetrePrincipale::ouvrir_visu(){
+   FenVisuAll *visuArticle = new FenVisuAll();
+   visuArticle->show();
 }
