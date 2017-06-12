@@ -26,6 +26,7 @@ public:
     static HistoNoteManager& getInstance(); //DP singleton
     static void libererInstance(); //DP singleton
     void addHistoArticle(HistoNotes<Article>* h);
+    
     void addHistoTache(HistoNotes<Tache>* h);
 
     HistoNotes<Article>* getHistoArticle(){return articles[0];} //pour test addHistoArticle
@@ -48,7 +49,7 @@ public:
 
     void addVersion(X* n);
     //Je sais pas si c'est à faire faut voir comment ça se passe pour récupérer les trucs avc Qt...
-    //void addVersion(QString i, QString t, QString txt); //article
+    void addVersion(QString i, QString t, QString txt); //article
     //void addVersion(QString i, QString t, QString a, char c); //tache
 
     X* getFirstVersion(){return versions[0];}
