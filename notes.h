@@ -62,9 +62,10 @@ class Article : public Notes {
 class Tache : public Notes {
     private :
         QString action;
+        QString statut;
         QString priorite;
         QDate dateEcheance;
-        QString statut;
+
 
     public :
         const QString& getAction() const { return action; }
@@ -81,8 +82,10 @@ class Tache : public Notes {
 
 
         Tache(const QString i, const QString titr, const QString act, const QString stat) : Notes(i,titr), action(act), statut(stat){}
-        Tache(const QString i, const QString titr, const QString act, const QString prio, const QString stat) : Notes(i,titr), action(act), priorite(prio), statut(stat){}
-        Tache(const QString i, const QString titr, const QString act, const QString prio, const QDate& d,const QString stat) : Notes(i,titr), action(act), priorite(prio), statut(stat), dateEcheance(d){}
+        Tache(const QString i, const QString titr, const QString act, const QString stat, const QString prio) : Notes(i,titr), action(act), statut(stat), priorite(prio){}
+        Tache(const QString i, const QString titr, const QString act, const QString stat, const QDate& d) : Notes(i,titr), action(act), statut(stat), dateEcheance(d){}
+
+        Tache(const QString i, const QString titr, const QString act, const QString stat, const QString prio, const QDate& d) : Notes(i,titr), action(act), statut(stat), priorite(prio), dateEcheance(d){}
 
 
         void afficher();
