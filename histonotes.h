@@ -26,7 +26,7 @@ public:
     static HistoNoteManager& getInstance(); //DP singleton
     static void libererInstance(); //DP singleton
     void addHistoArticle(HistoNotes<Article>* h);
-    
+    void addHistoArticle(QString id, QString titr, QString txt);
     void addHistoTache(HistoNotes<Tache>* h);
 
     HistoNotes<Article>* getHistoArticle(){return articles[0];} //pour test addHistoArticle
