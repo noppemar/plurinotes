@@ -36,18 +36,30 @@ FenetrePrincipale::FenetrePrincipale()
              connect(actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
 
+             ensembleNotes = new QDockWidget("Voici toutes les notes");
+             exemple1 = new QTextEdit(ensembleNotes);
+             ensembleNotes->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+             addDockWidget(Qt::LeftDockWidgetArea, ensembleNotes);
+
+             histoNote = new QDockWidget("Voici toutes les versions de cette note");
+             exemple2 = new QTextEdit(histoNote);
+             histoNote->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+             addDockWidget(Qt::RightDockWidgetArea, histoNote);
+
+
+
     setCentralWidget(zoneCentrale);
 }
 
 
 void FenetrePrincipale::afficherCreerTache() {
-    FenetreCreerTache *fenetreCreerTache = new FenetreCreerTache(this);
-    setCentralWidget(fenetreCreerTache);
+    FenetreCreerTache *fenetreCreerTache = new FenetreCreerTache();
+    fenetreCreerTache->show();
 }
 
 void FenetrePrincipale::afficherCreerArticle() {
-    FenetreCreerArticle *fenetreCreerArticle = new FenetreCreerArticle(this);
-    setCentralWidget(fenetreCreerArticle);
+    FenetreCreerArticle *fenetreCreerArticle = new FenetreCreerArticle();
+    fenetreCreerArticle->show();
 }
 
 
