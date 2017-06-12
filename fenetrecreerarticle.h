@@ -10,7 +10,6 @@ class FenetreCreerArticle : public QWidget
     Q_OBJECT
 public:
     FenetreCreerArticle();
-
 private:
     QLineEdit *id;
     QLineEdit *titre;
@@ -21,7 +20,7 @@ signals:
 
 
 public slots:
-    void ajouterArticle(QString id, QString titre, QString texte);
+    void ajouterArticle();
 
 
 };

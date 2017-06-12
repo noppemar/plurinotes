@@ -7,12 +7,12 @@
 
 FenetreCreerTache::FenetreCreerTache() : QWidget()
 {
-    QLineEdit *id = new QLineEdit;
-    QLineEdit *titre = new QLineEdit;
-    QLineEdit *action = new QLineEdit;
-    QComboBox *priorite = new QComboBox;
-    QDateTimeEdit *dateEcheance = new QDateTimeEdit;
-    QComboBox *statut = new QComboBox;
+    id = new QLineEdit(this);
+    titre = new QLineEdit(this);
+    action = new QLineEdit(this);
+    priorite = new QComboBox(this);
+    dateEcheance = new QDateTimeEdit(this);
+    statut = new QComboBox(this);
 
     priorite->addItem("ça ne presse pas");             //liste deroulante
     priorite->addItem("à faire");
@@ -32,7 +32,7 @@ FenetreCreerTache::FenetreCreerTache() : QWidget()
     formulaire->addRow("statut", statut);
 
 
-   QPushButton *ok = new QPushButton("Valider");                                       // creation du bouton valider
+   ok = new QPushButton("Valider", this);                                       // creation du bouton valider
 
    connect(ok, SIGNAL(clicked()), this, SLOT(ajouterTache()));
 
@@ -46,8 +46,8 @@ FenetreCreerTache::FenetreCreerTache() : QWidget()
 
 
 void FenetreCreerTache::ajouterTache() {
-
-
+       //HistoNoteManager::getInstance().addHistoTache(id->text(), titre->text(), action->text(), priorite->currentText(), dateEcheance->date(),statut->currentText());
+       //this->close();
 }
 
 

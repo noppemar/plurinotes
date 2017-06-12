@@ -17,7 +17,7 @@ private:
     QLineEdit *titre;
     QLineEdit *action;
     QComboBox *priorite;
-    QDateEdit *dateEcheance;
+    QDateTimeEdit *dateEcheance;
     QComboBox *statut;
     QPushButton *ok;
 
