@@ -10,7 +10,7 @@ private:
     HistoNotes<Article>** articles;
     HistoNotes<Tache>** taches;
     HistoNotes<Multimedia>** multimedias; //ajout 13/06
-
+    mutable QString filename;
     unsigned int nbArticles;
     unsigned int nbTaches;
     unsigned int nbMultimedias; //ajout 13/06
