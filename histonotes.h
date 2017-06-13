@@ -23,11 +23,15 @@ private:
     ~HistoNoteManager();
     HistoNoteManager(const HistoNoteManager& m);
     HistoNoteManager& operator=(const HistoNoteManager&);
+    
+    HistoNoteManager* archives;
 
 public:
     static HistoNoteManager& getInstance(); //DP singleton
     static void libererInstance(); //DP singleton
 
+     HistoNoteManager* getArchive(){return archives;}
+    
     const QString makeArticleId();
     const QString makeTacheId();
     const QString makeMultiId();
@@ -52,6 +56,16 @@ public:
     void load();
 
 
+    void removeHistoArticle(HistoNotes<Article>* h);
+    void removeHistoTache(HistoNotes<Tache>* h);
+
+    void archiver(HistoNotes<Article>* ha);
+    void archiver(HistoNotes<Tache>* ht);
+
+    void restaurer(HistoNotes<Article>* ha);
+    void restaurer(HistoNotes<Tache>* ht);
+    
+    
     template <class X>
     class iterator{
         HistoNotes<X>** current;
