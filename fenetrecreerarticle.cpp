@@ -1,18 +1,18 @@
 #ifndef FENETRECREERARTICLE_CPP
 #define FENETRECREERARTICLE_CPP
 
+#include "fenprincipale.h"
 #include "FenetreCreerArticle.h"
 #include <QDateTime>
 
 
-FenetreCreerArticle::FenetreCreerArticle() : QWidget()
+
+FenetreCreerArticle::FenetreCreerArticle(FenetrePrincipale *p ) : pere(p)
 {
-    id = new QLineEdit(this);
     titre= new QLineEdit(this);
     texte = new QLineEdit(this);
 
     QFormLayout *formulaire = new QFormLayout;          // on crée un layout formulaire pour remplir les champs
-    formulaire->addRow("id ", id);
     formulaire->addRow("titre", titre);
     formulaire->addRow("texte", texte);
 
@@ -31,8 +31,11 @@ FenetreCreerArticle::FenetreCreerArticle() : QWidget()
 
 
 void FenetreCreerArticle::ajouterArticle() {
-   HistoNoteManager::getInstance().addHistoArticle(id->text(), titre->text(), texte->text());
-    this->close();
+   HistoNoteManager& m = HistoNoteManager::getInstance();
+   m.addHistoArticle(m.makeArticleId(), titre->text(), texte->text());
+   pere->clear();
+   pere->updateNotes();
+   this->close();
 }
 
 #endif // FENETRECREERARTICLE_CPP
