@@ -24,3 +24,18 @@ void Multimedia::afficher(){
    //fenetre.show();
 
 }
+
+void Article::save(QFile* f) const
+                    {QXmlStreamWriter stream(f);
+                    stream.writeStartElement("article");
+                    stream.writeTextElement("dateVersion",getModif().toString());
+                    stream.writeTextElement("texte",texte );
+}
+
+void Tache::save(QFile* f) const
+                    {QXmlStreamWriter stream(f);
+                    stream.writeStartElement("article");
+                    stream.writeTextElement("dateVersion",getModif().toString());
+                    stream.writeTextElement("action", action);
+}
+
