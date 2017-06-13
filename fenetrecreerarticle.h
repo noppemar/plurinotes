@@ -4,17 +4,18 @@
 #include <QtWidgets>
 #include "notes.h"
 #include "histonotes.h"
+#include "fenprincipale.h"
 
 class FenetreCreerArticle : public QWidget
 {
     Q_OBJECT
 public:
-    FenetreCreerArticle();
+    FenetreCreerArticle(FenetrePrincipale *p);
 private:
-    QLineEdit *id;
     QLineEdit *titre;
     QLineEdit *texte;
     QPushButton *ok;
+    FenetrePrincipale* pere;
 
 signals:
 
