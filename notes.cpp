@@ -19,3 +19,8 @@ void Tache::afficher(){
 
 }
 
+void Multimedia::afficher(){
+    //TacheEditeur fenetre(*this);
+   //fenetre.show();
+
+}

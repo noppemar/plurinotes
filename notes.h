@@ -91,7 +91,25 @@ class Tache : public Notes {
         void afficher();
 };
 
-//gérer multimedia
+//gérer multimedia, rajouter le 13/06 à 17h27, si on doit changer le git à la main il faudra juste rajouter ce qu'il y a en dessous pour ce fichier
+class Multimedia : public Notes {
+    private :
+        QString description;
+        QString fichier;
+        QString type;
+
+    public :
+        const QString& getDesc() const { return description; }
+        const QString& getFichier() const { return fichier; }
+        void setDesc(const QString& s ) { description=s;}
+         void setFichier(const QString& s ) { fichier=s;}
+        virtual ~Multimedia() {};
+        Multimedia(const QString i, const QString titr, const QString desc, const QString fich, const QString typ) : Notes(i,titr), description(desc), fichier(fich), type(typ)  {}
+
+        void afficher();
+
+
+};
 
 
 #endif // NOTES_H
