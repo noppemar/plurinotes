@@ -28,6 +28,7 @@ public:
 
     virtual ~Notes(){};
     virtual void afficher()=0;
+    virtual void save(QFile* f) const=0;
 
 
     const QString& getId() const { return id; }
@@ -53,6 +54,7 @@ class Article : public Notes {
         Article(const QString i, const QString titr, const QString text) : Notes(i,titr), texte(text)  {}
 
         void afficher();
+        void save(QFile* f) const;
 
 
 };
@@ -89,6 +91,7 @@ class Tache : public Notes {
 
 
         void afficher();
+        void save(QFile* f) const;
 };
 
 //gérer multimedia, rajouter le 13/06 à 17h27, si on doit changer le git à la main il faudra juste rajouter ce qu'il y a en dessous pour ce fichier
@@ -107,6 +110,7 @@ class Multimedia : public Notes {
         Multimedia(const QString i, const QString titr, const QString desc, const QString fich, const QString typ) : Notes(i,titr), description(desc), fichier(fich), type(typ)  {}
 
         void afficher();
+        void save(QFile* f) const;
 
 
 };
