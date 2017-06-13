@@ -4,6 +4,7 @@
 
 
 
+
 FenetrePrincipale::FenetrePrincipale()
 {
     QMdiArea *zoneCentrale = new QMdiArea;
@@ -36,31 +37,18 @@ FenetrePrincipale::FenetrePrincipale()
              connect(actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
 
-             ensembleNotes = new QDockWidget("Voici toutes les notes");
-             exemple1 = new QTextEdit(ensembleNotes);
+             QDockWidget *ensembleNotes  = new QDockWidget("Voici toutes les notes");
              ensembleNotes->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-             addDockWidget(Qt::LeftDockWidgetArea, ensembleNotes);
-    
-         /* Marche pas pour l'instant
-     QWidget *dockContenu = new QWidget;
-     ensembleNotes->setWidget(dockContenu);
-     QVBoxLayout *dockLayout= new QVBoxLayout;
-     FenVisuAll *allArticle= new FenVisuAll;
-     allArticle->show();
+             listeNotes = new QListWidget(ensembleNotes);
+             ensembleNotes->setWidget(listeNotes);
 
-     dockLayout->addWidget(allArticle);
-     dockContenu->setLayout(dockLayout); */
+
+             addDockWidget(Qt::LeftDockWidgetArea, ensembleNotes);
+
 
              histoNote = new QDockWidget("Voici toutes les versions de cette note");
-             exemple2 = new QTextEdit(histoNote);
              histoNote->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
              addDockWidget(Qt::RightDockWidgetArea, histoNote);
-    
-    //add Menu Afficher mais jutse en attendant de pouvoir le faire direct
-    QMenu *menuVisu = menuBar()->addMenu("&Afficher");
-    QAction *actionAfficherTousArticles=new QAction("&Article",this);
-    menuVisu->addAction(actionAfficherTousArticles);
-    connect(actionAfficherTousArticles, SIGNAL(triggered()), this, SLOT(ouvrir_visu()));
 
 
 
@@ -74,7 +62,7 @@ void FenetrePrincipale::afficherCreerTache() {
 }
 
 void FenetrePrincipale::afficherCreerArticle() {
-    FenetreCreerArticle *fenetreCreerArticle = new FenetreCreerArticle();
+    FenetreCreerArticle *fenetreCreerArticle = new FenetreCreerArticle(this);
     fenetreCreerArticle->show();
 }
 
@@ -87,7 +75,20 @@ void FenetrePrincipale::afficherEditerArticle() {
 
 }
 
-void FenetrePrincipale::ouvrir_visu(){
-   FenVisuAll *visuArticle = new FenVisuAll();
-   visuArticle->show();
+
+
+void FenetrePrincipale::updateNotes() {
+    HistoNoteManager& m=HistoNoteManager::getInstance();
+    for(HistoNoteManager::iterator<Article> it=m.begin_article(); it!=m.end_article();++it){
+        listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
+        tab_id.append(it.getCurrent()->getId());
+    }
+}
+
+void FenetrePrincipale::clear() {
+    HistoNoteManager& m=HistoNoteManager::getInstance();
+    for(HistoNoteManager::iterator<Article> it=m.begin_article(); it!=m.end_article();++it){
+        listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
+        tab_id.append(it.getCurrent()->getId());
+    }
 }
