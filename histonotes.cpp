@@ -1,6 +1,8 @@
 #include "histonotes.h"
 
-HistoNoteManager::HistoNoteManager():nbArticles(0),nbTaches(0),nbMaxArticles(0),nbMaxTaches(0),filename(""){}
+HistoNoteManager::HistoNoteManager():nbArticles(0),nbTaches(0),nbMaxArticles(0),nbMaxTaches(0),filename(""){
+    archives=new HistoNoteManager;
+}
 
 HistoNoteManager::~HistoNoteManager(){
     for(unsigned int i=0; i<nbArticles; i++) delete articles[i];
