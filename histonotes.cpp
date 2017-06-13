@@ -308,3 +308,60 @@ void HistoNoteManager::save() {
     qDebug()<<"fin load\n";
 }
 */
+
+void HistoNoteManager::archiver(HistoNotes<Article>* ha){
+   archives->addHistoArticle(ha);
+   //removeHistoArticle();
+
+}
+void HistoNoteManager::archiver(HistoNotes<Tache>* ht){
+    archives->addHistoTache(ht);
+    //removeHistoTache();
+}
+
+void HistoNoteManager::restaurer(HistoNotes<Article>* ha){
+    addHistoArticle(ha);
+    //archives->removeHistoArticle();
+}
+
+void HistoNoteManager::restaurer(HistoNotes<Tache>* ht){
+    addHistoTache(ht);
+    //archives->removeHistoTache();
+}
+
+void HistoNoteManager::removeHistoArticle(HistoNotes<Article>* h){
+    /*iterator<Article> it=begin_article();
+    while(it!=end_article() && it.getCurrent()->getId()!=h->getId()){
+        ++it;
+    }
+    //verifier avec ++
+    delete it.getCurrent();
+*/
+
+    unsigned int i=0;
+    while(i<nbArticles && articles[i]!=h){
+        i++;
+    }
+    delete articles[i];
+    for(unsigned int j=i;j<nbArticles-1;j++){
+        articles[j]=articles[j+1];
+    }
+    nbArticles--;
+    articles[nbArticles]=nullptr;
+}
+
+
+void HistoNoteManager::removeHistoTache(HistoNotes<Tache>* h){
+    unsigned int i=0;
+    while(i<nbTaches && taches[i]!=h){
+        i++;
+    }
+    delete taches[i];
+    for(unsigned int j=i;j<nbTaches-1;j++){
+        taches[j]=taches[j+1];
+    }
+    nbTaches--;
+    taches[nbTaches]=nullptr;
+}
+
+
