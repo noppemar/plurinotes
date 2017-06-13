@@ -44,6 +44,13 @@ public:
     HistoNotes<Article>* getHistoArticle(const QString &id);
     HistoNotes<Tache>* getHistoTache(const QString &id);
     HistoNotes<Multimedia>* getHistoMulti(const QString &id);
+    
+    QString getFilename() const { return filename; }
+    void setFilename(const QString& f) { filename=f; }
+
+    void save();
+    void load();
+
 
     template <class X>
     class iterator{
@@ -156,9 +163,15 @@ public:
     X* getVersion(int n){return versions[n];}
     X* getLastVersion() {return versions[nbVersions-1];}
 
-    const QString& getId(){
-        return versions[0]->getId();
-    }
+    const QString& getId(){ return versions[0]->getId(); }    //accesseurs communs aux notes
+    const QString& getTitre(){ return versions[0]->getTitre(); }
+    const QDateTime& getModif(){ return versions[0]->getModif(); }
+    const QDateTime& getCrea(){ return versions[0]->getCrea(); }
+    unsigned int getNbVersions() { return nbVersions; }
+    unsigned int getNbMaxVersions() { return nbMaxVersions; }
+
+
+    const QString& getText(){ return versions[0]->getText(); }        // spécifique aux articles.
 
     ~HistoNotes();
 
