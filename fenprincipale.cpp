@@ -45,11 +45,26 @@ FenetrePrincipale::FenetrePrincipale()
              connect(actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
 
-             QDockWidget *ensembleNotes  = new QDockWidget("Voici toutes les notes");
-             ensembleNotes->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
              listeNotes = new QListWidget(ensembleNotes);
              ensembleNotes->setWidget(listeNotes);
+             QDockWidget *ensembleNotes  = new QDockWidget("Voici toutes les notes");
+             ensembleNotes->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 
+             listeNotes = new QListWidget(ensembleNotes);
+
+             listeTaches = new QListWidget(ensembleNotes);
+
+             QWidget *ensNotes = new QWidget;
+             QLabel *labelN = new QLabel("Notes :");
+             QLabel *labelT = new QLabel("Taches :");
+             QVBoxLayout *ensembleNotesLayout = new QVBoxLayout;
+             ensembleNotesLayout->addWidget(labelN);
+             ensembleNotesLayout->addWidget(listeNotes);
+             ensembleNotesLayout->addWidget(labelT);
+             ensembleNotesLayout->addWidget(listeTaches);
+
+             ensNotes->setLayout(ensembleNotesLayout);
+             ensembleNotes->setWidget(ensNotes);
 
              addDockWidget(Qt::LeftDockWidgetArea, ensembleNotes);
 
@@ -98,7 +113,22 @@ void FenetrePrincipale::updateNotes() {
     HistoNoteManager& m=HistoNoteManager::getInstance();
     for(HistoNoteManager::iterator<Article> it=m.begin_article(); it!=m.end_article();++it){
         listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
+        notes_id.append(it.getCurrent()->getId());
+    }
+    /* Pr multi
+    for(HistoNoteManager::iterator<Multimedia> it=m.begin_multi(); it!=m.end_multi();++it){
+        listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
         tab_id.append(it.getCurrent()->getId());
     }
+      */
 }
+
+void FenetrePrincipale::updateTaches(){
+    listeTaches->clear();
+    HistoNoteManager& m=HistoNoteManager::getInstance();
+    for(HistoNoteManager::iterator<Tache> it=m.begin_tache(); it!=m.end_tache();++it){
+        listeTaches->addItem(it.getCurrent()->getLastVersion()->getTitre());
+        taches_id.append(it.getCurrent()->getId());
+    }
+};
 
