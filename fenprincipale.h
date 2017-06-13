@@ -9,6 +9,7 @@ class FenetrePrincipale : public QMainWindow
     public:
         FenetrePrincipale();
         void updateNotes();
+        void updateTaches();
         
     public slots:
         void afficherCreerArticle();
@@ -23,8 +24,12 @@ class FenetrePrincipale : public QMainWindow
 
         QMdiArea *zoneCentrale;
         QListWidget *listeNotes;
+        QListWidget *listeTaches;
+        QListWidget *archives;
         QDockWidget *histoNote;
-        QList<QString> tab_id;
+        
+        QList<QString> notes_id;
+        QList<QString> taches_id;
 };
 
 
