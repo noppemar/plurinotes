@@ -34,8 +34,17 @@ void Article::save(QFile* f) const
 
 void Tache::save(QFile* f) const
                     {QXmlStreamWriter stream(f);
-                    stream.writeStartElement("article");
+                    stream.writeStartElement("tache");
                     stream.writeTextElement("dateVersion",getModif().toString());
                     stream.writeTextElement("action", action);
 }
+
+void Multimedia::save(QFile* f) const
+                    {QXmlStreamWriter stream(f);
+                    stream.writeStartElement("multimedia");
+                    stream.writeTextElement("dateVersion",getModif().toString());
+                    stream.writeTextElement("action", action);
+}
+
+
 
