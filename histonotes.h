@@ -9,13 +9,15 @@ class HistoNoteManager {
 private:
     HistoNotes<Article>** articles;
     HistoNotes<Tache>** taches;
+    HistoNotes<Multimedia>** multimedias; //ajout 13/06
 
     unsigned int nbArticles;
     unsigned int nbTaches;
+    unsigned int nbMultimedias; //ajout 13/06
 
     unsigned int nbMaxArticles;
     unsigned int nbMaxTaches;
-
+    unsigned int nbMaxMultimedias;  //ajout 13/06
     static HistoNoteManager *instance;
     HistoNoteManager();
     ~HistoNoteManager();
@@ -28,19 +30,20 @@ public:
 
     const QString makeArticleId();
     const QString makeTacheId();
+    const QString makeMultiId();
 
     void addHistoArticle(HistoNotes<Article>* h);
-
-
-
     void addHistoArticle(QString id, QString titr, QString txt);
 
     void addHistoTache(HistoNotes<Tache>* h);
     void addHistoTache(QString id, QString t, QString act, QString stat, QDate d, QString prio="");
 
+    void addHistoMulti(HistoNotes<Multimedia>* h);
+    void addHistoMulti(QString id, QString t, QString desc, QString fich, QString typ=""); //ajout 13/06
+
     HistoNotes<Article>* getHistoArticle(const QString &id);
     HistoNotes<Tache>* getHistoTache(const QString &id);
-
+    HistoNotes<Multimedia>* getHistoMulti(const QString &id);
 
     template <class X>
     class iterator{
@@ -81,6 +84,16 @@ public:
     iterator<Tache> end_tache(){ //case juste après dernière case du tableau tache (condition boucle for : !=m.end)
         return iterator<Tache>(taches + nbTaches);
     }
+
+    iterator<Multimedia> begin_multi(){ //1ère case du tableau multimedias    add le 13/06
+        return iterator<Multimedia>(multimedias);
+    }
+
+    iterator<Multimedia> end_multi(){ //case juste après dernière case du tableau multimedias (condition boucle for : !=m.end)  add le 13/06
+        return iterator<Multimedia>(multimedias + nbMultimedias);
+    }
+
+
 
 
 /*
@@ -134,7 +147,7 @@ public:
     void addVersion(QString i, QString t, QString txt); //article
     void addVersion(QString id, QString t, QString act, QString stat, QDate d=0, QString prio=""); //tache
     //verif que param optionnelle oooook avc interface
-
+    void addVersion(QString id, QString t, QString desc, QString fich, QString typ=""); //multimedias
 
     //void addVersion(QString i, QString t, QString a, char c); //tache
 
@@ -220,6 +233,22 @@ void HistoNotes<X>::addVersion(QString id, QString t, QString act, QString stat,
     }
     versions[nbVersions++]= new Tache(id,t,act,stat,prio,d);
 }
+
+template <class X>
+void HistoNotes<X>::addVersion(QString id, QString t, QString desc, QString fich, QString typ){
+    if(nbVersions==nbMaxVersions){
+        X** newVersions = new X*[nbMaxVersions+5];
+
+        for(unsigned int i=0; i<nbVersions; i++) newVersions[i]=versions[i];
+        X** oldVersions=versions;
+        versions=newVersions;
+        nbMaxVersions+=5;
+        if(oldVersions) delete[] oldVersions;
+
+    }
+    versions[nbVersions++]= new Multimedia(id,t, desc, fich, typ);
+}
+
 
 
 

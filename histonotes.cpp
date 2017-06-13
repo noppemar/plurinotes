@@ -67,6 +67,37 @@ void HistoNoteManager::addHistoTache(QString id, QString t, QString act, QString
 
 }
 
+void HistoNoteManager::addHistoMulti(HistoNotes<Multimedia>* h){
+    if(nbMultimedias==nbMaxMultimedias){
+        HistoNotes<Multimedia>** newMulti = new HistoNotes<Multimedia>*[nbMaxMultimedias+5];
+        for(unsigned int i=0; i<nbMultimedias; i++) newMulti[i]=multimedias[i];
+            HistoNotes<Multimedia>** oldMulti=multimedias;
+            multimedias=newMulti;
+            nbMaxMultimedias+=5;
+            if(oldMulti) delete[] oldMulti;
+    }
+    multimedias[nbMultimedias++]=h;
+
+}
+
+void HistoNoteManager::addHistoMulti(QString id, QString t, QString desc, QString fich, QString typ){
+
+    HistoNotes<Multimedia>* ht= new HistoNotes<Multimedia>();
+    ht->addVersion(id,t,desc, fich, typ);
+    addHistoMulti(ht);
+
+}
+
+
+
+
+
+
+
+
+
+
+
 HistoNotes<Article>* HistoNoteManager::getHistoArticle(const QString& id){
     iterator<Article> it=begin_article();
     while(it!=end_article()){
@@ -87,6 +118,18 @@ HistoNotes<Tache>* HistoNoteManager::getHistoTache(const QString& id){
     return nullptr;
 }
 
+HistoNotes<Multimedia>* HistoNoteManager::getHistoMulti(const QString& id){
+    iterator<Multimedia> it=begin_multi();
+    while(it!=end_multi()){
+        if (it.getCurrent()->getId()==id) return *(it.current);
+        ++it;
+
+    }
+    return nullptr;
+}
+
+
+
 const QString HistoNoteManager::makeArticleId(){
     QString newId="Article"+ QString::number(nbArticles+1); // +1 pour que commence à partir de 1
     return newId;
@@ -95,5 +138,10 @@ const QString HistoNoteManager::makeArticleId(){
 
 const QString HistoNoteManager::makeTacheId(){
     QString newId="Tache"+ QString::number(nbTaches+1);
+    return newId;
+}
+
+const QString HistoNoteManager::makeMultiId(){
+    QString newId="Multimedia"+ QString::number(nbMultimedias+1);
     return newId;
 }

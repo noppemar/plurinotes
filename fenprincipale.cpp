@@ -1,7 +1,7 @@
 #include "FenPrincipale.h"
 #include "FenetreCreerArticle.h"
 #include "FenetreCreerTache.h"
-
+#include "FenetreCreermulti.h"
 
 
 
@@ -21,6 +21,10 @@ FenetrePrincipale::FenetrePrincipale()
                  actionNouvelleNote->addAction(actionNouvelArticle);
                  connect(actionNouvelArticle, SIGNAL(triggered()), this, SLOT(afficherCreerArticle()));
 
+            QAction *actionNouvelMulti = new QAction("Nouveau Multimedia", this);    //  Multimedia  add 13/06
+                      actionNouvelleNote->addAction(actionNouvelMulti);
+                      connect(actionNouvelMulti, SIGNAL(triggered()), this, SLOT(afficherCreerMulti()));
+
 
          QMenu *actionEditerNote = menuFichier->addMenu("Editer Note");       //creation  sous menu permettant d'éditer une note:
 
@@ -31,6 +35,10 @@ FenetrePrincipale::FenetrePrincipale()
              QAction *actionEditerArticle = new QAction("Editer Article", this);    //  Article
                   actionEditerNote->addAction(actionEditerArticle);
                   connect(actionEditerArticle, SIGNAL(triggered()), this, SLOT(afficherEditerArticle()));
+
+             QAction *actionEditerMulti = new QAction("Editer Multimedia", this);    //  Multimedia
+                       actionEditerNote->addAction(actionEditerMulti);
+                       connect(actionEditerMulti, SIGNAL(triggered()), this, SLOT(afficherEditerMulti()));
 
          QAction *actionQuitter = new QAction("&Quitter", this);
              menuFichier->addAction(actionQuitter);
@@ -66,6 +74,11 @@ void FenetrePrincipale::afficherCreerArticle() {
     fenetreCreerArticle->show();
 }
 
+void FenetrePrincipale::afficherCreerMulti() {
+    FenetreCreerMulti *fenetreCreerMulti = new FenetreCreerMulti(this);
+    fenetreCreerMulti->show();
+}
+
 
 void FenetrePrincipale::afficherEditerTache() {
 
@@ -75,9 +88,13 @@ void FenetrePrincipale::afficherEditerArticle() {
 
 }
 
+void FenetrePrincipale::afficherEditerMulti() {    // add 13/06
+
+}
 
 
 void FenetrePrincipale::updateNotes() {
+    listeNotes->clear();
     HistoNoteManager& m=HistoNoteManager::getInstance();
     for(HistoNoteManager::iterator<Article> it=m.begin_article(); it!=m.end_article();++it){
         listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
@@ -85,10 +102,3 @@ void FenetrePrincipale::updateNotes() {
     }
 }
 
-void FenetrePrincipale::clear() {
-    HistoNoteManager& m=HistoNoteManager::getInstance();
-    for(HistoNoteManager::iterator<Article> it=m.begin_article(); it!=m.end_article();++it){
-        listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
-        tab_id.append(it.getCurrent()->getId());
-    }
-}

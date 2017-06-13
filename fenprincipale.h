@@ -9,14 +9,15 @@ class FenetrePrincipale : public QMainWindow
     public:
         FenetrePrincipale();
         void updateNotes();
-        void clear();
         
     public slots:
         void afficherCreerArticle();
         void afficherCreerTache();
+        void afficherCreerMulti();   // add 13/06
 
         void afficherEditerArticle();
         void afficherEditerTache();
+        void afficherEditerMulti(); // add 13/06
 
     private:
 
