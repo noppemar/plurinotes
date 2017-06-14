@@ -65,6 +65,8 @@ FenetrePrincipale::FenetrePrincipale()
 
              ensNotes->setLayout(ensembleNotesLayout);
              ensembleNotes->setWidget(ensNotes);
+    
+             QObject::connect(listeNotes, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(afficherArticle()));
 
              addDockWidget(Qt::LeftDockWidgetArea, ensembleNotes);
 
@@ -95,13 +97,25 @@ void FenetrePrincipale::afficherCreerMulti() {
 }
 
 
-void FenetrePrincipale::afficherEditerTache() {
+void FenetrePrincipale::afficherArticle(){
+    /*FenetreCreerTache *fenetreCreerTache = new FenetreCreerTache(this);
+    this->setCentralWidget(fenetreCreerTache);
+    fenetreCreerTache->show();*/
 
-}
+    HistoNoteManager& m=HistoNoteManager::getInstance();
+    int indice = listeNotes->currentRow();
+    HistoNotes<Article>* h=m.getHistoArticle(notes_id[indice]);
 
-void FenetrePrincipale::afficherEditerArticle() {
 
-}
+    ArticleEditeur *fenetre= new ArticleEditeur(*(h->getLastVersion()),this);
+    this->setCentralWidget(fenetre);
+    fenetre->show();
+};
+
+
+void FenetrePrincipale::afficherTache(){
+
+};
 
 void FenetrePrincipale::afficherEditerMulti() {    // add 13/06
 
