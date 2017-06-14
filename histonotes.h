@@ -80,15 +80,6 @@ public:
     void save();
     void load();
 
-
-    void removeHistoArticle(HistoNotes<Article>* h);
-    void removeHistoTache(HistoNotes<Tache>* h);
-
-    void archiver(HistoNotes<Article>* ha);
-    void archiver(HistoNotes<Tache>* ht);
-
-    void restaurer(HistoNotes<Article>* ha);
-    void restaurer(HistoNotes<Tache>* ht);
     
     
     template <class X>
