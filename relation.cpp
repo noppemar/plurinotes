@@ -11,8 +11,8 @@ void Relation::addCouple(Couple* c){
         if(couples[i]==c) throw RelationException("couple existe deja");
     }
 
-    //if (orientation==1)
 
+    //Fonctionne pour les deux cas d'orientation, car le traitement ne change pas.
     if(nbCouples==nbMaxCouples){
         Couple** newCouples = new Couple*[nbMaxCouples+5];
 
@@ -26,6 +26,7 @@ void Relation::addCouple(Couple* c){
 
     couples[nbCouples++]=c;
 }
+
 
 //A TESTER
 
