@@ -5,7 +5,7 @@
 #include <QString>
 
 HistoNoteManager::HistoNoteManager():filename(""), nbArticles(0),nbTaches(0),nbMultimedias(0), nbMaxArticles(0),nbMaxTaches(0),nbMaxMultimedias(0){
-   // archives=new HistoNoteManager;
+
 }
 
 HistoNoteManager::~HistoNoteManager(){
@@ -21,6 +21,7 @@ HistoNoteManager::~HistoNoteManager(){
 
 //SINGLETON
 HistoNoteManager* HistoNoteManager::instance = 0; //initialisation + définition à nullptr
+HistoNoteManager* HistoNoteManager::archives = 0;
 
 HistoNoteManager& HistoNoteManager::getInstance(){ //méthode qui vérifie qu'il n'y ait qu'une seule instance de NotesManager
     if(HistoNoteManager::instance==0)
@@ -28,10 +29,22 @@ HistoNoteManager& HistoNoteManager::getInstance(){ //méthode qui vérifie qu'il
     return *HistoNoteManager::instance;
 }
 
+HistoNoteManager& HistoNoteManager::getArchive(){ 
+    if(HistoNoteManager::archives==0)
+        HistoNoteManager::archives = new HistoNoteManager; 
+    return *HistoNoteManager::archives;
+}
+
 void HistoNoteManager::libererInstance(){
     if(HistoNoteManager::instance !=0) //si instance existe
         delete HistoNoteManager::instance; // supprime
     HistoNoteManager::instance=0; //réinitialisation à nullptr
+}
+
+void HistoNoteManager::libererArchive(){
+    if(HistoNoteManager::archives !=0) //si instance existe
+        delete HistoNoteManager::archives; // supprime
+    HistoNoteManager::archives=0; //réinitialisation à nullptr
 }
 
 void HistoNoteManager::addHistoArticle(HistoNotes<Article>* h){
@@ -174,6 +187,80 @@ const QString HistoNoteManager::makeTacheId(){
 const QString HistoNoteManager::makeMultiId(){
     QString newId="Multimedia"+ QString::number(nbMultimedias+1);
     return newId;
+}
+
+void HistoNoteManager::archiver(HistoNotes<Article>* ha){
+   archives->addHistoArticle(ha);
+   removeHistoArticle(ha);
+
+}
+void HistoNoteManager::archiver(HistoNotes<Tache>* ht){
+    archives->addHistoTache(ht);
+    removeHistoTache(ht);
+}
+
+void HistoNoteManager::archiver(HistoNotes<Multimedia>* hm){
+    archives->addHistoMulti(hm);
+    removeHistoMulti(hm);
+}
+
+void HistoNoteManager::restaurer(HistoNotes<Article>* ha){
+    addHistoArticle(ha);
+    archives->removeHistoArticle(ha);
+}
+
+void HistoNoteManager::restaurer(HistoNotes<Tache>* ht){
+    addHistoTache(ht);
+    archives->removeHistoTache(ht);
+}
+
+void HistoNoteManager::restaurer(HistoNotes<Multimedia>* hm){
+    addHistoMulti(hm);
+    archives->removeHistoMulti(hm);
+}
+
+void HistoNoteManager::removeHistoArticle(HistoNotes<Article>* h){
+    unsigned int i=0;
+    while(i<nbArticles && articles[i]!=h){
+        i++;
+    }
+    articles[i]=nullptr;
+
+    for(unsigned int j=i; j<nbArticles-1; j++){
+        articles[j]=articles[j+1];
+    }
+    articles[nbArticles-1]=nullptr;
+    nbArticles--;
+
+}
+
+
+void HistoNoteManager::removeHistoTache(HistoNotes<Tache>* h){
+    unsigned int i=0;
+    while(i<nbTaches && taches[i]!=h){
+        i++;
+    }
+    taches[i]=nullptr;
+
+    for(unsigned int j=i;j<nbTaches-1;j++){
+        taches[j]=taches[j+1];
+    }
+    taches[nbTaches-1]=nullptr;
+    nbTaches--;
+}
+
+void HistoNoteManager::removeHistoMulti(HistoNotes<Multimedia>* h){
+    unsigned int i=0;
+    while(i<nbMultimedias && multimedias[i]!=h){
+        i++;
+    }
+    multimedias[i]=nullptr;
+
+    for(unsigned int j=i;j<nbMultimedias-1;j++){
+        multimedias[j]=multimedias[j+1];
+    }
+    multimedias[nbMultimedias-1]=nullptr;
+    nbMultimedias--;
 }
 
 
@@ -552,62 +639,6 @@ void HistoNoteManager::load() {
     // Removes any device() or data from the reader * and resets its internal state to the initial state.
     xml.clear();
     qDebug()<<"fin load\n";
-}
-
-
-void HistoNoteManager::archiver(HistoNotes<Article>* ha){
-   archives->addHistoArticle(ha);
-   //removeHistoArticle();
-
-}
-void HistoNoteManager::archiver(HistoNotes<Tache>* ht){
-    archives->addHistoTache(ht);
-    //removeHistoTache();
-}
-
-void HistoNoteManager::restaurer(HistoNotes<Article>* ha){
-    addHistoArticle(ha);
-    //archives->removeHistoArticle();
-}
-
-void HistoNoteManager::restaurer(HistoNotes<Tache>* ht){
-    addHistoTache(ht);
-    //archives->removeHistoTache();
-}
-
-void HistoNoteManager::removeHistoArticle(HistoNotes<Article>* h){
-    /*iterator<Article> it=begin_article();
-    while(it!=end_article() && it.getCurrent()->getId()!=h->getId()){
-        ++it;
-    }
-    //verifier avec ++
-    delete it.getCurrent();
-*/
-
-    unsigned int i=0;
-    while(i<nbArticles && articles[i]!=h){
-        i++;
-    }
-    delete articles[i];
-    for(unsigned int j=i;j<nbArticles-1;j++){
-        articles[j]=articles[j+1];
-    }
-    nbArticles--;
-    articles[nbArticles]=nullptr;
-}
-
-
-void HistoNoteManager::removeHistoTache(HistoNotes<Tache>* h){
-    unsigned int i=0;
-    while(i<nbTaches && taches[i]!=h){
-        i++;
-    }
-    delete taches[i];
-    for(unsigned int j=i;j<nbTaches-1;j++){
-        taches[j]=taches[j+1];
-    }
-    nbTaches--;
-    taches[nbTaches]=nullptr;
 }
 
 
