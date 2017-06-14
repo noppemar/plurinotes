@@ -50,4 +50,15 @@
         <fichier>oij</fichier>
         <description>ughoi</description>
     </histoMultimedia>
+    <histoMultimedia>
+        <id>Multimedia2</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>dcrfvgbh</titre>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+        <type>Image</type>
+        <fichier>dcrfvtgb</fichier>
+        <description>cdrfvtgb</description>
+    </histoMultimedia>
 </notes>
