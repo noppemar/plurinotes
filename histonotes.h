@@ -21,20 +21,23 @@ private:
     unsigned int nbMaxArticles;
     unsigned int nbMaxTaches;
     unsigned int nbMaxMultimedias;  //ajout 13/06
+    
+    static HistoNoteManager* archives;
+    
     static HistoNoteManager *instance;
     HistoNoteManager();
     ~HistoNoteManager();
     HistoNoteManager(const HistoNoteManager& m);
     HistoNoteManager& operator=(const HistoNoteManager&);
     
-    HistoNoteManager* archives;
     RelationManager* relationsMan;
 
 public:
     static HistoNoteManager& getInstance(); //DP singleton
     static void libererInstance(); //DP singleton
 
-     HistoNoteManager* getArchive(){return archives;}
+    static HistoNoteManager& getArchive();
+    static void libererArchive();
     RelationManager* getRelationManager();
     
     const QString makeArticleId();
@@ -57,6 +60,19 @@ public:
     HistoNotes<Article>* getHistoArticle(const QString &id);
     HistoNotes<Tache>* getHistoTache(const QString &id);
     HistoNotes<Multimedia>* getHistoMulti(const QString &id);
+    
+    void removeHistoArticle(HistoNotes<Article>* h);
+    void removeHistoTache(HistoNotes<Tache>* h);
+    void removeHistoMulti(HistoNotes<Multimedia>* h);
+
+    void archiver(HistoNotes<Article>* ha);
+    void archiver(HistoNotes<Tache>* ht);
+    void archiver(HistoNotes<Multimedia>* hm);
+
+    void restaurer(HistoNotes<Article>* ha);
+    void restaurer(HistoNotes<Tache>* ht);
+    void restaurer(HistoNotes<Multimedia>* ht);
+
     
     QString getFilename() const { return filename; }
     void setFilename(const QString& f) { filename=f; }
