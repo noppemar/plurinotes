@@ -54,8 +54,8 @@ NoteEditeur::NoteEditeur(Notes& n, FenetrePrincipale *p): pere(p), note(&n)
 
     id->setText(note->getId());
     titre->setText(note->getTitre());
-    dateCrea->setDateTime(note->getCrea());
-    dateModif->setDateTime(note->getModif());
+    dateCrea->setDate(note->getCrea());
+    dateModif->setDate(note->getModif());
 
 
 }
