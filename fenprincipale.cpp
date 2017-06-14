@@ -2,7 +2,7 @@
 #include "FenetreCreerArticle.h"
 #include "FenetreCreerTache.h"
 #include "FenetreCreermulti.h"
-
+#include "noteediteur.h"
 
 
 FenetrePrincipale::FenetrePrincipale()

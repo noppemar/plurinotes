@@ -74,7 +74,6 @@ class ArticleEditeur : public NoteEditeur
 
 public:
     ArticleEditeur(Article& art, FenetrePrincipale *p);
-
 signals:
 
 public slots:

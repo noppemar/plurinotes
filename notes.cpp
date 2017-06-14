@@ -8,17 +8,11 @@ bool Notes::operator==(const Notes& n){
 }
 
 
-/* A TESTER QUAND SAIT FIXER SUR FENETRE MAIN */
-void Article::afficher(){
-    ArticleEditeur fenetre(*this);
-    fenetre.show();
 
+void Article::afficher(){
 }
 
 void Tache::afficher(){
-    TacheEditeur fenetre(*this);
-    fenetre.show();
-
 }
 
 void Multimedia::afficher(){

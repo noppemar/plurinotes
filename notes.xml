@@ -18,6 +18,15 @@
         <dateCrea>mer. juin 14 2017</dateCrea>
         <dateModif>mer. juin 14 2017</dateModif>
     </histoArticle>
+    <histoArticle>
+        <id>Article3</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>fghjk</titre>
+        <texte>fjghk</texte>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+    </histoArticle>
     <histoTache>
         <id>Tache1</id>
         <nbVersion>1</nbVersion>

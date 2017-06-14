@@ -24,7 +24,7 @@ public:
         dateCrea=QDate::currentDate();
     }
 
-    Notes(const QString i, const QString t, const QDate dateModif, const QDate dateCrea) :  id(i), titre(t), dateCrea(dateCrea), dateModif(dateModif) {}
+    Notes(const QString i, const QString t, const QDate dateModif, const QDate dateCrea) :  id(i), titre(t), dateModif(dateModif), dateCrea(dateCrea)  {}
 
 
 
