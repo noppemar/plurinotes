@@ -129,3 +129,4 @@ class RelationManager{
 
 };
 
+#endif // RELATION_H
