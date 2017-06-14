@@ -46,7 +46,7 @@ protected:
     bool orientation;
 public:
     Relation(const QString& titr, const QString& desc, bool orie=true):
-          titre(titr), description(desc), orientation(orie), nbCouples(0), nbMaxCouples(10) {}
+         nbCouples(0), nbMaxCouples(10),titre(titr), description(desc), orientation(orie) {}
 
     void addCouple(Couple* newCouple);
     void addCouple(Notes& n1, Notes& n2, QString l="");
@@ -120,7 +120,7 @@ class RelationManager{
     static RelationManager *instance;
     RelationManager();
     ~RelationManager();
-    RelationManager(const RelationManager& r){}
+    //RelationManager(const RelationManager& r){}
     RelationManager& operator=(const RelationManager&);
 
 
