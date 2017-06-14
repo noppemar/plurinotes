@@ -33,7 +33,7 @@ FenetreCreerArticle::FenetreCreerArticle(FenetrePrincipale *p ) : pere(p)
 void FenetreCreerArticle::ajouterArticle() {
    HistoNoteManager& m = HistoNoteManager::getInstance();
    m.addHistoArticle(m.makeArticleId(), titre->text(), texte->text());
-   pere->updateNotes();
+   pere->updateArticles();
    HistoNoteManager::getInstance().save();
    this->close();
 }
