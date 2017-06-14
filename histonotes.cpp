@@ -2,7 +2,9 @@
 #include <QFile>
 #include <QTextCodec>
 #include <QtXml>
-HistoNoteManager::HistoNoteManager():nbArticles(0),nbTaches(0),nbMaxArticles(0),nbMaxTaches(0),filename(""){
+#include <QString>
+
+HistoNoteManager::HistoNoteManager():filename(""), nbArticles(0),nbTaches(0),nbMultimedias(0), nbMaxArticles(0),nbMaxTaches(0),nbMaxMultimedias(0){
    // archives=new HistoNoteManager;
 }
 
@@ -12,6 +14,9 @@ HistoNoteManager::~HistoNoteManager(){
 
     for(unsigned int i=0; i<nbTaches; i++) delete taches[i];
     delete[] taches;
+
+    for(unsigned int i=0; i<nbMultimedias; i++) delete multimedias[i];
+    delete[] multimedias;
 }
 
 //SINGLETON
@@ -47,8 +52,15 @@ void HistoNoteManager::addHistoArticle(QString id, QString titr, QString txt){
     HistoNotes<Article>* ha= new HistoNotes<Article>();
     ha->addVersion(id,titr,txt);
     addHistoArticle(ha);
-
 }
+
+void HistoNoteManager::addHistoArticle(QString id, QString titr, QString txt, QDate dateCrea, QDate dateModif){
+
+    HistoNotes<Article>* ha= new HistoNotes<Article>();
+    ha->addVersion(id,titr,txt, dateCrea, dateModif);
+    addHistoArticle(ha);
+}
+
 
 void HistoNoteManager::addHistoTache(HistoNotes<Tache>* h){
     if(nbTaches==nbMaxTaches){
@@ -60,7 +72,6 @@ void HistoNoteManager::addHistoTache(HistoNotes<Tache>* h){
             if(oldTache) delete[] oldTache;
     }
     taches[nbTaches++]=h;
-
 }
 
 void HistoNoteManager::addHistoTache(QString id, QString t, QString act, QString stat, QDate d, QString prio){
@@ -68,8 +79,16 @@ void HistoNoteManager::addHistoTache(QString id, QString t, QString act, QString
     HistoNotes<Tache>* ht= new HistoNotes<Tache>();
     ht->addVersion(id,t,act,stat,d,prio);
     addHistoTache(ht);
-
 }
+
+void HistoNoteManager::addHistoTache(QString id, QString t, QString act, QString stat, QDate d, QString prio, QDate dateCrea, QDate dateModif){
+
+    HistoNotes<Tache>* ht= new HistoNotes<Tache>();
+    ht->addVersion(id,t,act,stat,d,prio,  dateCrea,  dateModif);
+    addHistoTache(ht);
+}
+
+
 
 void HistoNoteManager::addHistoMulti(HistoNotes<Multimedia>* h){
     if(nbMultimedias==nbMaxMultimedias){
@@ -81,7 +100,6 @@ void HistoNoteManager::addHistoMulti(HistoNotes<Multimedia>* h){
             if(oldMulti) delete[] oldMulti;
     }
     multimedias[nbMultimedias++]=h;
-
 }
 
 void HistoNoteManager::addHistoMulti(QString id, QString t, QString desc, QString fich, QString typ){
@@ -89,9 +107,14 @@ void HistoNoteManager::addHistoMulti(QString id, QString t, QString desc, QStrin
     HistoNotes<Multimedia>* ht= new HistoNotes<Multimedia>();
     ht->addVersion(id,t,desc, fich, typ);
     addHistoMulti(ht);
-
 }
 
+void HistoNoteManager::addHistoMulti(QString id, QString t, QString desc, QString fich, QString typ, QDate dateCrea, QDate dateModif){
+
+    HistoNotes<Multimedia>* ht= new HistoNotes<Multimedia>();
+    ht->addVersion(id,t,desc, fich, typ, dateCrea, dateModif);
+    addHistoMulti(ht);
+}
 
 
 
@@ -162,20 +185,61 @@ void HistoNoteManager::save() {
     stream.writeStartDocument();
     stream.writeStartElement("notes");
     for(unsigned int i=0; i<nbArticles; i++){
-        stream.writeStartElement("article");
+        stream.writeStartElement("histoArticle");
         stream.writeTextElement("id",articles[i]->getId());
-        stream.writeTextElement("title",articles[i]->getTitre());
+        stream.writeTextElement("nbVersion",QString::number(articles[i]->getNbVersions()));
+        stream.writeTextElement("nbMaxVersion",QString::number(articles[i]->getNbMaxVersions()));
+        stream.writeTextElement("titre",articles[i]->getTitre());
         stream.writeTextElement("texte",articles[i]->getText());
         stream.writeTextElement("dateCrea",articles[i]->getCrea().toString());
         stream.writeTextElement("dateModif",articles[i]->getModif().toString());
-        stream.writeTextElement("nbVersion",QString::number(articles[i]->getNbVersions()));
-        stream.writeTextElement("nbMaxVersion",QString::number(articles[i]->getNbMaxVersions()));
+
         for(unsigned int j=1; j<articles[i]->getNbVersions(); j++){
             articles[i]->getVersion(j)->save(&newfile);
              stream.writeEndElement();
         }
         stream.writeEndElement();
     }
+
+    for(unsigned int i=0; i<nbTaches; i++){
+        stream.writeStartElement("histoTache");
+        stream.writeTextElement("id",taches[i]->getId());
+        stream.writeTextElement("nbVersion",QString::number(taches[i]->getNbVersions()));
+        stream.writeTextElement("nbMaxVersion",QString::number(taches[i]->getNbMaxVersions()));
+        stream.writeTextElement("titre",taches[i]->getTitre());
+        stream.writeTextElement("dateCrea",taches[i]->getCrea().toString());
+        stream.writeTextElement("dateModif",taches[i]->getModif().toString());
+        stream.writeTextElement("dateEcheance",taches[i]->getEcheance().toString());
+        stream.writeTextElement("prio",taches[i]->getPrio());
+        stream.writeTextElement("action",taches[i]->getAction());
+        stream.writeTextElement("statut",taches[i]->getStatut());
+
+        for(unsigned int j=1; j<taches[i]->getNbVersions(); j++){
+            taches[i]->getVersion(j)->save(&newfile);
+             stream.writeEndElement();
+        }
+        stream.writeEndElement();
+    }
+
+    for(unsigned int i=0; i<nbMultimedias; i++){
+        stream.writeStartElement("histoMultimedia");
+        stream.writeTextElement("id",multimedias[i]->getId());
+        stream.writeTextElement("nbVersion",QString::number(multimedias[i]->getNbVersions()));
+        stream.writeTextElement("nbMaxVersion",QString::number(multimedias[i]->getNbMaxVersions()));
+        stream.writeTextElement("titre",multimedias[i]->getTitre());
+        stream.writeTextElement("dateCrea",multimedias[i]->getCrea().toString());
+        stream.writeTextElement("dateModif",multimedias[i]->getModif().toString());
+        stream.writeTextElement("type",multimedias[i]->getType());
+        stream.writeTextElement("fichier",multimedias[i]->getFichier());
+        stream.writeTextElement("description",multimedias[i]->getDesc());
+
+        for(unsigned int j=1; j<multimedias[i]->getNbVersions(); j++){
+            multimedias[i]->getVersion(j)->save(&newfile);
+             stream.writeEndElement();
+        }
+        stream.writeEndElement();
+    }
+
     stream.writeEndElement();
     stream.writeEndDocument();
     newfile.close();
@@ -185,15 +249,16 @@ void HistoNoteManager::save() {
 
 
 
-/*void HistoNoteManager::load() {
-    QFile fin("notes.xml");
+void HistoNoteManager::load() {
+    QFile fin(filename);
     // If we can't open it, let's show an error message.
     if (!fin.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        throw NotesException("Erreur ouverture fichier notes");
+        //throw NotesException("Erreur ouverture fichier notes");
+        return;
     }
     // QXmlStreamReader takes any QIODevice.
     QXmlStreamReader xml(&fin);
-    //qDebug()<<"debut fichier\n";
+    qDebug()<<"debut fichier\n";
     // We'll parse the XML until we reach end of it.
     while(!xml.atEnd() && !xml.hasError()) {
         // Read next element.
@@ -202,116 +267,290 @@ void HistoNoteManager::save() {
         if(token == QXmlStreamReader::StartDocument) continue;
         // If token is StartElement, we'll see if we can read it.
         if(token == QXmlStreamReader::StartElement) {
-            // If it's named taches, we'll go to the next.
+
             if(xml.name() == "notes") continue;
-            // If it's named tache, we'll dig the information from there.
-            if(xml.name() == "note") {
-                qDebug()<<"new note\n";
+
+
+            if(xml.name() == "histoArticle") {
+                qDebug()<<"new histoArticle\n";
                 QString identificateur;
+                QString nbVersion;
+                QString nbMaxVersion;
                 QString titre;
-                QDateTime dateC;
-                QDateTime dateMod;
-                bool act;
-                bool supp;
-                Version** v= new  Version*[1];
-                unsigned int nbV;
-                unsigned int nbMV;
+                QString texte;
+                QDate dateCrea;
+                QDate dateModif;
                 QXmlStreamAttributes attributes = xml.attributes();
                 xml.readNext();
                 //We're going to loop over the things because the order might change.
-                //We'll continue the loop until we hit an EndElement named article.
-                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "note")) {
+                //We'll continue the loop until we hit an EndElement named histoArticle.
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "histoArticle")) {
                     if(xml.tokenType() == QXmlStreamReader::StartElement) {
+
                         // We've found identificteur.
                         if(xml.name() == "id") {
-                            xml.readNext(); identificateur=xml.text().toString();
+                            xml.readNext();
+                            identificateur=xml.text().toString();
                             qDebug()<<"id="<<identificateur<<"\n";
                         }
+
+                        // We've found nbVersions.
+                        if(xml.name() == "nbVersion") {
+                            xml.readNext();
+                            nbVersion=xml.text().toString();
+                            qDebug()<<"nbVersion="<<nbVersion<<"\n";
+                        }
+
+                        // We've found nbMaxVersions.
+                        if(xml.name() == "nbMaxVersion") {
+                            xml.readNext();
+                            nbMaxVersion=xml.text().toString();
+                            qDebug()<<"nbMaxVersion="<<nbMaxVersion<<"\n";
+                        }
+
+
                         // We've found titre.
-                        if(xml.name() == "title") {
-                            xml.readNext(); titre=xml.text().toString();
+                        if(xml.name() == "titre") {
+                            xml.readNext();
+                            titre=xml.text().toString();
                             qDebug()<<"titre="<<titre<<"\n";
                         }
-                        // We've found datecrea
-                        if(xml.name() == "date crea") {
-                            xml.readNext();
-                            dateC.fromString(xml.text().toString());
-                            qDebug()<<"dateCrea="<<dateC<<"\n";
-                        }
-                        // We've found datemodif
-                        if(xml.name() == "date modif") {
-                            xml.readNext();
-                            dateMod.fromString(xml.text().toString());
-                            qDebug()<<"dateModif="<<dateMod<<"\n";
-                        }
-                        // We've found active
-                        if(xml.name() == "active") {
-                            xml.readNext();
-                            act=(xml.text().toString()).toInt();
-                            qDebug()<<"active="<<act<<"\n";
-                        }
-                        // We've found supprime
-                        if(xml.name() == "supprime") {
-                            xml.readNext();
-                            supp=(xml.text().toString()).toInt();
-                            qDebug()<<"supprime="<<supp<<"\n";
-                        }
-                        // We've found nbVersion
-                        if(xml.name() == "nb version") {
-                            xml.readNext();
-                            nbV=(xml.text().toString()).toInt();
-                            qDebug()<<"nbVersion="<<nbV<<"\n";
-                        }
-                        // We've found nbMaxVersion
-                        if(xml.name() == "nb max version") {
-                            xml.readNext();
-                            nbMV=(xml.text().toString()).toInt();
-                            qDebug()<<"nbMaxVersion="<<nbMV<<"\n";
-                        }
-                         if(xml.name() == "article") {
-                             qDebug()<<"new article\n";
-                             QDateTime dateV;
-                             QString texte;
-                             QXmlStreamAttributes attributesV = xml.attributes();
-                             xml.readNext();
-                             while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "article")) {
-                             if(xml.tokenType() == QXmlStreamReader::StartElement) {
-                                // We've found dateversion
-                            if(xml.name() == "date version") {
-                                xml.readNext();
-                                dateV.fromString(xml.text().toString());
-                                qDebug()<<"date="<<dateV<<"\n";
-                        }
-                        // We've found texte article
+                        // We've found text
                         if(xml.name() == "texte") {
                             xml.readNext();
                             texte=xml.text().toString();
                             qDebug()<<"texte="<<texte<<"\n";
                         }
-                         }
-                             xml.readNext();
-                         }
-                             qDebug()<<"ajout version "<<dateV<<"\n";
-                             editer()
-                         }
+
+                        if(xml.name() == "dateCrea") {
+                            xml.readNext();
+                            dateCrea=QDate::fromString(xml.text().toString());
+                            qDebug()<<"dateCrea="<<dateCrea<<"\n";
+                        }
+
+                        if(xml.name() == "dateModif") {
+                            xml.readNext();
+                            dateModif=QDate::fromString(xml.text().toString());
+                            qDebug()<<"dateModif="<<dateModif<<"\n";
+                        }
+
+
                     }
                     // ...and next...
                     xml.readNext();
                 }
-                qDebug()<<"ajout note "<<identificateur<<"\n";
-                addNoteXML(identificateur,titre,dateC,dateMod,act,supp,nbV,nbMV,v);
+                qDebug()<<"ajout histo "<<identificateur<<"\n";
+                HistoNoteManager::addHistoArticle(identificateur,titre,texte,dateCrea, dateModif);
             }
+
+
+
+            if(xml.name() == "histoTache") {
+                qDebug()<<"new histoTache\n";
+                QString identificateur;
+                QString nbVersion;
+                QString nbMaxVersion;
+                QString titre;
+                QDate dateEcheance;
+                QDate dateCrea;
+                QDate dateModif;
+                QString priorite;
+                QString action;
+                QString statut;
+                QXmlStreamAttributes attributes = xml.attributes();
+                xml.readNext();
+                //We're going to loop over the things because the order might change.
+                //We'll continue the loop until we hit an EndElement named histoTache
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "histoTache")) {
+                    if(xml.tokenType() == QXmlStreamReader::StartElement) {
+
+                        // We've found identificteur.
+                        if(xml.name() == "id") {
+                            xml.readNext();
+                            identificateur=xml.text().toString();
+                            qDebug()<<"id="<<identificateur<<"\n";
+                        }
+
+                        // We've found nbVersions.
+                        if(xml.name() == "nbVersion") {
+                            xml.readNext();
+                            nbVersion=xml.text().toString();
+                            qDebug()<<"nbVersion="<<nbVersion<<"\n";
+                        }
+
+                        // We've found nbMaxVersions.
+                        if(xml.name() == "nbMaxVersion") {
+                            xml.readNext();
+                            nbMaxVersion=xml.text().toString();
+                            qDebug()<<"nbMaxVersion="<<nbMaxVersion<<"\n";
+                        }
+
+
+                        // We've found titre.
+                        if(xml.name() == "titre") {
+                            xml.readNext();
+                            titre=xml.text().toString();
+                            qDebug()<<"titre="<<titre<<"\n";
+                        }
+                        // We've found echeance
+                        if(xml.name() == "dateEcheance") {
+                            xml.readNext();
+                            dateEcheance=QDate::fromString(xml.text().toString());
+                            qDebug()<<"dateEcheance="<<dateEcheance<<"\n";
+                        }
+
+                        // We've found cre
+                        if(xml.name() == "dateCrea") {
+                            xml.readNext();
+                            dateCrea=QDate::fromString(xml.text().toString());
+                            qDebug()<<"dateCrea="<<dateCrea<<"\n";
+                        }
+
+                            //we've found modif
+                        if(xml.name() == "dateModif") {
+                            xml.readNext();
+                            dateModif=QDate::fromString(xml.text().toString());
+                            qDebug()<<"dateModif="<<dateModif<<"\n";
+                        }
+
+                         //we've found action
+                        if(xml.name() == "action") {
+                        xml.readNext();
+                        action=xml.text().toString();
+                        qDebug()<<"action="<<action<<"\n";
+                        }
+
+                        // We've found priorite
+                        if(xml.name() == "priorite") {
+                            xml.readNext();
+                            priorite=xml.text().toString();
+                            qDebug()<<"priorite="<<priorite<<"\n";
+                        }
+
+
+                        //we've found statut
+                       if(xml.name() == "statut") {
+                        xml.readNext();
+                        statut=xml.text().toString();
+                        qDebug()<<"statut="<<statut<<"\n";
+                       }
+
+                    }
+                    // ...and next...
+                    xml.readNext();
+                }
+                qDebug()<<"ajout histo "<<identificateur<<"\n";
+                HistoNoteManager::addHistoTache(identificateur,titre,action, priorite, dateEcheance, statut, dateCrea, dateModif);
+            }
+
+
+
+            if(xml.name() == "histoMultimedia") {
+                qDebug()<<"new histoMutimedia\n";
+                QString identificateur;
+                QString nbVersion;
+                QString nbMaxVersion;
+                QString titre;
+                QDate dateCrea;
+                QDate dateModif;
+                QString type;
+                QString fichier;
+                QString description;
+                QXmlStreamAttributes attributes = xml.attributes();
+                xml.readNext();
+                //We're going to loop over the things because the order might change.
+                //We'll continue the loop until we hit an EndElement named histoArticle.
+                while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "histoMultimedia")) {
+                    if(xml.tokenType() == QXmlStreamReader::StartElement) {
+
+                        // We've found identificteur.
+                        if(xml.name() == "id") {
+                            xml.readNext();
+                            identificateur=xml.text().toString();
+                            qDebug()<<"id="<<identificateur<<"\n";
+                        }
+
+                        // We've found nbVersions.
+                        if(xml.name() == "nbVersion") {
+                            xml.readNext();
+                            nbVersion=xml.text().toString();
+                            qDebug()<<"nbVersion="<<nbVersion<<"\n";
+                        }
+
+                        // We've found nbMaxVersions.
+                        if(xml.name() == "nbMaxVersion") {
+                            xml.readNext();
+                            nbMaxVersion=xml.text().toString();
+                            qDebug()<<"nbMaxVersion="<<nbMaxVersion<<"\n";
+                        }
+
+
+                        // We've found titre.
+                        if(xml.name() == "titre") {
+                            xml.readNext();
+                            titre=xml.text().toString();
+                            qDebug()<<"titre="<<titre<<"\n";
+                        }
+
+
+                        // We've found cre
+                        if(xml.name() == "dateCrea") {
+                            xml.readNext();
+                            dateCrea=QDate::fromString(xml.text().toString());
+                            qDebug()<<"dateCrea="<<dateCrea<<"\n";
+                        }
+
+                            //we've found modif
+                        if(xml.name() == "dateModif") {
+                            xml.readNext();
+                            dateModif=QDate::fromString(xml.text().toString());
+                            qDebug()<<"dateModif="<<dateModif<<"\n";
+                        }
+
+                         //we've found type
+                        if(xml.name() == "type") {
+                        xml.readNext();
+                        type=xml.text().toString();
+                        qDebug()<<"type="<<type<<"\n";
+                        }
+
+                        // We've found fichier
+                        if(xml.name() == "fichier") {
+                            xml.readNext();
+                            fichier=xml.text().toString();
+                            qDebug()<<"fichier="<<fichier<<"\n";
+                        }
+
+
+                        //we've found statut
+                       if(xml.name() == "description") {
+                        xml.readNext();
+                        description=xml.text().toString();
+                        qDebug()<<"description="<<description<<"\n";
+                       }
+
+                    }
+                    // ...and next...
+                    xml.readNext();
+                }
+                qDebug()<<"ajout histo "<<identificateur<<"\n";
+                HistoNoteManager::addHistoMulti(identificateur,titre,description, fichier, type, dateCrea, dateModif);
+            }
+
+
+
         }
     }
     // Error handling.
     if(xml.hasError()) {
-        throw NotesException("Erreur lecteur fichier notes, parser xml");
+        //throw NotesException("Erreur lecteur fichier notes, parser xml");
+        return;
     }
     // Removes any device() or data from the reader * and resets its internal state to the initial state.
     xml.clear();
     qDebug()<<"fin load\n";
 }
-*/
+
 
 void HistoNoteManager::archiver(HistoNotes<Article>* ha){
    archives->addHistoArticle(ha);

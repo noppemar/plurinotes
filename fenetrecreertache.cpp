@@ -49,8 +49,8 @@ void FenetreCreerTache::ajouterTache() {
     HistoNoteManager& m = HistoNoteManager::getInstance();
     m.addHistoTache(m.makeTacheId(), titre->text(), action->text(), priorite->currentText(), dateEcheance->date(),statut->currentText());
     pere->updateTaches();
+    HistoNoteManager::getInstance().save();
     this->close();
-       //HistoNoteManager::getInstance().addHistoTache(id->text(), titre->text(), action->text(), priorite->currentText(), dateEcheance->date(),statut->currentText());
 
 }
 

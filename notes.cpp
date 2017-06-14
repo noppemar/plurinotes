@@ -30,7 +30,7 @@ void Multimedia::afficher(){
 void Article::save(QFile* f) const
                     {QXmlStreamWriter stream(f);
                     stream.writeStartElement("article");
-                    stream.writeTextElement("dateVersion",getModif().toString());
+                    stream.writeTextElement("dateArticle",getModif().toString());
                     stream.writeTextElement("texte",texte );
 }
 

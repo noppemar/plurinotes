@@ -115,12 +115,10 @@ void FenetrePrincipale::updateNotes() {
         listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
         notes_id.append(it.getCurrent()->getId());
     }
-    /* Pr multi
     for(HistoNoteManager::iterator<Multimedia> it=m.begin_multi(); it!=m.end_multi();++it){
         listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
-        tab_id.append(it.getCurrent()->getId());
+        notes_id.append(it.getCurrent()->getId());
     }
-      */
 }
 
 void FenetrePrincipale::updateTaches(){

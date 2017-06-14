@@ -3,6 +3,7 @@
 
 #include <QtWidgets>                    // add 13/06 toute la fenetre
 #include "notes.h"
+#include "notes.h"
 #include "histonotes.h"
 #include "fenprincipale.h"
 
@@ -14,7 +15,6 @@ public:
     FenetreCreerMulti(FenetrePrincipale *p);
 
 private:
-    QLineEdit *id;
     QLineEdit *titre;
     QLineEdit *description;
     QLineEdit *fichier;

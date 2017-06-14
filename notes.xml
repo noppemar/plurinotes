@@ -1,12 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <notes>
-    <article>
+    <histoArticle>
         <id>Article1</id>
-        <title>mlkjKOMLJ</title>
-        <texte>mkl</texte>
-        <dateCrea>mer. juin 14 10:53:15 2017</dateCrea>
-        <dateModif>mer. juin 14 10:53:15 2017</dateModif>
         <nbVersion>1</nbVersion>
         <nbMaxVersion>5</nbMaxVersion>
-    </article>
+        <titre>testArticle</titre>
+        <texte>oijh</texte>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+    </histoArticle>
+    <histoArticle>
+        <id>Article2</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>testArticle2</titre>
+        <texte>pkj</texte>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+    </histoArticle>
+    <histoTache>
+        <id>Tache1</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>testTache</titre>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+        <dateEcheance>sam. janv. 1 2000</dateEcheance>
+        <prio></prio>
+        <action>poiu</action>
+        <statut></statut>
+    </histoTache>
+    <histoMultimedia>
+        <id>Multimedia1</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>testMulti</titre>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+        <type>Video</type>
+        <fichier>oij</fichier>
+        <description>ughoi</description>
+    </histoMultimedia>
 </notes>

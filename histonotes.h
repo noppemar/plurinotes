@@ -10,7 +10,9 @@ private:
     HistoNotes<Article>** articles;
     HistoNotes<Tache>** taches;
     HistoNotes<Multimedia>** multimedias; //ajout 13/06
+
     mutable QString filename;
+
     unsigned int nbArticles;
     unsigned int nbTaches;
     unsigned int nbMultimedias; //ajout 13/06
@@ -38,12 +40,16 @@ public:
 
     void addHistoArticle(HistoNotes<Article>* h);
     void addHistoArticle(QString id, QString titr, QString txt);
+    void addHistoArticle(QString id, QString titr, QString txt, QDate dateCrea, QDate dateModif);
+
 
     void addHistoTache(HistoNotes<Tache>* h);
     void addHistoTache(QString id, QString t, QString act, QString stat, QDate d, QString prio="");
+    void addHistoTache(QString id, QString t, QString act, QString stat, QDate d, QString prio, QDate dateCrea, QDate dateModif);
 
     void addHistoMulti(HistoNotes<Multimedia>* h);
     void addHistoMulti(QString id, QString t, QString desc, QString fich, QString typ=""); //ajout 13/06
+    void addHistoMulti(QString id, QString t, QString desc, QString fich, QString typ, QDate dateCrea, QDate dateModif);
 
     HistoNotes<Article>* getHistoArticle(const QString &id);
     HistoNotes<Tache>* getHistoTache(const QString &id);
@@ -166,11 +172,13 @@ public:
 
 
     void addVersion(QString i, QString t, QString txt); //article
-    void addVersion(QString id, QString t, QString act, QString stat, QDate d=0, QString prio=""); //tache
-    //verif que param optionnelle oooook avc interface
+    void addVersion(QString id, QString t, QString act, QString stat, QDate d, QString prio); //tache
     void addVersion(QString id, QString t, QString desc, QString fich, QString typ=""); //multimedias
 
-    //void addVersion(QString i, QString t, QString a, char c); //tache
+    void addVersion(QString i, QString t, QString txt, QDate dateCrea, QDate dateModif); //article
+    void addVersion(QString id, QString t, QString act, QString stat, QDate d, QString prio, QDate dateCrea, QDate dateModif); //tache
+    void addVersion(QString id, QString t, QString desc, QString fich, QString typ, QDate dateCrea, QDate dateModif); //multimedias
+
 
 
     X* getFirstVersion(){return versions[0];}
@@ -179,13 +187,24 @@ public:
 
     const QString& getId(){ return versions[0]->getId(); }    //accesseurs communs aux notes
     const QString& getTitre(){ return versions[0]->getTitre(); }
-    const QDateTime& getModif(){ return versions[0]->getModif(); }
-    const QDateTime& getCrea(){ return versions[0]->getCrea(); }
+    const QDate& getModif(){ return versions[0]->getModif(); }
+    const QDate& getCrea(){ return versions[0]->getCrea(); }
     unsigned int getNbVersions() { return nbVersions; }
     unsigned int getNbMaxVersions() { return nbMaxVersions; }
 
 
-    const QString& getText(){ return versions[0]->getText(); }        // spécifique aux articles.
+    const QString& getText(){ return versions[0]->getText(); }        // spécifique aux articles : texte
+
+    const QString& getPrio(){ return versions[0]->getPriorite(); }        //specifique aux Taches : prio, action, dateEcheance, statut
+    const QDate& getEcheance(){ return versions[0]->getEcheance(); }
+    const QString& getAction(){ return versions[0]->getAction(); }
+    const QString& getStatut(){ return versions[0]->getStatut(); }
+
+    const QString& getDesc(){ return versions[0]->getDesc(); }   // spécifique aux Multi
+    const QString& getType(){ return versions[0]->getType(); }
+    const QString& getFichier(){ return versions[0]->getFichier(); }
+
+
 
     ~HistoNotes();
 
@@ -274,6 +293,54 @@ void HistoNotes<X>::addVersion(QString id, QString t, QString desc, QString fich
 
     }
     versions[nbVersions++]= new Multimedia(id,t, desc, fich, typ);
+}
+
+
+
+
+template <class X>
+void HistoNotes<X>::addVersion(QString id, QString t, QString txt, QDate dateCrea, QDate dateModif){
+    if(nbVersions==nbMaxVersions){
+        X** newVersions = new X*[nbMaxVersions+5];
+
+        for(unsigned int i=0; i<nbVersions; i++) newVersions[i]=versions[i];
+        X** oldVersions=versions;
+        versions=newVersions;
+        nbMaxVersions+=5;
+        if(oldVersions) delete[] oldVersions;
+
+    }
+    versions[nbVersions++]= new Article(id,t,txt,dateCrea, dateModif);
+}
+
+template <class X>
+void HistoNotes<X>::addVersion(QString id, QString t, QString act, QString stat, QDate d, QString prio, QDate dateCrea, QDate dateModif){
+    if(nbVersions==nbMaxVersions){
+        X** newVersions = new X*[nbMaxVersions+5];
+
+        for(unsigned int i=0; i<nbVersions; i++) newVersions[i]=versions[i];
+        X** oldVersions=versions;
+        versions=newVersions;
+        nbMaxVersions+=5;
+        if(oldVersions) delete[] oldVersions;
+
+    }
+    versions[nbVersions++]= new Tache(id,t,act,stat,prio,d,dateCrea, dateModif);
+}
+
+template <class X>
+void HistoNotes<X>::addVersion(QString id, QString t, QString desc, QString fich, QString typ, QDate dateCrea, QDate dateModif){
+    if(nbVersions==nbMaxVersions){
+        X** newVersions = new X*[nbMaxVersions+5];
+
+        for(unsigned int i=0; i<nbVersions; i++) newVersions[i]=versions[i];
+        X** oldVersions=versions;
+        versions=newVersions;
+        nbMaxVersions+=5;
+        if(oldVersions) delete[] oldVersions;
+
+    }
+    versions[nbVersions++]= new Multimedia(id,t, desc, fich, typ,dateCrea, dateModif);
 }
 
 
