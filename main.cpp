@@ -17,8 +17,9 @@ int main(int argc, char *argv[])
 
     m.setFilename(filename); //fixer le nom du fichier dans l'instance NotesManager
     m.load();   //charger le fichier
-    fenetre.updateNotes();
+    fenetre.updateArticles();
     fenetre.updateTaches();
+    fenetre.updateMulti();
 
     fenetre.show();
 
