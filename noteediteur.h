@@ -8,8 +8,11 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
-#include <QTextEdit>
+
+
 #include "notes.h"
+#include "FenPrincipale.h"
+
 
 
 
@@ -25,21 +28,32 @@ class NoteEditeur : public QWidget
     QHBoxLayout *cid;
     QHBoxLayout *ctitre;
 
+
+
     QVBoxLayout *couche;
 
+    FenetrePrincipale* pere;
     Notes *note;
+    
+
+
 
     //gérer affichage date création, date modif
 
 public:
-   explicit NoteEditeur(Notes& n, QWidget *parent = 0);
-   explicit NoteEditeur(QWidget *parent=0);
+   NoteEditeur(Notes& n, FenetrePrincipale *p);
+   NoteEditeur(FenetrePrincipale *p);
    QVBoxLayout* getCouche(){return couche;}
+   QString getTitre(){return titre->text();}
+
+
 
 
 signals:
 
 public slots:
+
+
 };
 
 class ArticleEditeur : public NoteEditeur
@@ -50,14 +64,22 @@ class ArticleEditeur : public NoteEditeur
     QLabel *text1;
     QHBoxLayout *ctext;
 
+
+    QPushButton *save;
+    QPushButton *archiver;
+
+    QHBoxLayout *cbutton;
+
     Article* article;
 
 public:
-    explicit ArticleEditeur(Article& art, QWidget *parent=0);
+    ArticleEditeur(Article& art, FenetrePrincipale *p);
 
 signals:
 
 public slots:
+    void saveArticle();
+    void archiverArticle();
 };
 
 class TacheEditeur : public NoteEditeur
@@ -68,17 +90,26 @@ class TacheEditeur : public NoteEditeur
     QLabel *act1;
     QHBoxLayout *cact;
 
+    QPushButton *save;
+    QPushButton *archiver;
+
+    QHBoxLayout *cbutton;
+
+
+
     //gérer prio, date échéance & statut à afficher
 
     Tache* tache;
 
 
 public:
-    explicit TacheEditeur(Tache& ta, QWidget *parent=0);
+    TacheEditeur(Tache& ta, FenetrePrincipale *p=0);
 
 signals:
 
 public slots:
+    void saveTache();
+    void archiverTache();
 };
 
 #endif // NOTEEDITEUR_H
