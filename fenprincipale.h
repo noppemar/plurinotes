@@ -7,9 +7,10 @@ class FenetrePrincipale : public QMainWindow
 {
     Q_OBJECT
     public:
-        FenetrePrincipale();
-        void updateNotes();
+        void updateArticles();
+        void updateMulti();
         void updateTaches();
+        void updateArchives();
         
     public slots:
         void afficherCreerArticle();
@@ -19,19 +20,25 @@ class FenetrePrincipale : public QMainWindow
 
         void afficherArticle();
         void afficherTache();
-
-        void afficherEditerMulti(); // add 13/06
+        void afficherMulti();
+        void afficherArchive();
 
     private:
 
         QMdiArea *zoneCentrale;
-        QListWidget *listeNotes;
+        
+        QListWidget *listeArticle;
+        QListWidget *listeMulti;
         QListWidget *listeTaches;
-        QListWidget *archives;
+        QListWidget *listeArchives;
+        
         QDockWidget *histoNote;
         
-        QList<QString> notes_id;
+        QList<QString> articles_id;
+        QList<QString> multi_id;
         QList<QString> taches_id;
+        QList<QString> archives_id;
+
 };
 
 
