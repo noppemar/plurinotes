@@ -1,9 +1,8 @@
 #include "FenPrincipale.h"
 #include "FenetreCreerArticle.h"
 #include "FenetreCreerTache.h"
-
+#include "FenetreCreermulti.h"
 #include "noteediteur.h"
-
 
 
 FenetrePrincipale::FenetrePrincipale()
@@ -22,26 +21,42 @@ FenetrePrincipale::FenetrePrincipale()
                  actionNouvelleNote->addAction(actionNouvelArticle);
                  connect(actionNouvelArticle, SIGNAL(triggered()), this, SLOT(afficherCreerArticle()));
 
+            QAction *actionNouvelMulti = new QAction("Nouveau Multimedia", this);    //  Multimedia  add 13/06
+                      actionNouvelleNote->addAction(actionNouvelMulti);
+                      connect(actionNouvelMulti, SIGNAL(triggered()), this, SLOT(afficherCreerMulti()));
 
 
-             QAction *actionQuitter = new QAction("&Quitter", this);
+         QMenu *actionEditerNote = menuFichier->addMenu("Editer Note");       //creation  sous menu permettant d'éditer une note:
+
+             QAction *actionEditerTache = new QAction("Editer Tache", this);    //  tache
+                  actionEditerNote->addAction(actionEditerTache);
+                  connect(actionEditerTache, SIGNAL(triggered()), this, SLOT(afficherEditerTache()));
+
+             QAction *actionEditerArticle = new QAction("Editer Article", this);    //  Article
+                  actionEditerNote->addAction(actionEditerArticle);
+                  connect(actionEditerArticle, SIGNAL(triggered()), this, SLOT(afficherEditerArticle()));
+
+             QAction *actionEditerMulti = new QAction("Editer Multimedia", this);    //  Multimedia
+                       actionEditerNote->addAction(actionEditerMulti);
+                       connect(actionEditerMulti, SIGNAL(triggered()), this, SLOT(afficherEditerMulti()));
+
+         QAction *actionQuitter = new QAction("&Quitter", this);
              menuFichier->addAction(actionQuitter);
              connect(actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
+    QDockWidget *ensembleNotes  = new QDockWidget("Voici toutes les notes");
+             listeNotes = new QListWidget(ensembleNotes);
+             ensembleNotes->setWidget(listeNotes);
 
-             QDockWidget *ensembleNotes  = new QDockWidget("Voici toutes les notes");
              ensembleNotes->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 
              listeNotes = new QListWidget(ensembleNotes);
 
              listeTaches = new QListWidget(ensembleNotes);
 
-             listeArchives = new QListWidget(ensembleNotes);
-
              QWidget *ensNotes = new QWidget;
              QLabel *labelN = new QLabel("Notes :");
              QLabel *labelT = new QLabel("Taches :");
-             QLabel *labelA = new QLabel("Taches :");
              QVBoxLayout *ensembleNotesLayout = new QVBoxLayout;
              ensembleNotesLayout->addWidget(labelN);
              ensembleNotesLayout->addWidget(listeNotes);
@@ -50,14 +65,10 @@ FenetrePrincipale::FenetrePrincipale()
 
              ensNotes->setLayout(ensembleNotesLayout);
              ensembleNotes->setWidget(ensNotes);
-
-
+    
              QObject::connect(listeNotes, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(afficherArticle()));
 
-
-
              addDockWidget(Qt::LeftDockWidgetArea, ensembleNotes);
-
 
 
              histoNote = new QDockWidget("Voici toutes les versions de cette note");
@@ -80,6 +91,11 @@ void FenetrePrincipale::afficherCreerArticle() {
     fenetreCreerArticle->show();
 }
 
+void FenetrePrincipale::afficherCreerMulti() {
+    FenetreCreerMulti *fenetreCreerMulti = new FenetreCreerMulti(this);
+    fenetreCreerMulti->show();
+}
+
 
 void FenetrePrincipale::afficherArticle(){
     /*FenetreCreerTache *fenetreCreerTache = new FenetreCreerTache(this);
@@ -94,15 +110,16 @@ void FenetrePrincipale::afficherArticle(){
     ArticleEditeur *fenetre= new ArticleEditeur(*(h->getLastVersion()),this);
     this->setCentralWidget(fenetre);
     fenetre->show();
-
-
-
-
 };
+
+
 void FenetrePrincipale::afficherTache(){
 
 };
 
+void FenetrePrincipale::afficherEditerMulti() {    // add 13/06
+
+}
 
 
 void FenetrePrincipale::updateNotes() {
@@ -112,12 +129,10 @@ void FenetrePrincipale::updateNotes() {
         listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
         notes_id.append(it.getCurrent()->getId());
     }
-    /* Pr multi
     for(HistoNoteManager::iterator<Multimedia> it=m.begin_multi(); it!=m.end_multi();++it){
         listeNotes->addItem(it.getCurrent()->getLastVersion()->getTitre());
-        tab_id.append(it.getCurrent()->getId());
+        notes_id.append(it.getCurrent()->getId());
     }
-      */
 }
 
 void FenetrePrincipale::updateTaches(){
