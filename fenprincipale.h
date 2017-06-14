@@ -16,8 +16,10 @@ class FenetrePrincipale : public QMainWindow
         void afficherCreerTache();
         void afficherCreerMulti();   // add 13/06
 
-        void afficherEditerArticle();
-        void afficherEditerTache();
+
+        void afficherArticle();
+        void afficherTache();
+
         void afficherEditerMulti(); // add 13/06
 
     private:
