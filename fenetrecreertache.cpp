@@ -5,9 +5,9 @@
 #include <QDateTime>
 
 
-FenetreCreerTache::FenetreCreerTache() : QWidget()
+FenetreCreerTache::FenetreCreerTache(FenetrePrincipale *p ) : pere(p)
 {
-    id = new QLineEdit(this);
+    //id = new QLineEdit(this);
     titre = new QLineEdit(this);
     action = new QLineEdit(this);
     priorite = new QComboBox(this);
@@ -24,7 +24,7 @@ FenetreCreerTache::FenetreCreerTache() : QWidget()
 
 
     QFormLayout *formulaire = new QFormLayout;          // on crée un layout formulaire pour remplir les champs
-    formulaire->addRow("id ", id);
+   // formulaire->addRow("id ", id);
     formulaire->addRow("titre", titre);
     formulaire->addRow("action", action);
     formulaire->addRow("priorite", priorite);

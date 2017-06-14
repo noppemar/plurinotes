@@ -44,10 +44,10 @@ FenetrePrincipale::FenetrePrincipale()
              menuFichier->addAction(actionQuitter);
              connect(actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
-
+    QDockWidget *ensembleNotes  = new QDockWidget("Voici toutes les notes");
              listeNotes = new QListWidget(ensembleNotes);
              ensembleNotes->setWidget(listeNotes);
-             QDockWidget *ensembleNotes  = new QDockWidget("Voici toutes les notes");
+
              ensembleNotes->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 
              listeNotes = new QListWidget(ensembleNotes);
@@ -80,7 +80,7 @@ FenetrePrincipale::FenetrePrincipale()
 
 
 void FenetrePrincipale::afficherCreerTache() {
-    FenetreCreerTache *fenetreCreerTache = new FenetreCreerTache();
+    FenetreCreerTache *fenetreCreerTache = new FenetreCreerTache(this);
     fenetreCreerTache->show();
 }
 

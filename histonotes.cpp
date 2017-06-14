@@ -1,7 +1,9 @@
 #include "histonotes.h"
-
+#include <QFile>
+#include <QTextCodec>
+#include <QtXml>
 HistoNoteManager::HistoNoteManager():nbArticles(0),nbTaches(0),nbMaxArticles(0),nbMaxTaches(0),filename(""){
-    archives=new HistoNoteManager;
+   // archives=new HistoNoteManager;
 }
 
 HistoNoteManager::~HistoNoteManager(){

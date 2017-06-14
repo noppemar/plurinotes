@@ -1,6 +1,8 @@
 #include "notes.h"
 #include "noteediteur.h"
-
+#include <QFile>
+#include <QTextCodec>
+#include <QtXml>
 bool Notes::operator==(const Notes& n){
     return id==n.getId();
 }
@@ -43,7 +45,7 @@ void Multimedia::save(QFile* f) const
                     {QXmlStreamWriter stream(f);
                     stream.writeStartElement("multimedia");
                     stream.writeTextElement("dateVersion",getModif().toString());
-                    stream.writeTextElement("action", action);
+                   // stream.writeTextElement("action", action);
 }
 
 

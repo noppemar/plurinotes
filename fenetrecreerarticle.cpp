@@ -34,6 +34,7 @@ void FenetreCreerArticle::ajouterArticle() {
    HistoNoteManager& m = HistoNoteManager::getInstance();
    m.addHistoArticle(m.makeArticleId(), titre->text(), texte->text());
    pere->updateNotes();
+   HistoNoteManager::getInstance().save();
    this->close();
 }
 

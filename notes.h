@@ -7,7 +7,7 @@
 #include <QDate>
 #include <iostream>
 #include <QTextStream>
-
+#include <QFile>
 
 
 class Notes
