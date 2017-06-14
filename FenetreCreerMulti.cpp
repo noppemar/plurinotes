@@ -42,7 +42,7 @@ FenetreCreerMulti::FenetreCreerMulti(FenetrePrincipale *p ) : pere(p)
 void FenetreCreerMulti::ajouterMulti() {   //add 13/06
    HistoNoteManager &m = HistoNoteManager::getInstance();
    m.addHistoMulti(m.makeMultiId(), titre->text(), description->text(), fichier->text(), type->currentText());
-   pere->updateNotes();
+   pere->updateMulti();
    HistoNoteManager::getInstance().save();
    this->close();
 }
