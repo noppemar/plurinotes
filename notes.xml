@@ -4,8 +4,8 @@
         <id>Article1</id>
         <nbVersion>1</nbVersion>
         <nbMaxVersion>5</nbMaxVersion>
-        <titre>testArticle</titre>
-        <texte>oijh</texte>
+        <titre>article1</titre>
+        <texte>test1</texte>
         <dateCrea>mer. juin 14 2017</dateCrea>
         <dateModif>mer. juin 14 2017</dateModif>
     </histoArticle>
@@ -13,8 +13,8 @@
         <id>Article2</id>
         <nbVersion>1</nbVersion>
         <nbMaxVersion>5</nbMaxVersion>
-        <titre>testArticle2</titre>
-        <texte>pkj</texte>
+        <titre>article2</titre>
+        <texte>test2</texte>
         <dateCrea>mer. juin 14 2017</dateCrea>
         <dateModif>mer. juin 14 2017</dateModif>
     </histoArticle>
@@ -22,8 +22,53 @@
         <id>Article3</id>
         <nbVersion>1</nbVersion>
         <nbMaxVersion>5</nbMaxVersion>
-        <titre>fghjk</titre>
-        <texte>fjghk</texte>
+        <titre>hgjbknl</titre>
+        <texte>jhbkn</texte>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+    </histoArticle>
+    <histoArticle>
+        <id>Article4</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>marie</titre>
+        <texte>noppe</texte>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+    </histoArticle>
+    <histoArticle>
+        <id>Article5</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>coucou</titre>
+        <texte>coucou</texte>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+    </histoArticle>
+    <histoArticle>
+        <id>Article6</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>roman</titre>
+        <texte>esquerre</texte>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+    </histoArticle>
+    <histoArticle>
+        <id>Article7</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>yann</titre>
+        <texte>maillet</texte>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+    </histoArticle>
+    <histoArticle>
+        <id>Article8</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>coucoucocucouc</titre>
+        <texte>coucocucoucocuc</texte>
         <dateCrea>mer. juin 14 2017</dateCrea>
         <dateModif>mer. juin 14 2017</dateModif>
     </histoArticle>
@@ -31,34 +76,46 @@
         <id>Tache1</id>
         <nbVersion>1</nbVersion>
         <nbMaxVersion>5</nbMaxVersion>
-        <titre>testTache</titre>
+        <titre>hgjk</titre>
         <dateCrea>mer. juin 14 2017</dateCrea>
         <dateModif>mer. juin 14 2017</dateModif>
         <dateEcheance>sam. janv. 1 2000</dateEcheance>
         <prio></prio>
-        <action>poiu</action>
+        <action>hjkl</action>
         <statut></statut>
+    </histoTache>
+    <histoTache>
+        <id>Tache2</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>ghj</titre>
+        <dateCrea>mer. juin 14 2017</dateCrea>
+        <dateModif>mer. juin 14 2017</dateModif>
+        <dateEcheance>sam. janv. 1 2000</dateEcheance>
+        <prio>enAttente</prio>
+        <action>hjkl</action>
+        <statut>ça ne presse pas</statut>
     </histoTache>
     <histoMultimedia>
         <id>Multimedia1</id>
         <nbVersion>1</nbVersion>
         <nbMaxVersion>5</nbMaxVersion>
-        <titre>testMulti</titre>
+        <titre>hgjk</titre>
         <dateCrea>mer. juin 14 2017</dateCrea>
         <dateModif>mer. juin 14 2017</dateModif>
-        <type>Video</type>
-        <fichier>oij</fichier>
-        <description>ughoi</description>
+        <type>Image</type>
+        <fichier>kjl</fichier>
+        <description>hjkl</description>
     </histoMultimedia>
     <histoMultimedia>
         <id>Multimedia2</id>
         <nbVersion>1</nbVersion>
         <nbMaxVersion>5</nbMaxVersion>
-        <titre>dcrfvgbh</titre>
+        <titre>fghjkl</titre>
         <dateCrea>mer. juin 14 2017</dateCrea>
         <dateModif>mer. juin 14 2017</dateModif>
         <type>Image</type>
-        <fichier>dcrfvtgb</fichier>
-        <description>cdrfvtgb</description>
+        <fichier>hgjk</fichier>
+        <description>fghjk</description>
     </histoMultimedia>
 </notes>

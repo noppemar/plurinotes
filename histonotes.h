@@ -2,6 +2,7 @@
 #define HISTONOTES_H
 
 #include "notes.h"
+#include "relation.h"
 template <class X> class HistoNotes;
 
 
@@ -27,12 +28,14 @@ private:
     HistoNoteManager& operator=(const HistoNoteManager&);
     
     HistoNoteManager* archives;
+    RelationManager* relationsMan;
 
 public:
     static HistoNoteManager& getInstance(); //DP singleton
     static void libererInstance(); //DP singleton
 
      HistoNoteManager* getArchive(){return archives;}
+    RelationManager* getRelationManager();
     
     const QString makeArticleId();
     const QString makeTacheId();

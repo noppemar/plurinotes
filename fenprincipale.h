@@ -1,5 +1,5 @@
-#ifndef HEADER_FENPRINCIPALE
-#define HEADER_FENPRINCIPALE
+#ifndef FENPRINCIPALE_H
+#define FENPRINCIPALE_H
 
 #include <QtWidgets>
 
@@ -15,7 +15,7 @@ class FenetrePrincipale : public QMainWindow
         void afficherCreerArticle();
         void afficherCreerTache();
         void afficherCreerMulti();   // add 13/06
-
+        void afficherCreerRelation();
 
         void afficherArticle();
         void afficherTache();
@@ -36,4 +36,4 @@ class FenetrePrincipale : public QMainWindow
 
 
 
-#endif
+#endif //FENPRINCIPALE_H

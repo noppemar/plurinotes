@@ -2,6 +2,7 @@
 #include "FenetreCreerArticle.h"
 #include "FenetreCreerTache.h"
 #include "FenetreCreermulti.h"
+#include "FenetreCreerRelation.h"
 #include "noteediteur.h"
 
 
@@ -25,6 +26,10 @@ FenetrePrincipale::FenetrePrincipale()
                       actionNouvelleNote->addAction(actionNouvelMulti);
                       connect(actionNouvelMulti, SIGNAL(triggered()), this, SLOT(afficherCreerMulti()));
 
+       QMenu *actionNewRelation = menuFichier->addMenu("Nouvelle Relation");
+                      QAction *actionNouvelleRelation = new QAction("Nouvelle Relation", this);
+                                actionNewRelation->addAction(actionNouvelleRelation);
+                                connect(actionNouvelleRelation, SIGNAL(triggered()), this, SLOT(afficherCreerRelation()));
 
          QMenu *actionEditerNote = menuFichier->addMenu("Editer Note");       //creation  sous menu permettant d'éditer une note:
 
@@ -94,6 +99,11 @@ void FenetrePrincipale::afficherCreerArticle() {
 void FenetrePrincipale::afficherCreerMulti() {
     FenetreCreerMulti *fenetreCreerMulti = new FenetreCreerMulti(this);
     fenetreCreerMulti->show();
+}
+
+void FenetrePrincipale::afficherCreerRelation() {
+    FenetreCreerRelation *fenetreCreerRelation = new FenetreCreerRelation(this);
+    fenetreCreerRelation->show();
 }
 
 

@@ -155,8 +155,11 @@ HistoNotes<Multimedia>* HistoNoteManager::getHistoMulti(const QString& id){
     return nullptr;
 }
 
-
-
+RelationManager* HistoNoteManager::getRelationManager(){ //méthode qui vérifie qu'il n'y ait qu'une seule instance de RelationManager
+    if(HistoNoteManager::relationsMan==0)
+        HistoNoteManager::relationsMan = new RelationManager; //crée une instance
+    return HistoNoteManager::relationsMan;
+}
 const QString HistoNoteManager::makeArticleId(){
     QString newId="Article"+ QString::number(nbArticles+1); // +1 pour que commence à partir de 1
     return newId;
