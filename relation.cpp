@@ -1,7 +1,7 @@
 #include "relation.h"
 
 bool Couple::operator ==(const Couple& c){
-    return (x==c.getPred() && y==c.getSucc());
+    return (note1==c.getNote1() && note2==c.getNote2());
 }
 
 
@@ -34,7 +34,7 @@ void Relation::addCouple(Notes& n1, Notes& n2, QString l){
 
     //A FAIRE QUAND operator== définit pour HistoNote
     for(unsigned int i=0; i<nbCouples; i++){
-        if (couples[i]->getPred()==n1 && couples[i]->getSucc()==n2) throw RelationException("Erreur : couple déjà existant");
+        if (couples[i]->getNote1()==n1 && couples[i]->getNote2()==n2) throw RelationException("Erreur : couple déjà existant");
     }
     Couple* c=new Couple(n1,n2,l);
     addCouple(c);
