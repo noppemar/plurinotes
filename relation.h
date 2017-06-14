@@ -29,7 +29,7 @@ public:
     //Accesseur en écriture
     void setLabel(const QString& newL){label=newL;}
 
-    bool operator ==(const Couple& c);
+    bool operator ==(const Couple& c); // OK
     ~Couple(){}
 };
 
@@ -46,7 +46,7 @@ protected:
     bool orientation;
 public:
     Relation(const QString& titr, const QString& desc, bool orie=true):
-         nbCouples(0), nbMaxCouples(10),titre(titr), description(desc), orientation(orie) {}
+          nbCouples(0), nbMaxCouples(10),titre(titr), description(desc), orientation(orie) {}
 
     void addCouple(Couple* newCouple);
     void addCouple(Notes& n1, Notes& n2, QString l="");
@@ -71,7 +71,7 @@ public:
 };
 
 
-class RelationNormale: public Relation{
+class RelationNormale: public Relation{  //OK
 public:
     RelationNormale(const QString& titr, const QString& desc, bool orie=true): Relation(titr, desc, orie){}
 
@@ -84,15 +84,15 @@ public:
 
 
 class RelationPreexistente: public Relation{
-    void setTitre(const QString&){}
-    void setDescription(const QString&){}
-    void setOrientation(bool){}
+    void setTitre(const QString&){}   //Ne fait rien car tout se fait dans le constructeur.
+    void setDescription(const QString&){} //Ne fait rien car tout se fait dans le constructeur.
+    void setOrientation(bool){} //Ne fait rien car tout se fait dans le constructeur.
 
     static RelationPreexistente* instance_RelationPreexistente;
     RelationPreexistente(const RelationPreexistente& r);
     ~RelationPreexistente(){}
     RelationPreexistente& operator=(const RelationPreexistente&);
-    RelationPreexistente(): Relation("references", "preexistente"){}
+    RelationPreexistente(): Relation("references", "preexistente"){}  //Construit avec titre et description fixe
 
 public:
     static RelationPreexistente* getRelationPreexistente(){
@@ -122,10 +122,6 @@ class RelationManager{
     ~RelationManager();
     //RelationManager(const RelationManager& r){}
     RelationManager& operator=(const RelationManager&);
-
-
-
-
 
 };
 
