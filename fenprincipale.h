@@ -7,6 +7,7 @@ class FenetrePrincipale : public QMainWindow
 {
     Q_OBJECT
     public:
+        FenetrePrincipale();
         void updateArticles();
         void updateMulti();
         void updateTaches();
