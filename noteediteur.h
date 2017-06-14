@@ -29,12 +29,19 @@ class NoteEditeur : public QWidget
     QHBoxLayout *ctitre;
 
 
+    QDateTimeEdit *dateCrea;
+    QLabel *dateCrea1;
+    QHBoxLayout *cdateCrea;
+
+    QDateTimeEdit *dateModif;
+    QLabel *dateModif1;
+    QHBoxLayout *cdateModif;
 
     QVBoxLayout *couche;
 
     FenetrePrincipale* pere;
     Notes *note;
-    
+
 
 
 
@@ -45,6 +52,7 @@ public:
    NoteEditeur(FenetrePrincipale *p);
    QVBoxLayout* getCouche(){return couche;}
    QString getTitre(){return titre->text();}
+   FenetrePrincipale* getPere(){return pere;}
 
 
 
@@ -74,6 +82,7 @@ class ArticleEditeur : public NoteEditeur
 
 public:
     ArticleEditeur(Article& art, FenetrePrincipale *p);
+
 signals:
 
 public slots:
@@ -88,6 +97,18 @@ class TacheEditeur : public NoteEditeur
     QTextEdit *act;
     QLabel *act1;
     QHBoxLayout *cact;
+
+    QComboBox *priorite;
+    QLabel *prio1;
+    QHBoxLayout *cprio;
+
+    QDateEdit *dateEcheance;
+    QLabel *dateEcheance1;
+    QHBoxLayout *cdateEcheance;
+
+    QComboBox *statut;
+    QLabel *stat1;
+    QHBoxLayout *cstat;
 
     QPushButton *save;
     QPushButton *archiver;
@@ -109,6 +130,42 @@ signals:
 public slots:
     void saveTache();
     void archiverTache();
+};
+
+class MultiEditeur : public NoteEditeur
+{
+    Q_OBJECT
+
+    QHBoxLayout *ctype;
+    QLineEdit *type;
+
+    QTextEdit *desc;
+    QLabel *desc1;
+    QHBoxLayout *cdesc;
+
+    QLineEdit *fichier;
+    QLabel *fichier1;
+    QHBoxLayout *cfichier;
+
+
+
+
+
+    QPushButton *save;
+    QPushButton *archiver;
+
+    QHBoxLayout *cbutton;
+
+    Multimedia* multimedia;
+
+public:
+    MultiEditeur(Multimedia& multi, FenetrePrincipale *p);
+
+signals:
+
+public slots:
+    void saveMulti();
+    void archiverMulti();
 };
 
 #endif // NOTEEDITEUR_H
