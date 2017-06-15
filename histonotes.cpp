@@ -257,7 +257,6 @@ void HistoNoteManager::removeHistoMulti(HistoNotes<Multimedia>* h){
 }
 
 
-
 void HistoNoteManager::save() {
     QFile newfile(filename);
     if (!newfile.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -265,20 +264,16 @@ void HistoNoteManager::save() {
         //throw NotesException(QString("erreur sauvegarde notes : ouverture fichier xml"));
     QXmlStreamWriter stream(&newfile);
     stream.setAutoFormatting(true);
-    stream.writeStartDocument();
-    stream.writeStartElement("notes");
+    stream.writeStartElement("pluri");
     for(unsigned int i=0; i<nbArticles; i++){
         stream.writeStartElement("histoArticle");
-        stream.writeTextElement("id",articles[i]->getId());
-        stream.writeTextElement("nbVersion",QString::number(articles[i]->getNbVersions()));
-        stream.writeTextElement("nbMaxVersion",QString::number(articles[i]->getNbMaxVersions()));
-        stream.writeTextElement("titre",articles[i]->getTitre());
-        stream.writeTextElement("texte",articles[i]->getText());
-        stream.writeTextElement("dateCrea",articles[i]->getCrea().toString());
-        stream.writeTextElement("dateModif",articles[i]->getModif().toString());
-
-        for(unsigned int j=1; j<articles[i]->getNbVersions(); j++){
-            articles[i]->getVersion(j)->save(&newfile);
+        for(unsigned int j=0; j<articles[i]->getNbVersions(); j++){
+             stream.writeStartElement("article");
+             stream.writeTextElement("id",articles[i]->getVersion(j)->getId());
+             stream.writeTextElement("titre",articles[i]->getVersion(j)->getTitre());
+             stream.writeTextElement("dateCrea",articles[i]->getVersion(j)->getCrea().toString());
+             stream.writeTextElement("dateModif",articles[i]->getVersion(j)->getModif().toString());
+             stream.writeTextElement("texte",articles[i]->getVersion(j)->getText());
              stream.writeEndElement();
         }
         stream.writeEndElement();
@@ -286,39 +281,31 @@ void HistoNoteManager::save() {
 
     for(unsigned int i=0; i<nbTaches; i++){
         stream.writeStartElement("histoTache");
-        stream.writeTextElement("id",taches[i]->getId());
-        stream.writeTextElement("nbVersion",QString::number(taches[i]->getNbVersions()));
-        stream.writeTextElement("nbMaxVersion",QString::number(taches[i]->getNbMaxVersions()));
-        stream.writeTextElement("titre",taches[i]->getTitre());
-        stream.writeTextElement("dateCrea",taches[i]->getCrea().toString());
-        stream.writeTextElement("dateModif",taches[i]->getModif().toString());
-        stream.writeTextElement("dateEcheance",taches[i]->getEcheance().toString());
-        stream.writeTextElement("prio",taches[i]->getPrio());
-        stream.writeTextElement("action",taches[i]->getAction());
-        stream.writeTextElement("statut",taches[i]->getStatut());
-
-        for(unsigned int j=1; j<taches[i]->getNbVersions(); j++){
-            taches[i]->getVersion(j)->save(&newfile);
-             stream.writeEndElement();
+        for(unsigned int j=0; j<taches[i]->getNbVersions(); j++){
+            stream.writeStartElement("tache");
+            stream.writeTextElement("titre",taches[i]->getVersion(j)->getTitre());
+            stream.writeTextElement("dateCrea",taches[i]->getVersion(j)->getCrea().toString());
+            stream.writeTextElement("dateModif",taches[i]->getVersion(j)->getModif().toString());
+            stream.writeTextElement("action",taches[i]->getVersion(j)->getAction());
+            stream.writeTextElement("statut",taches[i]->getVersion(j)->getStatut());
+            stream.writeTextElement("prio",taches[i]->getVersion(j)->getPriorite());
+            stream.writeTextElement("dateEcheance",taches[i]->getVersion(j)->getEcheance().toString());
+            stream.writeEndElement();
         }
         stream.writeEndElement();
     }
 
     for(unsigned int i=0; i<nbMultimedias; i++){
         stream.writeStartElement("histoMultimedia");
-        stream.writeTextElement("id",multimedias[i]->getId());
-        stream.writeTextElement("nbVersion",QString::number(multimedias[i]->getNbVersions()));
-        stream.writeTextElement("nbMaxVersion",QString::number(multimedias[i]->getNbMaxVersions()));
-        stream.writeTextElement("titre",multimedias[i]->getTitre());
-        stream.writeTextElement("dateCrea",multimedias[i]->getCrea().toString());
-        stream.writeTextElement("dateModif",multimedias[i]->getModif().toString());
-        stream.writeTextElement("type",multimedias[i]->getType());
-        stream.writeTextElement("fichier",multimedias[i]->getFichier());
-        stream.writeTextElement("description",multimedias[i]->getDesc());
-
-        for(unsigned int j=1; j<multimedias[i]->getNbVersions(); j++){
-            multimedias[i]->getVersion(j)->save(&newfile);
-             stream.writeEndElement();
+        for(unsigned int j=0; j<multimedias[i]->getNbVersions(); j++){
+            stream.writeStartElement("multimedia");
+            stream.writeTextElement("titre",multimedias[i]->getVersion(j)->getTitre());
+            stream.writeTextElement("dateCrea",multimedias[i]->getVersion(j)->getCrea().toString());
+            stream.writeTextElement("dateModif",multimedias[i]->getVersion(j)->getModif().toString());
+            stream.writeTextElement("description",multimedias[i]->getVersion(j)->getDesc());
+            stream.writeTextElement("fichier",multimedias[i]->getVersion(j)->getFichier());
+            stream.writeTextElement("type",multimedias[i]->getVersion(j)->getType());
+            stream.writeEndElement();
         }
         stream.writeEndElement();
     }
@@ -349,16 +336,11 @@ void HistoNoteManager::load() {
         // If token is just StartDocument, we'll go to next.
         if(token == QXmlStreamReader::StartDocument) continue;
         // If token is StartElement, we'll see if we can read it.
-        if(token == QXmlStreamReader::StartElement) {
-
-            if(xml.name() == "notes") continue;
-
+        if(token == QXmlStreamReader::StartElement ) {
 
             if(xml.name() == "histoArticle") {
                 qDebug()<<"new histoArticle\n";
                 QString identificateur;
-                QString nbVersion;
-                QString nbMaxVersion;
                 QString titre;
                 QString texte;
                 QDate dateCrea;
@@ -367,6 +349,7 @@ void HistoNoteManager::load() {
                 xml.readNext();
                 //We're going to loop over the things because the order might change.
                 //We'll continue the loop until we hit an EndElement named histoArticle.
+                int compteur=0;
                 while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "histoArticle")) {
                     if(xml.tokenType() == QXmlStreamReader::StartElement) {
 
@@ -375,20 +358,6 @@ void HistoNoteManager::load() {
                             xml.readNext();
                             identificateur=xml.text().toString();
                             qDebug()<<"id="<<identificateur<<"\n";
-                        }
-
-                        // We've found nbVersions.
-                        if(xml.name() == "nbVersion") {
-                            xml.readNext();
-                            nbVersion=xml.text().toString();
-                            qDebug()<<"nbVersion="<<nbVersion<<"\n";
-                        }
-
-                        // We've found nbMaxVersions.
-                        if(xml.name() == "nbMaxVersion") {
-                            xml.readNext();
-                            nbMaxVersion=xml.text().toString();
-                            qDebug()<<"nbMaxVersion="<<nbMaxVersion<<"\n";
                         }
 
 
@@ -417,13 +386,36 @@ void HistoNoteManager::load() {
                             qDebug()<<"dateModif="<<dateModif<<"\n";
                         }
 
+                        if(xml.name() == "article") {
+                            xml.readNext();
+                                if (compteur==1){
+                                    qDebug()<<"ajout histo "<<identificateur<<"\n";
+                                    HistoNoteManager::addHistoArticle(identificateur,titre,texte,dateCrea, dateModif);
+                                }
+
+                                if(compteur>1) {
+                                    qDebug()<<"ajout Article="<<titre<<"\n";
+                                    HistoNoteManager::getHistoArticle(identificateur)->addVersion(identificateur, titre, texte, dateCrea, dateModif);
+                                    }
+                            compteur++;
+                        }
+
+
 
                     }
                     // ...and next...
                     xml.readNext();
+
                 }
-                qDebug()<<"ajout histo "<<identificateur<<"\n";
-                HistoNoteManager::addHistoArticle(identificateur,titre,texte,dateCrea, dateModif);
+                if (compteur==1){
+                    qDebug()<<"ajout histo "<<identificateur<<"\n";
+                    HistoNoteManager::addHistoArticle(identificateur,titre,texte,dateCrea, dateModif);
+                }
+
+                if(compteur>1) {
+                    qDebug()<<"ajout Article="<<titre<<"\n";
+                    HistoNoteManager::getHistoArticle(identificateur)->addVersion(identificateur, titre, texte, dateCrea, dateModif);
+                    }
             }
 
 
@@ -444,6 +436,7 @@ void HistoNoteManager::load() {
                 xml.readNext();
                 //We're going to loop over the things because the order might change.
                 //We'll continue the loop until we hit an EndElement named histoTache
+                int compteur=0;
                 while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "histoTache")) {
                     if(xml.tokenType() == QXmlStreamReader::StartElement) {
 
@@ -518,12 +511,33 @@ void HistoNoteManager::load() {
                         qDebug()<<"statut="<<statut<<"\n";
                        }
 
+                       if(xml.name() == "tache") {
+                           xml.readNext();
+                               if (compteur==1){
+                                   qDebug()<<"ajout histo "<<identificateur<<"\n";
+                                   HistoNoteManager::addHistoTache(identificateur,titre,action, statut, dateEcheance, priorite, dateCrea, dateModif);
+                               }
+
+                               if(compteur>1) {
+                                   qDebug()<<"ajout tache="<<titre<<"\n";
+                                   HistoNoteManager::getHistoTache(identificateur)->addVersion(identificateur,titre,action, statut, dateEcheance, priorite, dateCrea, dateModif);
+                                   }
+                           compteur++;
+                       }
+
                     }
                     // ...and next...
                     xml.readNext();
                 }
-                qDebug()<<"ajout histo "<<identificateur<<"\n";
-                HistoNoteManager::addHistoTache(identificateur,titre,action, priorite, dateEcheance, statut, dateCrea, dateModif);
+                if (compteur==1){
+                    qDebug()<<"ajout histo "<<identificateur<<"\n";
+                    HistoNoteManager::addHistoTache(identificateur,titre,action, statut, dateEcheance, priorite, dateCrea, dateModif);
+                }
+
+                if(compteur>1) {
+                    qDebug()<<"ajout tache="<<titre<<"\n";
+                    HistoNoteManager::getHistoTache(identificateur)->addVersion(identificateur,titre,action, statut, dateEcheance, priorite, dateCrea, dateModif);
+                    }
             }
 
 
@@ -543,6 +557,7 @@ void HistoNoteManager::load() {
                 xml.readNext();
                 //We're going to loop over the things because the order might change.
                 //We'll continue the loop until we hit an EndElement named histoArticle.
+                int compteur=0;
                 while(!(xml.tokenType() == QXmlStreamReader::EndElement && xml.name() == "histoMultimedia")) {
                     if(xml.tokenType() == QXmlStreamReader::StartElement) {
 
@@ -612,22 +627,41 @@ void HistoNoteManager::load() {
                         qDebug()<<"description="<<description<<"\n";
                        }
 
+                       if(xml.name() == "multimedia") {
+                           xml.readNext();
+                               if (compteur==1){
+                                   qDebug()<<"ajout histo "<<identificateur<<"\n";
+                                   HistoNoteManager::addHistoMulti(identificateur,titre,description,fichier,type, dateCrea, dateModif);
+                               }
+
+                               if(compteur>1) {
+                                   qDebug()<<"ajout tache="<<titre<<"\n";
+                                   HistoNoteManager::getHistoMulti(identificateur)->addVersion(identificateur,titre,description,fichier,type, dateCrea, dateModif);
+                                   }
+                           compteur++;
+                       }
+
                     }
                     // ...and next...
                     xml.readNext();
                 }
-                qDebug()<<"ajout histo "<<identificateur<<"\n";
-                HistoNoteManager::addHistoMulti(identificateur,titre,description, fichier, type, dateCrea, dateModif);
+                if (compteur==1){
+                    qDebug()<<"ajout histo "<<identificateur<<"\n";
+                    HistoNoteManager::addHistoMulti(identificateur,titre,description,fichier,type, dateCrea, dateModif);
+                }
+
+                if(compteur>1) {
+                    qDebug()<<"ajout tache="<<titre<<"\n";
+                    HistoNoteManager::getHistoMulti(identificateur)->addVersion(identificateur,titre,description,fichier,type, dateCrea, dateModif);
+                    }
             }
-
-
 
         }
     }
     // Error handling.
     if(xml.hasError()) {
         //throw NotesException("Erreur lecteur fichier notes, parser xml");
-        return;
+        //return;
     }
     // Removes any device() or data from the reader * and resets its internal state to the initial state.
     xml.clear();
