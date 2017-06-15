@@ -92,9 +92,9 @@
         <dateCrea>mer. juin 14 2017</dateCrea>
         <dateModif>mer. juin 14 2017</dateModif>
         <dateEcheance>sam. janv. 1 2000</dateEcheance>
-        <prio>enAttente</prio>
+        <prio>ça ne presse pas</prio>
         <action>hjkl</action>
-        <statut>ça ne presse pas</statut>
+        <statut></statut>
     </histoTache>
     <histoMultimedia>
         <id>Multimedia1</id>
@@ -117,5 +117,16 @@
         <type>Image</type>
         <fichier>hgjk</fichier>
         <description>fghjk</description>
+    </histoMultimedia>
+    <histoMultimedia>
+        <id>Multimedia3</id>
+        <nbVersion>1</nbVersion>
+        <nbMaxVersion>5</nbMaxVersion>
+        <titre>coucou</titre>
+        <dateCrea>jeu. juin 15 2017</dateCrea>
+        <dateModif>jeu. juin 15 2017</dateModif>
+        <type>Image</type>
+        <fichier>noppe</fichier>
+        <description>marie</description>
     </histoMultimedia>
 </notes>

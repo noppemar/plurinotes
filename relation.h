@@ -111,6 +111,7 @@ class RelationNormale: public Relation{  //OK
 public:
     RelationNormale(const QString& id, const QString& titr, const QString& desc, bool orie=true): Relation(id, titr, desc, orie){}
 
+
     void setTitre(const QString& newTitre) {titre = newTitre;}
     void setDescription(const QString& newDescription){description = newDescription;}
     void setOrientation(bool boolVal){orientation = boolVal;}
@@ -153,15 +154,10 @@ class RelationManager{
     unsigned int nbRelations;
     unsigned int nbMaxRelations;
     RelationPreexistente* reference;
-    static RelationManager* instance;
-    friend class HistoNoteManager;
+    static RelationManager *instance;
+    //friend class HistoNoteManager;
     RelationManager(const RelationManager&){}
-    RelationManager(){
-        relations = new RelationNormale*[nbMaxRelations+10];
-        nbMaxRelations += 10;
-        RelationPreexistente* RP = RelationPreexistente::getRelationPreexistente();
-        reference = RP;
-    }
+    RelationManager();
     RelationManager& operator=(const RelationManager&);
     ~RelationManager();
 
@@ -175,12 +171,8 @@ public:
      RelationNormale* getRelationNormal(const QString &id);
      RelationPreexistente* getRelationRef() {return reference;}
 
-     void addRelation(RelationNormale* r);
+    // void addRelation(RelationNormale* r);
      void addRelation(QString id, QString titre, QString desc, bool orientation);
-
-    // void addRelationRef(RelationPreexistente* rP);
-    //void addRelationRef(QString id="Ref", QString titre="references", QString desc="preexistente");
-    //Plus besoin d'en ajouter, on les stocke dans relations[0]
 
 
 

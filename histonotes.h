@@ -31,8 +31,8 @@ private:
     ~HistoNoteManager();
     HistoNoteManager(const HistoNoteManager& m);
     HistoNoteManager& operator=(const HistoNoteManager&);
-    
-    RelationManager* relationsMan;
+
+    //RelationManager* relationsMan;
 
 public:
     static HistoNoteManager& getInstance(); //DP singleton
@@ -40,7 +40,7 @@ public:
 
     Archive* getArchive(){return archives;}
 
-    RelationManager* getRelationManager();
+    //RelationManager* getRelationManager(){return relationsMan;}
     
     const QString makeArticleId();
     const QString makeTacheId();
@@ -185,45 +185,6 @@ public:
 
     ~HistoNotes();
 
-    /* INUTILE ????
-    template <class Y>
-    class iterator{
-        Y** current;
-        iterator(Y** a):current(a){}
-
-        friend class HistoNotes;
-
-    public:
-        iterator():current(0){}
-
-        Y& operator*(){ //pour avoir contenu du double pointeur avec 1 seul *
-            return **current;
-        }
-
-        iterator<Y> &operator++(){
-            ++current;
-            return *this;
-        }
-
-        iterator<Y> &operator--(){
-            --current;
-            return *this;
-        }
-
-        bool operator!=(iterator<Y> it) const{
-            return current != it.current;
-        }
-    };
-
-     POUR POUVOIR SE BALADER DANS LES VERSIONS SUIVANTES ET PRECEDENTES */
-    /*
-    iterator<X> begin(){ //1ère case du tableau articles
-        return iterator<X>(versions);
-    }
-
-    iterator<X> end(){ //case juste après dernière case du tableau article (condition boucle for : !=m.end)
-        return iterator<X>(versions + nbVersions);
-    } */
 };
 
 

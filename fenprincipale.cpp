@@ -70,18 +70,28 @@ FenetrePrincipale::FenetrePrincipale() {
     QObject::connect(listeTaches, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(afficherTache()));
     QObject::connect(listeArchives, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(afficherArchive()));
 
+    QDockWidget *ensembleRelations  = new QDockWidget("Voici toutes les relations");
+    ensembleRelations->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
 
 
+
+    QWidget *ensRelations = new QWidget;
+    QLabel *labelR = new QLabel("Relations :");
+    listeRelations = new QListWidget(ensembleRelations);
+
+    QVBoxLayout *ensembleRelationsLayout = new QVBoxLayout;
+    ensembleRelationsLayout->addWidget(labelR);
+    ensembleRelationsLayout->addWidget(listeRelations);
+    ensRelations->setLayout(ensembleRelationsLayout);
+    ensembleRelations->setWidget(ensRelations);
+
+
+ /*   histoNote = new QDockWidget("Voici toutes les versions de cette note");
+    histoNote->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    addDockWidget(Qt::RightDockWidgetArea, histoNote);*/
 
     addDockWidget(Qt::LeftDockWidgetArea, ensembleNotes);
-
-
-
-    histoNote = new QDockWidget("Voici toutes les versions de cette note");
-    histoNote->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-    addDockWidget(Qt::RightDockWidgetArea, histoNote);
-
-
+    addDockWidget(Qt::RightDockWidgetArea, ensembleRelations);
 
     setCentralWidget(zoneCentrale);
 }
@@ -222,3 +232,25 @@ void FenetrePrincipale::updateArchives(){
     }
 
 }
+
+void FenetrePrincipale::updateRelation(){
+   listeRelations->clear();
+    relations_id.clear();
+    RelationManager& rm=RelationManager::getInstance();
+   for(RelationManager::iterator it=rm.begin_relationManager(); it!=rm.end_relationManager();++it){
+        //QString tmp =it.getCurrent()->getId();   //Problème d'acces sur les données du Current, données innaccessible.
+       //listeRelations->addItem(it.getCurrent()->getTitre());
+    //relations_id.append(it.getCurrent()->getId());
+    }
+}
+
+/*void FenetrePrincipale::afficherRelation(){
+    RelationManager& m=RelationManager::getInstance();
+    int indice = listeRelations->currentRow();
+    HistoNotes<Article>* h=m.getHistoArticle(articles_id[indice]);
+
+
+    ArticleEditeur *fenetre= new ArticleEditeur(*(h->getLastVersion()),this);
+    this->setCentralWidget(fenetre);
+    fenetre->show();
+};*/

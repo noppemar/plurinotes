@@ -37,7 +37,8 @@ SOURCES += main.cpp\
     notes.cpp \
     relation.cpp \
     FenetreCreerMulti.cpp \
-    FenetreCreerRelation.cpp
+    FenetreCreerRelation.cpp \
+    archive.cpp
 
 HEADERS  += mainwindow.h \
     notes.h \
@@ -49,6 +50,7 @@ HEADERS  += mainwindow.h \
     noteediteur.h \
     relation.h \
     FenetreCreerMulti.h \
-    FenetreCreerRelation.h
+    FenetreCreerRelation.h \
+    archive.h
 
 FORMS    += mainwindow.ui

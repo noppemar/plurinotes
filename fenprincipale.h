@@ -12,6 +12,7 @@ class FenetrePrincipale : public QMainWindow
         void updateMulti();
         void updateTaches();
         void updateArchives();
+        void updateRelation();
         
     public slots:
         void afficherCreerArticle();
@@ -23,6 +24,7 @@ class FenetrePrincipale : public QMainWindow
         void afficherTache();
         void afficherMulti();
         void afficherArchive();
+        //void afficherRelation();
 
     private:
 
@@ -32,6 +34,7 @@ class FenetrePrincipale : public QMainWindow
         QListWidget *listeMulti;
         QListWidget *listeTaches;
         QListWidget *listeArchives;
+        QListWidget *listeRelations;
         
         QDockWidget *histoNote;
         
@@ -39,6 +42,7 @@ class FenetrePrincipale : public QMainWindow
         QList<QString> multi_id;
         QList<QString> taches_id;
         QList<QString> archives_id;
+        QList<QString> relations_id;
 
 };
 

@@ -15,7 +15,6 @@ FenetreCreerRelation::FenetreCreerRelation(FenetrePrincipale *p ) : pere(p)
 
 
     QFormLayout *formulaire = new QFormLayout;          // on crée un layout formulaire pour remplir les champs
-   // formulaire->addRow("id ", id);
     formulaire->addRow("titre", titre);
     formulaire->addRow("description", description);
     formulaire->addRow("Orientation", orientation);
@@ -33,11 +32,9 @@ FenetreCreerRelation::FenetreCreerRelation(FenetrePrincipale *p ) : pere(p)
 
 
 void FenetreCreerRelation::ajouterRelation() {
-   HistoNoteManager& m = HistoNoteManager::getInstance();
-    RelationManager* rm = m.getRelationManager();
-    rm->addRelation(rm->makeRelationId(), titre->text(), description->text(), orientation->isChecked());
-   // pere->updateRelation();
+    RelationManager& rm = RelationManager::getInstance();
+    rm.addRelation(rm.makeRelationId(), titre->text(), description->text(), orientation->isChecked());
+   pere->updateRelation();
    // RelationManager::getInstance().save();
     this->close();
-
 }

@@ -23,16 +23,22 @@ void RelationManager::libererInstance(){
     RelationManager::instance=0; //réinitialisation à nullptr
 }
 
+RelationManager::RelationManager():nbRelations(0),nbMaxRelations(0){
+      //relations = new RelationNormale*[nbMaxRelations+1];
+       //nbMaxRelations += 10;
+        RelationPreexistente* RP = RelationPreexistente::getRelationPreexistente();
+        reference = RP;
+    }
 
-
-void RelationManager::addRelation(RelationNormale *newRelation){
+/*void RelationManager::addRelation(RelationNormale *newRelation){
     if (nbRelations == nbMaxRelations){
-        RelationNormale** newRelations = new RelationNormale*[nbMaxRelations+10];
+        RelationNormale** newRelations = new RelationNormale*[nbMaxRelations+5];
         for (unsigned int i=0; i < nbRelations; i++) newRelations[i] = relations[i];
         RelationNormale** oldRelations = relations;
         relations = newRelations;
-        delete[] oldRelations;
-        nbMaxRelations += 10;
+         nbMaxRelations += 10;
+         delete[] oldRelations;
+
     }
     relations[++nbRelations] = newRelation;
 }
@@ -42,7 +48,20 @@ void RelationManager::addRelation(QString id, QString titre, QString desc, bool 
 
     RelationNormale* rN= new RelationNormale(id, titre, desc, orientation);
     addRelation(rN);
+}*/
+void RelationManager::addRelation(QString id, QString titre, QString desc, bool orientation){
+    if (nbRelations == nbMaxRelations){
+        RelationNormale** newRelations = new RelationNormale*[nbMaxRelations+5];
+        for (unsigned int i=0; i < nbRelations; i++) newRelations[i] = relations[i];
+        RelationNormale** oldRelations = relations;
+        relations = newRelations;
+         nbMaxRelations += 10;
+         delete[] oldRelations;
+
+    }
+    relations[++nbRelations] = new RelationNormale(id, titre, desc, orientation);
 }
+
 
 
 
