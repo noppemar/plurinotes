@@ -6,10 +6,18 @@
 #include "histonotes.h"
 #include "fenprincipale.h"
 
+/*!
+ * \brief The FenetreCreerArticle class
+ * fenetre pour créer un article
+ */
 class FenetreCreerArticle : public QWidget
 {
     Q_OBJECT
 public:
+    /*!
+     * \brief FenetreCreerArticle
+     * \param p fenetre principale
+     */
     FenetreCreerArticle(FenetrePrincipale *p);
 private:
     QLineEdit *titre;
@@ -21,6 +29,10 @@ signals:
 
 
 public slots:
+    /*!
+     * \brief ajouterArticle
+     * gère insertion dans HistoNotesManager
+     */
     void ajouterArticle();
 
 
