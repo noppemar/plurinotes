@@ -6,8 +6,7 @@
 #include "noteediteur.h"
 
 
-FenetrePrincipale::FenetrePrincipale()
-{
+FenetrePrincipale::FenetrePrincipale() {
     QMdiArea *zoneCentrale = new QMdiArea;
 
     QMenu *menuFichier = menuBar()->addMenu("&Fichier");                          // creation du menu fichier
@@ -144,6 +143,31 @@ void FenetrePrincipale::afficherMulti(){
 };
 
 void FenetrePrincipale::afficherArchive(){
+    HistoNoteManager& m=HistoNoteManager::getInstance();
+    Archive* a=m.getArchive();
+    int indice = listeArchives->currentRow();
+
+
+    if(a->getHistoArticle(archives_id[indice]) != nullptr){
+        HistoNotes<Article>* h=a->getHistoArticle(archives_id[indice]);
+        ArticleEditeur *fenetre= new ArticleEditeur(*(h->getLastVersion()),this,1);
+        this->setCentralWidget(fenetre);
+        fenetre->show();
+
+    }
+    if(a->getHistoTache(archives_id[indice]) != nullptr){
+        HistoNotes<Tache>* h=a->getHistoTache(archives_id[indice]);
+        TacheEditeur *fenetre= new TacheEditeur(*(h->getLastVersion()),this,1);
+        this->setCentralWidget(fenetre);
+        fenetre->show();
+
+    }
+    if(a->getHistoMulti(archives_id[indice]) != nullptr){
+        HistoNotes<Multimedia>* h=a->getHistoMulti(archives_id[indice]);
+        MultiEditeur *fenetre= new MultiEditeur(*(h->getLastVersion()),this,1);
+        this->setCentralWidget(fenetre);
+        fenetre->show();
+    }
 
 }
 
@@ -179,5 +203,22 @@ void FenetrePrincipale::updateTaches(){
 }
 
 void FenetrePrincipale::updateArchives(){
+    listeArchives->clear();
+    archives_id.clear();
+
+    HistoNoteManager& m=HistoNoteManager::getInstance();
+    Archive* a=m.getArchive();
+    for(Archive::iterator<Article> it=a->begin_article(); it!=a->end_article();++it){
+        listeArchives->addItem(it.getCurrent()->getLastVersion()->getTitre());
+        archives_id.append(it.getCurrent()->getId());
+    }
+    for(Archive::iterator<Tache> it=a->begin_tache(); it!=a->end_tache();++it){
+        listeArchives->addItem(it.getCurrent()->getLastVersion()->getTitre());
+        archives_id.append(it.getCurrent()->getId());
+    }
+    for(Archive::iterator<Multimedia> it=a->begin_multi(); it!=a->end_multi();++it){
+        listeArchives->addItem(it.getCurrent()->getLastVersion()->getTitre());
+        archives_id.append(it.getCurrent()->getId());
+    }
 
 }
