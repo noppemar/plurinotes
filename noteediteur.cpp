@@ -400,7 +400,7 @@ void ArticleEditeur::saveArticle(){
 void TacheEditeur::saveTache(){
     HistoNoteManager& m=HistoNoteManager::getInstance();
     m.getHistoTache(tache->getId())->addVersion(tache->getId(),getTitre(),act->toPlainText(),statut->currentText(), dateEcheance->date(), priorite->currentText());
-    getPere()->updateArticles();
+    getPere()->updateTaches();
     //m.save();
     this->close();
 }
@@ -408,7 +408,7 @@ void TacheEditeur::saveTache(){
 void MultiEditeur::saveMulti(){
     HistoNoteManager& m=HistoNoteManager::getInstance();
     m.getHistoMulti(multimedia->getId())->addVersion(multimedia->getId(),getTitre(),desc->toPlainText(),fichier->text(),type->text());
-    getPere()->updateArticles();
+    getPere()->updateMulti();
     //m.save();
     this->close();
 }
