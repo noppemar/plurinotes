@@ -3,7 +3,9 @@
 
 #include "notes.h"
 #include "relation.h"
+#include "archive.h"
 template <class X> class HistoNotes;
+class Archive;
 
 
 class HistoNoteManager {
@@ -22,7 +24,7 @@ private:
     unsigned int nbMaxTaches;
     unsigned int nbMaxMultimedias;  //ajout 13/06
     
-    static HistoNoteManager* archives;
+    Archive* archives;
     
     static HistoNoteManager *instance;
     HistoNoteManager();
@@ -36,8 +38,8 @@ public:
     static HistoNoteManager& getInstance(); //DP singleton
     static void libererInstance(); //DP singleton
 
-    static HistoNoteManager& getArchive();
-    static void libererArchive();
+    Archive* getArchive(){return archives;}
+
     RelationManager* getRelationManager();
     
     const QString makeArticleId();
@@ -79,6 +81,7 @@ public:
 
     void save();
     void load();
+
 
     
     
@@ -130,42 +133,6 @@ public:
         return iterator<Multimedia>(multimedias + nbMultimedias);
     }
 
-
-
-
-/*
-    class const_iterator{ //pareil avec const partout
-        Article **current;
-        const_iterator(Article **a):current(a){}
-
-        friend class NotesManager;
-    public:
-        const_iterator():current(0){}
-
-        const Article &operator*() const {
-            return **current;
-        }
-
-        const_iterator &operator++(){
-            ++current;
-            return *this;
-        }
-
-        bool operator!=(const_iterator it) const{
-            return current != it.current;
-        }
-
-    };
-
-    const_iterator begin() const{   //1ère case du tableau articles
-        return const_iterator(articles);
-    }
-    const_iterator end() const{ //case juste après la dernière case du tableau articles (condition boucle for : !=m.end
-        return const_iterator(articles + nbArticles);
-    }
-
-
-*/
 
 };
 
