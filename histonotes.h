@@ -82,8 +82,6 @@ public:
     void save();
     void load();
 
-
-    
     
     template <class X>
     class iterator{

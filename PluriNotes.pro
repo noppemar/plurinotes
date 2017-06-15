@@ -25,7 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 QT += widgets
 QT += xml
 
-DISTFILES += \ notes.xml
+DISTFILES += \
 
 SOURCES += main.cpp\
         mainwindow.cpp \

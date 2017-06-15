@@ -3,6 +3,7 @@
 
 #include "histonotes.h"
 
+
 template <class X> class HistoNotes;
 
 class Archive {
@@ -19,7 +20,7 @@ private:
     unsigned int nbMaxTaches;
     unsigned int nbMaxMultimedias;  //ajout 13/06
 
-
+    mutable QString fileArchive;
 
    // RelationManager* relationsMan;
 
@@ -31,11 +32,14 @@ public:
 
 
     void addHistoArticle(HistoNotes<Article>* h);
+    void addHistoArticle(QString id, QString titr, QString txt, QDate dateCrea, QDate dateModif);
 
 
     void addHistoTache(HistoNotes<Tache>* h);
+    void addHistoTache(QString id, QString t, QString act, QString stat, QDate d, QString prio, QDate dateCrea, QDate dateModif);
 
     void addHistoMulti(HistoNotes<Multimedia>* h);
+    void addHistoMulti(QString id, QString t, QString desc, QString fich, QString typ, QDate dateCrea, QDate dateModif);
 
     HistoNotes<Article>* getHistoArticle(const QString &id);
     HistoNotes<Tache>* getHistoTache(const QString &id);
@@ -44,6 +48,11 @@ public:
     void removeHistoArticle(HistoNotes<Article>* h);
     void removeHistoTache(HistoNotes<Tache>* h);
     void removeHistoMulti(HistoNotes<Multimedia>* h);
+
+    void setFilename(const QString& f) { fileArchive=f; }
+
+    void saveArchive();
+    void loadArchive();
 
 
 

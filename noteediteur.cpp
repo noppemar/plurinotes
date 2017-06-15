@@ -420,6 +420,8 @@ void ArticleEditeur::archiverArticle(){
     m.archiver(h);
     getPere()->updateArticles();
     getPere()->updateArchives();
+    m.save();
+    m.getArchive()->saveArchive();
     this->close();
 
 }
@@ -431,6 +433,8 @@ void TacheEditeur::archiverTache(){
     m.archiver(h);
     getPere()->updateTaches();
     getPere()->updateArchives();
+    m.save();
+    m.getArchive()->saveArchive();
     this->close();
 }
 
@@ -441,6 +445,8 @@ void MultiEditeur::archiverMulti(){
     m.archiver(h);
     getPere()->updateMulti();
     getPere()->updateArchives();
+    m.save();
+    m.getArchive()->saveArchive();
     this->close();
 }
 
@@ -452,6 +458,8 @@ void ArticleEditeur::restaurerArticle(){
     m.restaurer(h);
     getPere()->updateArticles();
     getPere()->updateArchives();
+    m.save();
+    m.getArchive()->saveArchive();
     this->close();
 
 }
@@ -464,6 +472,8 @@ void TacheEditeur::restaurerTache(){
     m.restaurer(h);
     getPere()->updateTaches();
     getPere()->updateArchives();
+    m.save();
+    m.getArchive()->saveArchive();
     this->close();
 
 }
@@ -476,6 +486,8 @@ void MultiEditeur::restaurerMulti(){
     m.restaurer(h);
     getPere()->updateMulti();
     getPere()->updateArchives();
+    m.save();
+    m.getArchive()->saveArchive();
     this->close();
 
 }
