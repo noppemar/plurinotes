@@ -52,6 +52,7 @@ public:
    NoteEditeur(FenetrePrincipale *p);
    QVBoxLayout* getCouche(){return couche;}
    QString getTitre(){return titre->text();}
+   QLineEdit* Titre(){return titre;}
    FenetrePrincipale* getPere(){return pere;}
 
 
@@ -68,6 +69,8 @@ class ArticleEditeur : public NoteEditeur
 {
     Q_OBJECT
 
+    int i;
+
     QTextEdit *text;
     QLabel *text1;
     QHBoxLayout *ctext;
@@ -75,6 +78,7 @@ class ArticleEditeur : public NoteEditeur
 
     QPushButton *save;
     QPushButton *archiver;
+    QPushButton *restaurer;
 
     QHBoxLayout *cbutton;
 
@@ -82,18 +86,21 @@ class ArticleEditeur : public NoteEditeur
 
 public:
     ArticleEditeur(Article& art, FenetrePrincipale *p);
+    ArticleEditeur(Article& art, FenetrePrincipale *p,int j);
 
 signals:
 
 public slots:
     void saveArticle();
     void archiverArticle();
+    void restaurerArticle();
 };
 
 class TacheEditeur : public NoteEditeur
 {
     Q_OBJECT
 
+    int i;
     QTextEdit *act;
     QLabel *act1;
     QHBoxLayout *cact;
@@ -112,6 +119,7 @@ class TacheEditeur : public NoteEditeur
 
     QPushButton *save;
     QPushButton *archiver;
+    QPushButton *restaurer;
 
     QHBoxLayout *cbutton;
 
@@ -123,19 +131,22 @@ class TacheEditeur : public NoteEditeur
 
 
 public:
-    TacheEditeur(Tache& ta, FenetrePrincipale *p=0);
+    TacheEditeur(Tache& ta, FenetrePrincipale *p);
+    TacheEditeur(Tache& ta, FenetrePrincipale *p, int j);
 
 signals:
 
 public slots:
     void saveTache();
     void archiverTache();
+    void restaurerTache();
 };
 
 class MultiEditeur : public NoteEditeur
 {
     Q_OBJECT
 
+    int i;
     QHBoxLayout *ctype;
     QLineEdit *type;
 
@@ -153,6 +164,7 @@ class MultiEditeur : public NoteEditeur
 
     QPushButton *save;
     QPushButton *archiver;
+    QPushButton *restaurer;
 
     QHBoxLayout *cbutton;
 
@@ -160,12 +172,13 @@ class MultiEditeur : public NoteEditeur
 
 public:
     MultiEditeur(Multimedia& multi, FenetrePrincipale *p);
-
+    MultiEditeur(Multimedia& multi, FenetrePrincipale *p, int j);
 signals:
 
 public slots:
     void saveMulti();
     void archiverMulti();
+    void restaurerMulti();
 };
 
 #endif // NOTEEDITEUR_H
