@@ -1,0 +1,394 @@
+\hypertarget{class_archive}{}\section{Archive Class Reference}
+\label{class_archive}\index{Archive@{Archive}}
+
+
+The \hyperlink{class_archive}{Archive} class Gère les archives.  
+
+
+
+
+{\ttfamily \#include $<$archive.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_archive_1_1iterator}{iterator}
+\begin{DoxyCompactList}\small\item\em The iterator class template class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_archive_a4a2c0b86f5a65108d2355e652f627200}\label{class_archive_a4a2c0b86f5a65108d2355e652f627200}} 
+\hyperlink{class_archive_a4a2c0b86f5a65108d2355e652f627200}{Archive} ()
+\begin{DoxyCompactList}\small\item\em Constructeur archive. \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_a5f62010e4c8dc87cf56c5cda92be2c94}{add\+Histo\+Article} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Article \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_a9ec3f6c9a61ec302c9c5d3a13db58400}{add\+Histo\+Article} (Q\+String id, Q\+String titr, Q\+String txt, Q\+Date date\+Crea, Q\+Date date\+Modif)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Article \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_aabb712928d7b93ed425ebc33e821936f}{add\+Histo\+Tache} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Tache \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_a2440247a1156b6042afc1ff1ae6d004f}{add\+Histo\+Tache} (Q\+String id, Q\+String t, Q\+String act, Q\+String stat, Q\+Date d, Q\+String prio, Q\+Date date\+Crea, Q\+Date date\+Modif)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Tache \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_a5653d94a8628b0a898d80d15811001c9}{add\+Histo\+Multi} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Multi \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_aebdfbce05dfe3dabfba08d4bbdadc060}{add\+Histo\+Multi} (Q\+String id, Q\+String t, Q\+String desc, Q\+String fich, Q\+String typ, Q\+Date date\+Crea, Q\+Date date\+Modif)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Multi \end{DoxyCompactList}\item 
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$ \hyperlink{class_archive_a31d7007db91a32e626cd53e313db8f43}{get\+Histo\+Article} (const Q\+String \&id)
+\begin{DoxyCompactList}\small\item\em get\+Histo\+Article \end{DoxyCompactList}\item 
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$ \hyperlink{class_archive_ad0d8d58a11618fce4c15cc03fa92c5da}{get\+Histo\+Tache} (const Q\+String \&id)
+\begin{DoxyCompactList}\small\item\em get\+Histo\+Tache \end{DoxyCompactList}\item 
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$ \hyperlink{class_archive_a8e58f7a12ed7dab25edc5e09448448cb}{get\+Histo\+Multi} (const Q\+String \&id)
+\begin{DoxyCompactList}\small\item\em get\+Histo\+Multi \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_af488bb1824f5845cbb61fd6feb0eec8d}{remove\+Histo\+Article} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em remove\+Histo\+Article \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_ae2bfd7920d6fe781a63c81467df419e6}{remove\+Histo\+Tache} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em remove\+Histo\+Tache \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_a48f5668209fabeefa9704ba44f9d1fc6}{remove\+Histo\+Multi} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em remove\+Histo\+Multi \end{DoxyCompactList}\item 
+void \hyperlink{class_archive_a1410df8130f684c1386fea1a3d2fec5d}{set\+Filename} (const Q\+String \&f)
+\begin{DoxyCompactList}\small\item\em set\+Filename \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_archive_a5333df9cbd002721911230e31784bb50}\label{class_archive_a5333df9cbd002721911230e31784bb50}} 
+void \hyperlink{class_archive_a5333df9cbd002721911230e31784bb50}{save\+Archive} ()
+\begin{DoxyCompactList}\small\item\em save\+Archive enregistre toute la partie archive dans fichier archive.\+xml \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_archive_a6e3dc2b34678089685bde4b68a7bb955}\label{class_archive_a6e3dc2b34678089685bde4b68a7bb955}} 
+void \hyperlink{class_archive_a6e3dc2b34678089685bde4b68a7bb955}{load\+Archive} ()
+\begin{DoxyCompactList}\small\item\em load\+Archive charge toute la partie archive du fichier archive.\+xml \end{DoxyCompactList}\item 
+\hyperlink{class_archive_1_1iterator}{iterator}$<$ \hyperlink{class_article}{Article} $>$ \hyperlink{class_archive_a0b6bb8f4560874f757a4fdb3cd5bea7d}{begin\+\_\+article} ()
+\begin{DoxyCompactList}\small\item\em begin\+\_\+article \end{DoxyCompactList}\item 
+\hyperlink{class_archive_1_1iterator}{iterator}$<$ \hyperlink{class_article}{Article} $>$ \hyperlink{class_archive_a06f4dca9905c8384f34005850a762b7d}{end\+\_\+article} ()
+\begin{DoxyCompactList}\small\item\em end\+\_\+article \end{DoxyCompactList}\item 
+\hyperlink{class_archive_1_1iterator}{iterator}$<$ \hyperlink{class_tache}{Tache} $>$ \hyperlink{class_archive_aaca2e89ecc8bb65a69640091e64ab5b1}{begin\+\_\+tache} ()
+\begin{DoxyCompactList}\small\item\em begin\+\_\+tache \end{DoxyCompactList}\item 
+\hyperlink{class_archive_1_1iterator}{iterator}$<$ \hyperlink{class_tache}{Tache} $>$ \hyperlink{class_archive_a6748a002b28fb253f1e8216e088e63c5}{end\+\_\+tache} ()
+\begin{DoxyCompactList}\small\item\em end\+\_\+tache \end{DoxyCompactList}\item 
+\hyperlink{class_archive_1_1iterator}{iterator}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ \hyperlink{class_archive_a6f0ba14787013c3a0dd35131f5e45222}{begin\+\_\+multi} ()
+\begin{DoxyCompactList}\small\item\em begin\+\_\+multi \end{DoxyCompactList}\item 
+\hyperlink{class_archive_1_1iterator}{iterator}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ \hyperlink{class_archive_a0bf5d8c15ce9a7494f9e3e66711b76e5}{end\+\_\+multi} ()
+\begin{DoxyCompactList}\small\item\em end\+\_\+multi \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_archive}{Archive} class Gère les archives. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_archive_a5f62010e4c8dc87cf56c5cda92be2c94}\label{class_archive_a5f62010e4c8dc87cf56c5cda92be2c94}} 
+\index{Archive@{Archive}!add\+Histo\+Article@{add\+Histo\+Article}}
+\index{add\+Histo\+Article@{add\+Histo\+Article}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{add\+Histo\+Article()}{addHistoArticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Archive\+::add\+Histo\+Article (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & pointeur sur \hyperlink{class_histo_notes}{Histo\+Notes$<$\+Article$>$} ajout d\textquotesingle{}un Histo\+Aarticle dans articles \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_a9ec3f6c9a61ec302c9c5d3a13db58400}\label{class_archive_a9ec3f6c9a61ec302c9c5d3a13db58400}} 
+\index{Archive@{Archive}!add\+Histo\+Article@{add\+Histo\+Article}}
+\index{add\+Histo\+Article@{add\+Histo\+Article}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{add\+Histo\+Article()}{addHistoArticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Archive\+::add\+Histo\+Article (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{titr,  }\item[{Q\+String}]{txt,  }\item[{Q\+Date}]{date\+Crea,  }\item[{Q\+Date}]{date\+Modif }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em titr} & \\
+\hline
+{\em txt} & \\
+\hline
+{\em date\+Crea} & \\
+\hline
+{\em date\+Modif} & ajout et creation d\textquotesingle{}un Histo\+Aarticle dans articles (pour load()) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_a5653d94a8628b0a898d80d15811001c9}\label{class_archive_a5653d94a8628b0a898d80d15811001c9}} 
+\index{Archive@{Archive}!add\+Histo\+Multi@{add\+Histo\+Multi}}
+\index{add\+Histo\+Multi@{add\+Histo\+Multi}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{add\+Histo\+Multi()}{addHistoMulti()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Archive\+::add\+Histo\+Multi (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & pointeur sur \hyperlink{class_histo_notes}{Histo\+Notes$<$\+Multimedia$>$} ajout d\textquotesingle{}un Histo\+Multi dans multimedia \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_aebdfbce05dfe3dabfba08d4bbdadc060}\label{class_archive_aebdfbce05dfe3dabfba08d4bbdadc060}} 
+\index{Archive@{Archive}!add\+Histo\+Multi@{add\+Histo\+Multi}}
+\index{add\+Histo\+Multi@{add\+Histo\+Multi}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{add\+Histo\+Multi()}{addHistoMulti()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Archive\+::add\+Histo\+Multi (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{t,  }\item[{Q\+String}]{desc,  }\item[{Q\+String}]{fich,  }\item[{Q\+String}]{typ,  }\item[{Q\+Date}]{date\+Crea,  }\item[{Q\+Date}]{date\+Modif }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em t} & \\
+\hline
+{\em desc} & \\
+\hline
+{\em fich} & \\
+\hline
+{\em typ} & \\
+\hline
+{\em date\+Crea} & \\
+\hline
+{\em date\+Modif} & ajout et creation d\textquotesingle{}un Histo\+Multi dans multimedia (pour load()) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_aabb712928d7b93ed425ebc33e821936f}\label{class_archive_aabb712928d7b93ed425ebc33e821936f}} 
+\index{Archive@{Archive}!add\+Histo\+Tache@{add\+Histo\+Tache}}
+\index{add\+Histo\+Tache@{add\+Histo\+Tache}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{add\+Histo\+Tache()}{addHistoTache()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Archive\+::add\+Histo\+Tache (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & pointeur sur \hyperlink{class_histo_notes}{Histo\+Notes$<$\+Tache$>$} ajout d\textquotesingle{}un Histo\+Tache dans taches \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_a2440247a1156b6042afc1ff1ae6d004f}\label{class_archive_a2440247a1156b6042afc1ff1ae6d004f}} 
+\index{Archive@{Archive}!add\+Histo\+Tache@{add\+Histo\+Tache}}
+\index{add\+Histo\+Tache@{add\+Histo\+Tache}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{add\+Histo\+Tache()}{addHistoTache()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Archive\+::add\+Histo\+Tache (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{t,  }\item[{Q\+String}]{act,  }\item[{Q\+String}]{stat,  }\item[{Q\+Date}]{d,  }\item[{Q\+String}]{prio,  }\item[{Q\+Date}]{date\+Crea,  }\item[{Q\+Date}]{date\+Modif }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em t} & \\
+\hline
+{\em act} & \\
+\hline
+{\em stat} & \\
+\hline
+{\em d} & \\
+\hline
+{\em prio} & \\
+\hline
+{\em date\+Crea} & \\
+\hline
+{\em date\+Modif} & ajout et creation d\textquotesingle{}un Histo\+Tache dans taches (pour load()) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_a0b6bb8f4560874f757a4fdb3cd5bea7d}\label{class_archive_a0b6bb8f4560874f757a4fdb3cd5bea7d}} 
+\index{Archive@{Archive}!begin\+\_\+article@{begin\+\_\+article}}
+\index{begin\+\_\+article@{begin\+\_\+article}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{begin\+\_\+article()}{begin\_article()}}
+{\footnotesize\ttfamily \hyperlink{class_archive_1_1iterator}{iterator}$<$\hyperlink{class_article}{Article}$>$ Archive\+::begin\+\_\+article (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin\+\_\+article 
+
+\begin{DoxyReturn}{Returns}
+iterator$<$\+Article$>$ sur premiere case tableau articles 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_a6f0ba14787013c3a0dd35131f5e45222}\label{class_archive_a6f0ba14787013c3a0dd35131f5e45222}} 
+\index{Archive@{Archive}!begin\+\_\+multi@{begin\+\_\+multi}}
+\index{begin\+\_\+multi@{begin\+\_\+multi}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{begin\+\_\+multi()}{begin\_multi()}}
+{\footnotesize\ttfamily \hyperlink{class_archive_1_1iterator}{iterator}$<$\hyperlink{class_multimedia}{Multimedia}$>$ Archive\+::begin\+\_\+multi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin\+\_\+multi 
+
+\begin{DoxyReturn}{Returns}
+iterator$<$\+Multimedia$>$ sur premiere case tableau multimedias 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_aaca2e89ecc8bb65a69640091e64ab5b1}\label{class_archive_aaca2e89ecc8bb65a69640091e64ab5b1}} 
+\index{Archive@{Archive}!begin\+\_\+tache@{begin\+\_\+tache}}
+\index{begin\+\_\+tache@{begin\+\_\+tache}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{begin\+\_\+tache()}{begin\_tache()}}
+{\footnotesize\ttfamily \hyperlink{class_archive_1_1iterator}{iterator}$<$\hyperlink{class_tache}{Tache}$>$ Archive\+::begin\+\_\+tache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin\+\_\+tache 
+
+\begin{DoxyReturn}{Returns}
+iterator$<$\+Tache$>$ sur premiere case tableau taches 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_a06f4dca9905c8384f34005850a762b7d}\label{class_archive_a06f4dca9905c8384f34005850a762b7d}} 
+\index{Archive@{Archive}!end\+\_\+article@{end\+\_\+article}}
+\index{end\+\_\+article@{end\+\_\+article}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{end\+\_\+article()}{end\_article()}}
+{\footnotesize\ttfamily \hyperlink{class_archive_1_1iterator}{iterator}$<$\hyperlink{class_article}{Article}$>$ Archive\+::end\+\_\+article (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end\+\_\+article 
+
+\begin{DoxyReturn}{Returns}
+iterator$<$\+Article$>$ sur derniere case tableau articles 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_a0bf5d8c15ce9a7494f9e3e66711b76e5}\label{class_archive_a0bf5d8c15ce9a7494f9e3e66711b76e5}} 
+\index{Archive@{Archive}!end\+\_\+multi@{end\+\_\+multi}}
+\index{end\+\_\+multi@{end\+\_\+multi}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{end\+\_\+multi()}{end\_multi()}}
+{\footnotesize\ttfamily \hyperlink{class_archive_1_1iterator}{iterator}$<$\hyperlink{class_multimedia}{Multimedia}$>$ Archive\+::end\+\_\+multi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end\+\_\+multi 
+
+\begin{DoxyReturn}{Returns}
+iterator$<$\+Multimedia$>$ sur derniere case tableau multimedias 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_a6748a002b28fb253f1e8216e088e63c5}\label{class_archive_a6748a002b28fb253f1e8216e088e63c5}} 
+\index{Archive@{Archive}!end\+\_\+tache@{end\+\_\+tache}}
+\index{end\+\_\+tache@{end\+\_\+tache}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{end\+\_\+tache()}{end\_tache()}}
+{\footnotesize\ttfamily \hyperlink{class_archive_1_1iterator}{iterator}$<$\hyperlink{class_tache}{Tache}$>$ Archive\+::end\+\_\+tache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end\+\_\+tache 
+
+\begin{DoxyReturn}{Returns}
+iterator$<$\+Tache$>$ sur derniere case tableau taches 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_a31d7007db91a32e626cd53e313db8f43}\label{class_archive_a31d7007db91a32e626cd53e313db8f43}} 
+\index{Archive@{Archive}!get\+Histo\+Article@{get\+Histo\+Article}}
+\index{get\+Histo\+Article@{get\+Histo\+Article}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{get\+Histo\+Article()}{getHistoArticle()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$ Archive\+::get\+Histo\+Article (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{id }\end{DoxyParamCaption})}
+
+
+
+get\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie pointeur Histonotes$<$\+Article$>$ qui correspond a id ou nullptr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_a8e58f7a12ed7dab25edc5e09448448cb}\label{class_archive_a8e58f7a12ed7dab25edc5e09448448cb}} 
+\index{Archive@{Archive}!get\+Histo\+Multi@{get\+Histo\+Multi}}
+\index{get\+Histo\+Multi@{get\+Histo\+Multi}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{get\+Histo\+Multi()}{getHistoMulti()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$ Archive\+::get\+Histo\+Multi (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{id }\end{DoxyParamCaption})}
+
+
+
+get\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie pointeur Histonotes$<$\+Multi$>$ qui correspond a id ou nullptr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_ad0d8d58a11618fce4c15cc03fa92c5da}\label{class_archive_ad0d8d58a11618fce4c15cc03fa92c5da}} 
+\index{Archive@{Archive}!get\+Histo\+Tache@{get\+Histo\+Tache}}
+\index{get\+Histo\+Tache@{get\+Histo\+Tache}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{get\+Histo\+Tache()}{getHistoTache()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$ Archive\+::get\+Histo\+Tache (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{id }\end{DoxyParamCaption})}
+
+
+
+get\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+renvoie pointeur Histonotes$<$\+Tache$>$ qui correspond a id ou nullptr 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_archive_af488bb1824f5845cbb61fd6feb0eec8d}\label{class_archive_af488bb1824f5845cbb61fd6feb0eec8d}} 
+\index{Archive@{Archive}!remove\+Histo\+Article@{remove\+Histo\+Article}}
+\index{remove\+Histo\+Article@{remove\+Histo\+Article}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{remove\+Histo\+Article()}{removeHistoArticle()}}
+{\footnotesize\ttfamily void Archive\+::remove\+Histo\+Article (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+remove\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & pointeur sur \hyperlink{class_histo_notes}{Histo\+Notes$<$\+Article$>$} supprime le pointeur sur l\textquotesingle{}histo et update le reste du tableau articles utile pour archiver et restaurer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_a48f5668209fabeefa9704ba44f9d1fc6}\label{class_archive_a48f5668209fabeefa9704ba44f9d1fc6}} 
+\index{Archive@{Archive}!remove\+Histo\+Multi@{remove\+Histo\+Multi}}
+\index{remove\+Histo\+Multi@{remove\+Histo\+Multi}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{remove\+Histo\+Multi()}{removeHistoMulti()}}
+{\footnotesize\ttfamily void Archive\+::remove\+Histo\+Multi (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+remove\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & pointeur sur \hyperlink{class_histo_notes}{Histo\+Notes$<$\+Multimedia$>$} supprime le pointeur sur l\textquotesingle{}histo et update le reste du tableau multimedias utile pour archiver et restaurer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_ae2bfd7920d6fe781a63c81467df419e6}\label{class_archive_ae2bfd7920d6fe781a63c81467df419e6}} 
+\index{Archive@{Archive}!remove\+Histo\+Tache@{remove\+Histo\+Tache}}
+\index{remove\+Histo\+Tache@{remove\+Histo\+Tache}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{remove\+Histo\+Tache()}{removeHistoTache()}}
+{\footnotesize\ttfamily void Archive\+::remove\+Histo\+Tache (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+remove\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & pointeur sur \hyperlink{class_histo_notes}{Histo\+Notes$<$\+Tache$>$} supprime le pointeur sur l\textquotesingle{}histo et update le reste du tableau taches utile pour archiver et restaurer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_archive_a1410df8130f684c1386fea1a3d2fec5d}\label{class_archive_a1410df8130f684c1386fea1a3d2fec5d}} 
+\index{Archive@{Archive}!set\+Filename@{set\+Filename}}
+\index{set\+Filename@{set\+Filename}!Archive@{Archive}}
+\subsubsection{\texorpdfstring{set\+Filename()}{setFilename()}}
+{\footnotesize\ttfamily void Archive\+::set\+Filename (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Filename 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & accesseur en écriture \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+archive.\+h\item 
+archive.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,211 @@
+\hypertarget{class_notes}{}\section{Notes Class Reference}
+\label{class_notes}\index{Notes@{Notes}}
+
+
+The \hyperlink{class_notes}{Notes} class Classe abstraite.  
+
+
+
+
+{\ttfamily \#include $<$notes.\+h$>$}
+
+Inheritance diagram for Notes\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_notes}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_notes_aff3e54629e3e1005aafc512f87c8aa8f}{Notes} (const Q\+String i, const Q\+String t)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_notes}{Notes}. \end{DoxyCompactList}\item 
+\hyperlink{class_notes_ab19ca69e24270ac6fd5b92c304a1bf1b}{Notes} (const Q\+String i, const Q\+String t, const Q\+Date date\+Modif, const Q\+Date date\+Crea)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_notes}{Notes}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_notes_ac5829fca5044dea12bb3290fd1c6d86d}\label{class_notes_ac5829fca5044dea12bb3290fd1c6d86d}} 
+virtual void \hyperlink{class_notes_ac5829fca5044dea12bb3290fd1c6d86d}{afficher} ()=0
+\begin{DoxyCompactList}\small\item\em afficher methode virtuelle pure (on a oublié de s\textquotesingle{}en servir dans les classes filles) \end{DoxyCompactList}\item 
+const Q\+String \& \hyperlink{class_notes_a034e1fb763f1535b245fed61f2c07eaa}{get\+Id} () const
+\begin{DoxyCompactList}\small\item\em get\+Id \end{DoxyCompactList}\item 
+const Q\+String \& \hyperlink{class_notes_ad62548dca78862addfbe7c8a0b797c82}{get\+Titre} () const
+\begin{DoxyCompactList}\small\item\em get\+Titre \end{DoxyCompactList}\item 
+const Q\+Date \& \hyperlink{class_notes_ae375538696f0a9c0cbe446900d3eaf6e}{get\+Modif} () const
+\begin{DoxyCompactList}\small\item\em get\+Modif \end{DoxyCompactList}\item 
+const Q\+Date \& \hyperlink{class_notes_a0e396bd4a81ceaa93e7f7d829a3047e2}{get\+Crea} () const
+\begin{DoxyCompactList}\small\item\em get\+Crea \end{DoxyCompactList}\item 
+void \hyperlink{class_notes_a31e62febfc96b4b1a4ed33647c193f93}{set\+Titre} (const Q\+String \&s)
+\begin{DoxyCompactList}\small\item\em set\+Titre \end{DoxyCompactList}\item 
+void \hyperlink{class_notes_a903b6acb849c7aa9ba25161106f31299}{set\+Modif} (const Q\+Date \&d)
+\begin{DoxyCompactList}\small\item\em set\+Modif \end{DoxyCompactList}\item 
+void \hyperlink{class_notes_aade3f1a559f3df47181b746a47e93a72}{set\+Crea} (const Q\+Date \&d)
+\begin{DoxyCompactList}\small\item\em set\+Crea \end{DoxyCompactList}\item 
+bool \hyperlink{class_notes_abf74367554c664c909f14f752a544384}{operator==} (const \hyperlink{class_notes}{Notes} \&n)
+\begin{DoxyCompactList}\small\item\em operator == \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_notes}{Notes} class Classe abstraite. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_notes_aff3e54629e3e1005aafc512f87c8aa8f}\label{class_notes_aff3e54629e3e1005aafc512f87c8aa8f}} 
+\index{Notes@{Notes}!Notes@{Notes}}
+\index{Notes@{Notes}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{Notes()}{Notes()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Notes\+::\+Notes (\begin{DoxyParamCaption}\item[{const Q\+String}]{i,  }\item[{const Q\+String}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\hyperlink{class_notes}{Notes}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & id \\
+\hline
+{\em t} & titre et initialise date de creation et date de dernière modification avec la date actuelle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_notes_ab19ca69e24270ac6fd5b92c304a1bf1b}\label{class_notes_ab19ca69e24270ac6fd5b92c304a1bf1b}} 
+\index{Notes@{Notes}!Notes@{Notes}}
+\index{Notes@{Notes}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{Notes()}{Notes()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Notes\+::\+Notes (\begin{DoxyParamCaption}\item[{const Q\+String}]{i,  }\item[{const Q\+String}]{t,  }\item[{const Q\+Date}]{date\+Modif,  }\item[{const Q\+Date}]{date\+Crea }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\hyperlink{class_notes}{Notes}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+{\em t} & \\
+\hline
+{\em date\+Modif} & \\
+\hline
+{\em date\+Crea} & surcharge constructeur pour methode load() \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_notes_a0e396bd4a81ceaa93e7f7d829a3047e2}\label{class_notes_a0e396bd4a81ceaa93e7f7d829a3047e2}} 
+\index{Notes@{Notes}!get\+Crea@{get\+Crea}}
+\index{get\+Crea@{get\+Crea}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{get\+Crea()}{getCrea()}}
+{\footnotesize\ttfamily const Q\+Date\& Notes\+::get\+Crea (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Crea 
+
+\begin{DoxyReturn}{Returns}
+la date de creation accesseur en lecture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_notes_a034e1fb763f1535b245fed61f2c07eaa}\label{class_notes_a034e1fb763f1535b245fed61f2c07eaa}} 
+\index{Notes@{Notes}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{get\+Id()}{getId()}}
+{\footnotesize\ttfamily const Q\+String\& Notes\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Id 
+
+\begin{DoxyReturn}{Returns}
+identifiant de la note accesseur en lecture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_notes_ae375538696f0a9c0cbe446900d3eaf6e}\label{class_notes_ae375538696f0a9c0cbe446900d3eaf6e}} 
+\index{Notes@{Notes}!get\+Modif@{get\+Modif}}
+\index{get\+Modif@{get\+Modif}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{get\+Modif()}{getModif()}}
+{\footnotesize\ttfamily const Q\+Date\& Notes\+::get\+Modif (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Modif 
+
+\begin{DoxyReturn}{Returns}
+la date de dernière modif accesseur en lecture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_notes_ad62548dca78862addfbe7c8a0b797c82}\label{class_notes_ad62548dca78862addfbe7c8a0b797c82}} 
+\index{Notes@{Notes}!get\+Titre@{get\+Titre}}
+\index{get\+Titre@{get\+Titre}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{get\+Titre()}{getTitre()}}
+{\footnotesize\ttfamily const Q\+String\& Notes\+::get\+Titre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Titre 
+
+\begin{DoxyReturn}{Returns}
+titre de la note accesseur en lecture 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_notes_abf74367554c664c909f14f752a544384}\label{class_notes_abf74367554c664c909f14f752a544384}} 
+\index{Notes@{Notes}!operator==@{operator==}}
+\index{operator==@{operator==}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Notes\+::operator== (\begin{DoxyParamCaption}\item[{const \hyperlink{class_notes}{Notes} \&}]{n }\end{DoxyParamCaption})}
+
+
+
+operator == 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool surcharge operator== 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_notes_aade3f1a559f3df47181b746a47e93a72}\label{class_notes_aade3f1a559f3df47181b746a47e93a72}} 
+\index{Notes@{Notes}!set\+Crea@{set\+Crea}}
+\index{set\+Crea@{set\+Crea}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{set\+Crea()}{setCrea()}}
+{\footnotesize\ttfamily void Notes\+::set\+Crea (\begin{DoxyParamCaption}\item[{const Q\+Date \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Crea 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & accesseur en ecriture pour date crea \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_notes_a903b6acb849c7aa9ba25161106f31299}\label{class_notes_a903b6acb849c7aa9ba25161106f31299}} 
+\index{Notes@{Notes}!set\+Modif@{set\+Modif}}
+\index{set\+Modif@{set\+Modif}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{set\+Modif()}{setModif()}}
+{\footnotesize\ttfamily void Notes\+::set\+Modif (\begin{DoxyParamCaption}\item[{const Q\+Date \&}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Modif 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & accesseur en ecriture pour date modif \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_notes_a31e62febfc96b4b1a4ed33647c193f93}\label{class_notes_a31e62febfc96b4b1a4ed33647c193f93}} 
+\index{Notes@{Notes}!set\+Titre@{set\+Titre}}
+\index{set\+Titre@{set\+Titre}!Notes@{Notes}}
+\subsubsection{\texorpdfstring{set\+Titre()}{setTitre()}}
+{\footnotesize\ttfamily void Notes\+::set\+Titre (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Titre 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & accesseur en ecriture \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+notes.\+h\item 
+notes.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,272 @@
+\hypertarget{class_relation}{}\section{Relation Class Reference}
+\label{class_relation}\index{Relation@{Relation}}
+
+
+The \hyperlink{class_relation}{Relation} class Classe abstraite.  
+
+
+
+
+{\ttfamily \#include $<$relation.\+h$>$}
+
+Inheritance diagram for Relation\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_relation}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_relation_1_1iterator}{iterator}
+\begin{DoxyCompactList}\small\item\em The iterator class pour parcourir les couples d\textquotesingle{}une relation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_relation_afded55b4b4ae7b23a86f280ad8b49369}{Relation} (const Q\+String \&id, const Q\+String \&titr, const Q\+String \&desc, bool orie=true)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_relation}{Relation}. \end{DoxyCompactList}\item 
+void \hyperlink{class_relation_a24e1e3542e1d5b133cd0850e939928b6}{add\+Couple} (\hyperlink{class_couple}{Couple} $\ast$new\+Couple)
+\begin{DoxyCompactList}\small\item\em add\+Couple \end{DoxyCompactList}\item 
+void \hyperlink{class_relation_a6d7a04daa6d55ff4e4fc3f8de2c168c5}{add\+Couple} (\hyperlink{class_notes}{Notes} \&n1, \hyperlink{class_notes}{Notes} \&n2, Q\+String l=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em add\+Couple \end{DoxyCompactList}\item 
+const Q\+String \& \hyperlink{class_relation_a928c6b7afd86cbba6c7510e7495aa943}{get\+Id} () const
+\begin{DoxyCompactList}\small\item\em get\+Id \end{DoxyCompactList}\item 
+const Q\+String \& \hyperlink{class_relation_a411be3a1dfc417342db768555a2afe41}{get\+Titre} () const
+\begin{DoxyCompactList}\small\item\em get\+Titre \end{DoxyCompactList}\item 
+const Q\+String \& \hyperlink{class_relation_a078c6c43b163152aa40a9ac535175b9e}{get\+Description} () const
+\begin{DoxyCompactList}\small\item\em get\+Description \end{DoxyCompactList}\item 
+bool \hyperlink{class_relation_a77b7d698e607457ef5b14ded5d0e6f7f}{get\+Orientation} () const
+\begin{DoxyCompactList}\small\item\em get\+Orientation \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_relation_a1c08a802796f5fccaa5732ec1a96e542}{set\+Titre} (const Q\+String \&new\+Titre)=0
+\begin{DoxyCompactList}\small\item\em set\+Titre \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_relation_a8f698cc45c38a849c4bcd8336fa5e2b3}{set\+Description} (const Q\+String \&new\+Description)=0
+\begin{DoxyCompactList}\small\item\em set\+Description \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_relation_a708a16e5b0dd280e64832ca1d042cd96}{set\+Orientation} (bool bool\+Val)=0
+\begin{DoxyCompactList}\small\item\em set\+Orientation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_relation_aac587ec926df3043c3eedcb5123be50b}\label{class_relation_aac587ec926df3043c3eedcb5123be50b}} 
+virtual \hyperlink{class_relation_aac587ec926df3043c3eedcb5123be50b}{$\sim$\+Relation} ()
+\begin{DoxyCompactList}\small\item\em $\sim$\+Relation gère la destruction des couples qui compose la relation \end{DoxyCompactList}\item 
+\hyperlink{class_relation_1_1iterator}{iterator} \hyperlink{class_relation_a59d7e086b7a83b3aa7ca7a4a6adf8240}{begin\+\_\+relationr} ()
+\begin{DoxyCompactList}\small\item\em begin\+\_\+relationr \end{DoxyCompactList}\item 
+\hyperlink{class_relation_1_1iterator}{iterator} \hyperlink{class_relation_a2dca1dae07627e8e470d01fa95a7fb12}{end\+\_\+relation} ()
+\begin{DoxyCompactList}\small\item\em end\+\_\+relation \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_relation_a8ebffdbe30936c6b9ca55781347b54d5}\label{class_relation_a8ebffdbe30936c6b9ca55781347b54d5}} 
+Q\+String {\bfseries id}
+\item 
+\mbox{\Hypertarget{class_relation_a346e9b10df6757dee8dc13cb2f876357}\label{class_relation_a346e9b10df6757dee8dc13cb2f876357}} 
+Q\+String {\bfseries titre}
+\item 
+\mbox{\Hypertarget{class_relation_a1140829291bd04a86d0b840524692703}\label{class_relation_a1140829291bd04a86d0b840524692703}} 
+Q\+String {\bfseries description}
+\item 
+\mbox{\Hypertarget{class_relation_ae95d700e20c27e4123fdae4ef06923e0}\label{class_relation_ae95d700e20c27e4123fdae4ef06923e0}} 
+bool {\bfseries orientation}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_relation}{Relation} class Classe abstraite. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_relation_afded55b4b4ae7b23a86f280ad8b49369}\label{class_relation_afded55b4b4ae7b23a86f280ad8b49369}} 
+\index{Relation@{Relation}!Relation@{Relation}}
+\index{Relation@{Relation}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{Relation()}{Relation()}}
+{\footnotesize\ttfamily Relation\+::\+Relation (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{id,  }\item[{const Q\+String \&}]{titr,  }\item[{const Q\+String \&}]{desc,  }\item[{bool}]{orie = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\hyperlink{class_relation}{Relation}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em titr} & \\
+\hline
+{\em desc} & \\
+\hline
+{\em orie} & constructeur \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_relation_a24e1e3542e1d5b133cd0850e939928b6}\label{class_relation_a24e1e3542e1d5b133cd0850e939928b6}} 
+\index{Relation@{Relation}!add\+Couple@{add\+Couple}}
+\index{add\+Couple@{add\+Couple}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{add\+Couple()}{addCouple()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Relation\+::add\+Couple (\begin{DoxyParamCaption}\item[{\hyperlink{class_couple}{Couple} $\ast$}]{new\+Couple }\end{DoxyParamCaption})}
+
+
+
+add\+Couple 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Couple} & ajoute un couple au tableau couples \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_relation_a6d7a04daa6d55ff4e4fc3f8de2c168c5}\label{class_relation_a6d7a04daa6d55ff4e4fc3f8de2c168c5}} 
+\index{Relation@{Relation}!add\+Couple@{add\+Couple}}
+\index{add\+Couple@{add\+Couple}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{add\+Couple()}{addCouple()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Relation\+::add\+Couple (\begin{DoxyParamCaption}\item[{\hyperlink{class_notes}{Notes} \&}]{n1,  }\item[{\hyperlink{class_notes}{Notes} \&}]{n2,  }\item[{Q\+String}]{l = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+add\+Couple 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n1} & \\
+\hline
+{\em n2} & \\
+\hline
+{\em l} & crée à partir de 2 notes et ajoute le couple au tableau couples \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_relation_a59d7e086b7a83b3aa7ca7a4a6adf8240}\label{class_relation_a59d7e086b7a83b3aa7ca7a4a6adf8240}} 
+\index{Relation@{Relation}!begin\+\_\+relationr@{begin\+\_\+relationr}}
+\index{begin\+\_\+relationr@{begin\+\_\+relationr}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{begin\+\_\+relationr()}{begin\_relationr()}}
+{\footnotesize\ttfamily \hyperlink{class_relation_1_1iterator}{iterator} Relation\+::begin\+\_\+relationr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin\+\_\+relationr 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_a2dca1dae07627e8e470d01fa95a7fb12}\label{class_relation_a2dca1dae07627e8e470d01fa95a7fb12}} 
+\index{Relation@{Relation}!end\+\_\+relation@{end\+\_\+relation}}
+\index{end\+\_\+relation@{end\+\_\+relation}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{end\+\_\+relation()}{end\_relation()}}
+{\footnotesize\ttfamily \hyperlink{class_relation_1_1iterator}{iterator} Relation\+::end\+\_\+relation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end\+\_\+relation 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_a078c6c43b163152aa40a9ac535175b9e}\label{class_relation_a078c6c43b163152aa40a9ac535175b9e}} 
+\index{Relation@{Relation}!get\+Description@{get\+Description}}
+\index{get\+Description@{get\+Description}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{get\+Description()}{getDescription()}}
+{\footnotesize\ttfamily const Q\+String\& Relation\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Description 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_a928c6b7afd86cbba6c7510e7495aa943}\label{class_relation_a928c6b7afd86cbba6c7510e7495aa943}} 
+\index{Relation@{Relation}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{get\+Id()}{getId()}}
+{\footnotesize\ttfamily const Q\+String\& Relation\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Id 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_a77b7d698e607457ef5b14ded5d0e6f7f}\label{class_relation_a77b7d698e607457ef5b14ded5d0e6f7f}} 
+\index{Relation@{Relation}!get\+Orientation@{get\+Orientation}}
+\index{get\+Orientation@{get\+Orientation}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{get\+Orientation()}{getOrientation()}}
+{\footnotesize\ttfamily bool Relation\+::get\+Orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Orientation 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_a411be3a1dfc417342db768555a2afe41}\label{class_relation_a411be3a1dfc417342db768555a2afe41}} 
+\index{Relation@{Relation}!get\+Titre@{get\+Titre}}
+\index{get\+Titre@{get\+Titre}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{get\+Titre()}{getTitre()}}
+{\footnotesize\ttfamily const Q\+String\& Relation\+::get\+Titre (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Titre 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_a8f698cc45c38a849c4bcd8336fa5e2b3}\label{class_relation_a8f698cc45c38a849c4bcd8336fa5e2b3}} 
+\index{Relation@{Relation}!set\+Description@{set\+Description}}
+\index{set\+Description@{set\+Description}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{set\+Description()}{setDescription()}}
+{\footnotesize\ttfamily virtual void Relation\+::set\+Description (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{new\+Description }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+set\+Description 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Description} & methode virtuelle pure \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_relation_normale_a74c586177c06279726df02dd1d8b721a}{Relation\+Normale}.
+
+\mbox{\Hypertarget{class_relation_a708a16e5b0dd280e64832ca1d042cd96}\label{class_relation_a708a16e5b0dd280e64832ca1d042cd96}} 
+\index{Relation@{Relation}!set\+Orientation@{set\+Orientation}}
+\index{set\+Orientation@{set\+Orientation}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{set\+Orientation()}{setOrientation()}}
+{\footnotesize\ttfamily virtual void Relation\+::set\+Orientation (\begin{DoxyParamCaption}\item[{bool}]{bool\+Val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+set\+Orientation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool\+Val} & methode virtuelle pure \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_relation_normale_a1e660e212501ad0ddb38dc9949735cf2}{Relation\+Normale}.
+
+\mbox{\Hypertarget{class_relation_a1c08a802796f5fccaa5732ec1a96e542}\label{class_relation_a1c08a802796f5fccaa5732ec1a96e542}} 
+\index{Relation@{Relation}!set\+Titre@{set\+Titre}}
+\index{set\+Titre@{set\+Titre}!Relation@{Relation}}
+\subsubsection{\texorpdfstring{set\+Titre()}{setTitre()}}
+{\footnotesize\ttfamily virtual void Relation\+::set\+Titre (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{new\+Titre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+set\+Titre 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Titre} & methode virtuelle pure \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{class_relation_normale_abd0076a23f702ced9af181a0f046652c}{Relation\+Normale}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+relation.\+h\item 
+relation.\+cpp\end{DoxyCompactItemize}

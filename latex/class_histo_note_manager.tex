@@ -1,0 +1,662 @@
+\hypertarget{class_histo_note_manager}{}\section{Histo\+Note\+Manager Class Reference}
+\label{class_histo_note_manager}\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+
+
+The \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} class \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} est la classe principale de l\textquotesingle{}application \+: il n\textquotesingle{}existe qu\textquotesingle{}une seule instance de cette classe ( design pattern singleton). Cette classe permet de manipuler les différents \hyperlink{class_histo_notes}{Histo\+Notes} ( \hyperlink{class_article}{Article}, \hyperlink{class_tache}{Tache}, Mutimedia ) à l\textquotesingle{}aide de 3 attributs ( de type double pointeur sur \hyperlink{class_histo_notes}{Histo\+Notes}) \+: articles, taches, multimedias. \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} est le point de départ de toutes créations \+: c\textquotesingle{}est elle qui permet la creation des \hyperlink{class_histo_notes}{Histo\+Notes}, et donc des \hyperlink{class_notes}{Notes}.  
+
+
+
+
+{\ttfamily \#include $<$histonotes.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_histo_note_manager_1_1iterator}{iterator}
+\begin{DoxyCompactList}\small\item\em The iterator class Classe permettant de parcourir tous les tableaux de pointeur de \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} sans que la structure des données utilisée soit revelée Pour cela nous avons surcharger plusieurs operateurs et créer des fonctions permettant d\textquotesingle{}accéder au début ou à la fin de la structure de donnée. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_archive}{Archive} $\ast$ \hyperlink{class_histo_note_manager_a20b1ac0b28a181af8320d311f6284743}{get\+Archive} ()
+\begin{DoxyCompactList}\small\item\em get\+Archive \end{DoxyCompactList}\item 
+const Q\+String \hyperlink{class_histo_note_manager_a53f594ce147e634b25047f483704d17f}{make\+Article\+Id} ()
+\begin{DoxyCompactList}\small\item\em make\+Article\+Id \end{DoxyCompactList}\item 
+const Q\+String \hyperlink{class_histo_note_manager_aa78e22da815d3fb4c427946c00c7e03a}{make\+Tache\+Id} ()
+\begin{DoxyCompactList}\small\item\em make\+Tache\+Id \end{DoxyCompactList}\item 
+const Q\+String \hyperlink{class_histo_note_manager_ac38463596cf0013c74646a7d9cc3d177}{make\+Multi\+Id} ()
+\begin{DoxyCompactList}\small\item\em make\+Multi\+Id \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a8d02ddc1a22a9c1fd8d472dfd0ba321e}{add\+Histo\+Article} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Article \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_ac66cb7fa79ceeffc942077077714daab}{add\+Histo\+Article} (Q\+String id, Q\+String titr, Q\+String txt)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Article \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_ad5ecabf4a64aaf63ab79770d32073306}{add\+Histo\+Article} (Q\+String id, Q\+String titr, Q\+String txt, Q\+Date date\+Crea, Q\+Date date\+Modif)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Article \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a38fc4d370cbb798a3bf0e27cb137dc04}{add\+Histo\+Tache} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Tache \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_aa39d4be652b36a11fc3eff4cd4185555}{add\+Histo\+Tache} (Q\+String id, Q\+String t, Q\+String act, Q\+String stat, Q\+Date d, Q\+String prio=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Tache \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a8a9500441883ca6234661980f03f060c}{add\+Histo\+Tache} (Q\+String id, Q\+String t, Q\+String act, Q\+String stat, Q\+Date d, Q\+String prio, Q\+Date date\+Crea, Q\+Date date\+Modif)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Tache \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a642ae43d25bcb4926d6f3fed9a44e87d}{add\+Histo\+Multi} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Multi \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_ab8efae5db8eac8ca891d87cea8719c52}{add\+Histo\+Multi} (Q\+String id, Q\+String t, Q\+String desc, Q\+String fich, Q\+String typ=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Multi \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a1dfe21e0d7b157b704edfc511a93eeec}{add\+Histo\+Multi} (Q\+String id, Q\+String t, Q\+String desc, Q\+String fich, Q\+String typ, Q\+Date date\+Crea, Q\+Date date\+Modif)
+\begin{DoxyCompactList}\small\item\em add\+Histo\+Multi \end{DoxyCompactList}\item 
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$ \hyperlink{class_histo_note_manager_acabff86c6849ae6c7870a52785b85f6a}{get\+Histo\+Article} (const Q\+String \&id)
+\begin{DoxyCompactList}\small\item\em get\+Histo\+Article \end{DoxyCompactList}\item 
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$ \hyperlink{class_histo_note_manager_adfa63136dbd09fa31901eb41ee18fbb2}{get\+Histo\+Tache} (const Q\+String \&id)
+\begin{DoxyCompactList}\small\item\em get\+Histo\+Tache \end{DoxyCompactList}\item 
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$ \hyperlink{class_histo_note_manager_a96479ca8f5d71d766d0edb5baec92022}{get\+Histo\+Multi} (const Q\+String \&id)
+\begin{DoxyCompactList}\small\item\em get\+Histo\+Multi \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a64f3060a3e56181f5389eaab0cd1573c}{remove\+Histo\+Article} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em remove\+Histo\+Article \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a2533870bcbf5ac5e97ab10c0439b5ea4}{remove\+Histo\+Tache} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em remove\+Histo\+Tache \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a3132f28bcfe8eb36c3eb8000be18d994}{remove\+Histo\+Multi} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$h)
+\begin{DoxyCompactList}\small\item\em remove\+Histo\+Multi \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a174bebbac40d2473becb177788abd9e8}{archiver} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$ha)
+\begin{DoxyCompactList}\small\item\em archiver \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_abc760fb373c6fa419157fb22b90d9674}{archiver} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$ht)
+\begin{DoxyCompactList}\small\item\em archiver \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_aa28a9b85d416f403f8439952e93784a6}{archiver} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$hm)
+\begin{DoxyCompactList}\small\item\em archiver \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a539b244703e7e7db90ac5e83d38354e7}{restaurer} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$ha)
+\begin{DoxyCompactList}\small\item\em restaurer \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_ad70d1e38e7c3b6ba5b85d0ecccd0455e}{restaurer} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$ht)
+\begin{DoxyCompactList}\small\item\em restaurer \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_a1241c15eae448239442070a22cc10b77}{restaurer} (\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$ht)
+\begin{DoxyCompactList}\small\item\em restaurer \end{DoxyCompactList}\item 
+Q\+String \hyperlink{class_histo_note_manager_af6bba87ae6f9e99d85535733a2c60af0}{get\+Filename} () const
+\begin{DoxyCompactList}\small\item\em get\+Filename \end{DoxyCompactList}\item 
+void \hyperlink{class_histo_note_manager_af6598717c840856bb9a10e25a8809a42}{set\+Filename} (const Q\+String \&f)
+\begin{DoxyCompactList}\small\item\em set\+Filename \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_histo_note_manager_a37c344454caa435754cfcc209562e5ad}\label{class_histo_note_manager_a37c344454caa435754cfcc209562e5ad}} 
+void \hyperlink{class_histo_note_manager_a37c344454caa435754cfcc209562e5ad}{save} ()
+\begin{DoxyCompactList}\small\item\em save Méthodes permettant de stocker dans un fichier X\+ML tous les Historiques de toutes les notes actives \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_histo_note_manager_ae49822e66395d56926edbe361d2812c2}\label{class_histo_note_manager_ae49822e66395d56926edbe361d2812c2}} 
+void \hyperlink{class_histo_note_manager_ae49822e66395d56926edbe361d2812c2}{load} ()
+\begin{DoxyCompactList}\small\item\em load Méthodes permettant d\textquotesingle{}importer d\textquotesingle{}un fichier X\+ML tous les Historiques de toutes les notes actives \end{DoxyCompactList}\item 
+\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ \hyperlink{class_article}{Article} $>$ \hyperlink{class_histo_note_manager_aafcbf8113a0a5ede08c8d65da2655c33}{begin\+\_\+article} ()
+\begin{DoxyCompactList}\small\item\em begin\+\_\+article \end{DoxyCompactList}\item 
+\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ \hyperlink{class_article}{Article} $>$ \hyperlink{class_histo_note_manager_a6b3bf215eb0e27eaa7affa9824dd5785}{end\+\_\+article} ()
+\begin{DoxyCompactList}\small\item\em end\+\_\+article \end{DoxyCompactList}\item 
+\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ \hyperlink{class_tache}{Tache} $>$ \hyperlink{class_histo_note_manager_a55b63250519f28014747eab460fc6e6c}{begin\+\_\+tache} ()
+\begin{DoxyCompactList}\small\item\em begin\+\_\+tache \end{DoxyCompactList}\item 
+\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ \hyperlink{class_tache}{Tache} $>$ \hyperlink{class_histo_note_manager_a2c0ed9638820a52fcdd60d10c0257607}{end\+\_\+tache} ()
+\begin{DoxyCompactList}\small\item\em end\+\_\+tache \end{DoxyCompactList}\item 
+\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ \hyperlink{class_histo_note_manager_a61004bdec10b21d4adc2e288d278cf95}{begin\+\_\+multi} ()
+\begin{DoxyCompactList}\small\item\em begin\+\_\+multi \end{DoxyCompactList}\item 
+\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ \hyperlink{class_histo_note_manager_a06d66890cadc6e9943ef3b073b5d6203}{end\+\_\+multi} ()
+\begin{DoxyCompactList}\small\item\em end\+\_\+multi \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} \& \hyperlink{class_histo_note_manager_a9174873cef82d50e2b2479de6350d945}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em get\+Instance \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_histo_note_manager_a2de677e166803863888db8883993d25e}\label{class_histo_note_manager_a2de677e166803863888db8883993d25e}} 
+static void \hyperlink{class_histo_note_manager_a2de677e166803863888db8883993d25e}{liberer\+Instance} ()
+\begin{DoxyCompactList}\small\item\em liberer\+Instance Methode permettant de libérer l\textquotesingle{}instance actuelle et de l\textquotesingle{}instancier à nullptr \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} class \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} est la classe principale de l\textquotesingle{}application \+: il n\textquotesingle{}existe qu\textquotesingle{}une seule instance de cette classe ( design pattern singleton). Cette classe permet de manipuler les différents \hyperlink{class_histo_notes}{Histo\+Notes} ( \hyperlink{class_article}{Article}, \hyperlink{class_tache}{Tache}, Mutimedia ) à l\textquotesingle{}aide de 3 attributs ( de type double pointeur sur \hyperlink{class_histo_notes}{Histo\+Notes}) \+: articles, taches, multimedias. \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} est le point de départ de toutes créations \+: c\textquotesingle{}est elle qui permet la creation des \hyperlink{class_histo_notes}{Histo\+Notes}, et donc des \hyperlink{class_notes}{Notes}. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_histo_note_manager_a8d02ddc1a22a9c1fd8d472dfd0ba321e}\label{class_histo_note_manager_a8d02ddc1a22a9c1fd8d472dfd0ba321e}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Article@{add\+Histo\+Article}}
+\index{add\+Histo\+Article@{add\+Histo\+Article}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Article()}{addHistoArticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Article (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Methode permettant d\textquotesingle{}ajouter un objet h de type Histo\+Article au tableau articles de \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_ac66cb7fa79ceeffc942077077714daab}\label{class_histo_note_manager_ac66cb7fa79ceeffc942077077714daab}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Article@{add\+Histo\+Article}}
+\index{add\+Histo\+Article@{add\+Histo\+Article}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Article()}{addHistoArticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Article (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{titr,  }\item[{Q\+String}]{txt }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em titr} & \\
+\hline
+{\em txt} & Methode permettant de créer un objet de type Histo\+Article à partir de 3 paramètres ( cas de la création dans le logiciel) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_ad5ecabf4a64aaf63ab79770d32073306}\label{class_histo_note_manager_ad5ecabf4a64aaf63ab79770d32073306}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Article@{add\+Histo\+Article}}
+\index{add\+Histo\+Article@{add\+Histo\+Article}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Article()}{addHistoArticle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Article (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{titr,  }\item[{Q\+String}]{txt,  }\item[{Q\+Date}]{date\+Crea,  }\item[{Q\+Date}]{date\+Modif }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em titr} & \\
+\hline
+{\em txt} & \\
+\hline
+{\em date\+Crea} & \\
+\hline
+{\em date\+Modif} & Methode permettant de créer un objet de type Histo\+Article à partir de 5 paramètres ( cas du chargement à partir du fichier X\+ML) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a642ae43d25bcb4926d6f3fed9a44e87d}\label{class_histo_note_manager_a642ae43d25bcb4926d6f3fed9a44e87d}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Multi@{add\+Histo\+Multi}}
+\index{add\+Histo\+Multi@{add\+Histo\+Multi}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Multi()}{addHistoMulti()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Multi (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Methode permettant d\textquotesingle{}ajouter un objet h de type Histo\+Multi au tableau multi de \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_ab8efae5db8eac8ca891d87cea8719c52}\label{class_histo_note_manager_ab8efae5db8eac8ca891d87cea8719c52}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Multi@{add\+Histo\+Multi}}
+\index{add\+Histo\+Multi@{add\+Histo\+Multi}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Multi()}{addHistoMulti()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Multi (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{t,  }\item[{Q\+String}]{desc,  }\item[{Q\+String}]{fich,  }\item[{Q\+String}]{typ = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em t} & \\
+\hline
+{\em desc} & \\
+\hline
+{\em fich} & \\
+\hline
+{\em typ} & Methode permettant de créer un objet de type Histo\+Multi à partir de 5 paramètres ( cas de la création dans le logiciel) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a1dfe21e0d7b157b704edfc511a93eeec}\label{class_histo_note_manager_a1dfe21e0d7b157b704edfc511a93eeec}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Multi@{add\+Histo\+Multi}}
+\index{add\+Histo\+Multi@{add\+Histo\+Multi}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Multi()}{addHistoMulti()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Multi (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{t,  }\item[{Q\+String}]{desc,  }\item[{Q\+String}]{fich,  }\item[{Q\+String}]{typ,  }\item[{Q\+Date}]{date\+Crea,  }\item[{Q\+Date}]{date\+Modif }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em t} & \\
+\hline
+{\em desc} & \\
+\hline
+{\em fich} & \\
+\hline
+{\em typ} & \\
+\hline
+{\em date\+Crea} & \\
+\hline
+{\em date\+Modif} & Methode permettant de créer un objet de type Histo\+Multi à partir de 7 paramètres ( cas du chargement à partir du fichier X\+ML) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a38fc4d370cbb798a3bf0e27cb137dc04}\label{class_histo_note_manager_a38fc4d370cbb798a3bf0e27cb137dc04}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Tache@{add\+Histo\+Tache}}
+\index{add\+Histo\+Tache@{add\+Histo\+Tache}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Tache()}{addHistoTache()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Tache (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Methode permettant d\textquotesingle{}ajouter un objet h de type Histo\+Tache au tableau taches de \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_aa39d4be652b36a11fc3eff4cd4185555}\label{class_histo_note_manager_aa39d4be652b36a11fc3eff4cd4185555}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Tache@{add\+Histo\+Tache}}
+\index{add\+Histo\+Tache@{add\+Histo\+Tache}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Tache()}{addHistoTache()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Tache (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{t,  }\item[{Q\+String}]{act,  }\item[{Q\+String}]{stat,  }\item[{Q\+Date}]{d,  }\item[{Q\+String}]{prio = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em t} & \\
+\hline
+{\em act} & \\
+\hline
+{\em stat} & \\
+\hline
+{\em d} & \\
+\hline
+{\em prio} & Methode permettant de créer un objet de type Histo\+Tache à partir de 6 paramètres ( cas de la création dans le logiciel) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a8a9500441883ca6234661980f03f060c}\label{class_histo_note_manager_a8a9500441883ca6234661980f03f060c}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!add\+Histo\+Tache@{add\+Histo\+Tache}}
+\index{add\+Histo\+Tache@{add\+Histo\+Tache}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{add\+Histo\+Tache()}{addHistoTache()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::add\+Histo\+Tache (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{t,  }\item[{Q\+String}]{act,  }\item[{Q\+String}]{stat,  }\item[{Q\+Date}]{d,  }\item[{Q\+String}]{prio,  }\item[{Q\+Date}]{date\+Crea,  }\item[{Q\+Date}]{date\+Modif }\end{DoxyParamCaption})}
+
+
+
+add\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em t} & \\
+\hline
+{\em act} & \\
+\hline
+{\em stat} & \\
+\hline
+{\em d} & \\
+\hline
+{\em prio} & \\
+\hline
+{\em date\+Crea} & \\
+\hline
+{\em date\+Modif} & Methode permettant de créer un objet de type Histo\+Tache à partir de 8 paramètres ( cas du chargement à partir du fichier X\+ML) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a174bebbac40d2473becb177788abd9e8}\label{class_histo_note_manager_a174bebbac40d2473becb177788abd9e8}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!archiver@{archiver}}
+\index{archiver@{archiver}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{archiver()}{archiver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::archiver (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$}]{ha }\end{DoxyParamCaption})}
+
+
+
+archiver 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ha} & Methode permettant d\textquotesingle{}archiver l\textquotesingle{}objet ha de type Histo\+Article passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_abc760fb373c6fa419157fb22b90d9674}\label{class_histo_note_manager_abc760fb373c6fa419157fb22b90d9674}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!archiver@{archiver}}
+\index{archiver@{archiver}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{archiver()}{archiver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::archiver (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$}]{ht }\end{DoxyParamCaption})}
+
+
+
+archiver 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ht} & Methode permettant d\textquotesingle{}archiver l\textquotesingle{}objet ht de type Histo\+Tache passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_aa28a9b85d416f403f8439952e93784a6}\label{class_histo_note_manager_aa28a9b85d416f403f8439952e93784a6}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!archiver@{archiver}}
+\index{archiver@{archiver}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{archiver()}{archiver()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::archiver (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$}]{hm }\end{DoxyParamCaption})}
+
+
+
+archiver 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hm} & Methode permettant d\textquotesingle{}archiver l\textquotesingle{}objet hm de type Histo\+Multi passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_aafcbf8113a0a5ede08c8d65da2655c33}\label{class_histo_note_manager_aafcbf8113a0a5ede08c8d65da2655c33}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!begin\+\_\+article@{begin\+\_\+article}}
+\index{begin\+\_\+article@{begin\+\_\+article}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{begin\+\_\+article()}{begin\_article()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$\hyperlink{class_article}{Article}$>$ Histo\+Note\+Manager\+::begin\+\_\+article (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin\+\_\+article 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a61004bdec10b21d4adc2e288d278cf95}\label{class_histo_note_manager_a61004bdec10b21d4adc2e288d278cf95}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!begin\+\_\+multi@{begin\+\_\+multi}}
+\index{begin\+\_\+multi@{begin\+\_\+multi}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{begin\+\_\+multi()}{begin\_multi()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$\hyperlink{class_multimedia}{Multimedia}$>$ Histo\+Note\+Manager\+::begin\+\_\+multi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin\+\_\+multi 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a55b63250519f28014747eab460fc6e6c}\label{class_histo_note_manager_a55b63250519f28014747eab460fc6e6c}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!begin\+\_\+tache@{begin\+\_\+tache}}
+\index{begin\+\_\+tache@{begin\+\_\+tache}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{begin\+\_\+tache()}{begin\_tache()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$\hyperlink{class_tache}{Tache}$>$ Histo\+Note\+Manager\+::begin\+\_\+tache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin\+\_\+tache 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a6b3bf215eb0e27eaa7affa9824dd5785}\label{class_histo_note_manager_a6b3bf215eb0e27eaa7affa9824dd5785}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!end\+\_\+article@{end\+\_\+article}}
+\index{end\+\_\+article@{end\+\_\+article}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{end\+\_\+article()}{end\_article()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$\hyperlink{class_article}{Article}$>$ Histo\+Note\+Manager\+::end\+\_\+article (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end\+\_\+article 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a06d66890cadc6e9943ef3b073b5d6203}\label{class_histo_note_manager_a06d66890cadc6e9943ef3b073b5d6203}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!end\+\_\+multi@{end\+\_\+multi}}
+\index{end\+\_\+multi@{end\+\_\+multi}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{end\+\_\+multi()}{end\_multi()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$\hyperlink{class_multimedia}{Multimedia}$>$ Histo\+Note\+Manager\+::end\+\_\+multi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end\+\_\+multi 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a2c0ed9638820a52fcdd60d10c0257607}\label{class_histo_note_manager_a2c0ed9638820a52fcdd60d10c0257607}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!end\+\_\+tache@{end\+\_\+tache}}
+\index{end\+\_\+tache@{end\+\_\+tache}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{end\+\_\+tache()}{end\_tache()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$\hyperlink{class_tache}{Tache}$>$ Histo\+Note\+Manager\+::end\+\_\+tache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end\+\_\+tache 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a20b1ac0b28a181af8320d311f6284743}\label{class_histo_note_manager_a20b1ac0b28a181af8320d311f6284743}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!get\+Archive@{get\+Archive}}
+\index{get\+Archive@{get\+Archive}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{get\+Archive()}{getArchive()}}
+{\footnotesize\ttfamily \hyperlink{class_archive}{Archive}$\ast$ Histo\+Note\+Manager\+::get\+Archive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Archive 
+
+\begin{DoxyReturn}{Returns}
+permet de retourner un pointeur vers la seule instance de la classe archive liée à \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_af6bba87ae6f9e99d85535733a2c60af0}\label{class_histo_note_manager_af6bba87ae6f9e99d85535733a2c60af0}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!get\+Filename@{get\+Filename}}
+\index{get\+Filename@{get\+Filename}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{get\+Filename()}{getFilename()}}
+{\footnotesize\ttfamily Q\+String Histo\+Note\+Manager\+::get\+Filename (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Filename 
+
+\begin{DoxyReturn}{Returns}
+retourne la valeur de l\textquotesingle{}attribut filename 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_acabff86c6849ae6c7870a52785b85f6a}\label{class_histo_note_manager_acabff86c6849ae6c7870a52785b85f6a}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!get\+Histo\+Article@{get\+Histo\+Article}}
+\index{get\+Histo\+Article@{get\+Histo\+Article}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{get\+Histo\+Article()}{getHistoArticle()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$ Histo\+Note\+Manager\+::get\+Histo\+Article (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{id }\end{DoxyParamCaption})}
+
+
+
+get\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Methode renvoyant un pointeur vers un Histo\+Article à partir de son ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a96479ca8f5d71d766d0edb5baec92022}\label{class_histo_note_manager_a96479ca8f5d71d766d0edb5baec92022}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!get\+Histo\+Multi@{get\+Histo\+Multi}}
+\index{get\+Histo\+Multi@{get\+Histo\+Multi}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{get\+Histo\+Multi()}{getHistoMulti()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$ Histo\+Note\+Manager\+::get\+Histo\+Multi (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{id }\end{DoxyParamCaption})}
+
+
+
+get\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Methode renvoyant un pointeur vers un Histo\+Multi à partir de son ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_adfa63136dbd09fa31901eb41ee18fbb2}\label{class_histo_note_manager_adfa63136dbd09fa31901eb41ee18fbb2}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!get\+Histo\+Tache@{get\+Histo\+Tache}}
+\index{get\+Histo\+Tache@{get\+Histo\+Tache}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{get\+Histo\+Tache()}{getHistoTache()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$ Histo\+Note\+Manager\+::get\+Histo\+Tache (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{id }\end{DoxyParamCaption})}
+
+
+
+get\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Methode renvoyant un pointeur vers un Histo\+Tache à partir de son ID 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a9174873cef82d50e2b2479de6350d945}\label{class_histo_note_manager_a9174873cef82d50e2b2479de6350d945}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} \& Histo\+Note\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get\+Instance 
+
+\begin{DoxyReturn}{Returns}
+méthode renvoyant une référence vers l\textquotesingle{}unique instance de \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a53f594ce147e634b25047f483704d17f}\label{class_histo_note_manager_a53f594ce147e634b25047f483704d17f}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!make\+Article\+Id@{make\+Article\+Id}}
+\index{make\+Article\+Id@{make\+Article\+Id}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{make\+Article\+Id()}{makeArticleId()}}
+{\footnotesize\ttfamily const Q\+String Histo\+Note\+Manager\+::make\+Article\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+make\+Article\+Id 
+
+\begin{DoxyReturn}{Returns}
+permet la creation automatique des I\+Ds des Articles (\char`\"{}\+Article\char`\"{} + nombre) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_ac38463596cf0013c74646a7d9cc3d177}\label{class_histo_note_manager_ac38463596cf0013c74646a7d9cc3d177}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!make\+Multi\+Id@{make\+Multi\+Id}}
+\index{make\+Multi\+Id@{make\+Multi\+Id}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{make\+Multi\+Id()}{makeMultiId()}}
+{\footnotesize\ttfamily const Q\+String Histo\+Note\+Manager\+::make\+Multi\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+make\+Multi\+Id 
+
+\begin{DoxyReturn}{Returns}
+permet la creation automatique des I\+Ds des Multimedias (\char`\"{}\+Multimedia\char`\"{} + nombre) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_aa78e22da815d3fb4c427946c00c7e03a}\label{class_histo_note_manager_aa78e22da815d3fb4c427946c00c7e03a}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!make\+Tache\+Id@{make\+Tache\+Id}}
+\index{make\+Tache\+Id@{make\+Tache\+Id}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{make\+Tache\+Id()}{makeTacheId()}}
+{\footnotesize\ttfamily const Q\+String Histo\+Note\+Manager\+::make\+Tache\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+make\+Tache\+Id 
+
+\begin{DoxyReturn}{Returns}
+permet la creation automatique des I\+Ds des Taches (\char`\"{}\+Tache\char`\"{} + nombre) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_a64f3060a3e56181f5389eaab0cd1573c}\label{class_histo_note_manager_a64f3060a3e56181f5389eaab0cd1573c}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!remove\+Histo\+Article@{remove\+Histo\+Article}}
+\index{remove\+Histo\+Article@{remove\+Histo\+Article}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{remove\+Histo\+Article()}{removeHistoArticle()}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::remove\+Histo\+Article (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+remove\+Histo\+Article 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Methode supprimant l\textquotesingle{}objet de type Histo\+Article passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a3132f28bcfe8eb36c3eb8000be18d994}\label{class_histo_note_manager_a3132f28bcfe8eb36c3eb8000be18d994}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!remove\+Histo\+Multi@{remove\+Histo\+Multi}}
+\index{remove\+Histo\+Multi@{remove\+Histo\+Multi}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{remove\+Histo\+Multi()}{removeHistoMulti()}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::remove\+Histo\+Multi (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+remove\+Histo\+Multi 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Methode supprimant l\textquotesingle{}objet de type Histo\+Multi passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a2533870bcbf5ac5e97ab10c0439b5ea4}\label{class_histo_note_manager_a2533870bcbf5ac5e97ab10c0439b5ea4}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!remove\+Histo\+Tache@{remove\+Histo\+Tache}}
+\index{remove\+Histo\+Tache@{remove\+Histo\+Tache}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{remove\+Histo\+Tache()}{removeHistoTache()}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::remove\+Histo\+Tache (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+remove\+Histo\+Tache 
+
+
+\begin{DoxyParams}{Parameters}
+{\em h} & Methode supprimant l\textquotesingle{}objet de type Histo\+Tache passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a539b244703e7e7db90ac5e83d38354e7}\label{class_histo_note_manager_a539b244703e7e7db90ac5e83d38354e7}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!restaurer@{restaurer}}
+\index{restaurer@{restaurer}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{restaurer()}{restaurer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::restaurer (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_article}{Article} $>$ $\ast$}]{ha }\end{DoxyParamCaption})}
+
+
+
+restaurer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ha} & Methode permettant de restaurer l\textquotesingle{}objet ha de type Histo\+Article passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_ad70d1e38e7c3b6ba5b85d0ecccd0455e}\label{class_histo_note_manager_ad70d1e38e7c3b6ba5b85d0ecccd0455e}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!restaurer@{restaurer}}
+\index{restaurer@{restaurer}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{restaurer()}{restaurer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::restaurer (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_tache}{Tache} $>$ $\ast$}]{ht }\end{DoxyParamCaption})}
+
+
+
+restaurer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ht} & Methode permettant de restaurer l\textquotesingle{}objet ht de type Histo\+Tache passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_a1241c15eae448239442070a22cc10b77}\label{class_histo_note_manager_a1241c15eae448239442070a22cc10b77}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!restaurer@{restaurer}}
+\index{restaurer@{restaurer}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{restaurer()}{restaurer()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::restaurer (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_notes}{Histo\+Notes}$<$ \hyperlink{class_multimedia}{Multimedia} $>$ $\ast$}]{ht }\end{DoxyParamCaption})}
+
+
+
+restaurer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ht} & Methode permettant de restaurer l\textquotesingle{}objet ht de type Histo\+Multi passé en paramètre \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_histo_note_manager_af6598717c840856bb9a10e25a8809a42}\label{class_histo_note_manager_af6598717c840856bb9a10e25a8809a42}} 
+\index{Histo\+Note\+Manager@{Histo\+Note\+Manager}!set\+Filename@{set\+Filename}}
+\index{set\+Filename@{set\+Filename}!Histo\+Note\+Manager@{Histo\+Note\+Manager}}
+\subsubsection{\texorpdfstring{set\+Filename()}{setFilename()}}
+{\footnotesize\ttfamily void Histo\+Note\+Manager\+::set\+Filename (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set\+Filename 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & modifie la valeur de l\textquotesingle{}attribut filename \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+histonotes.\+h\item 
+histonotes.\+cpp\end{DoxyCompactItemize}

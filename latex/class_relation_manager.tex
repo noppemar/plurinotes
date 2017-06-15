@@ -1,0 +1,155 @@
+\hypertarget{class_relation_manager}{}\section{Relation\+Manager Class Reference}
+\label{class_relation_manager}\index{Relation\+Manager@{Relation\+Manager}}
+
+
+The \hyperlink{class_relation_manager}{Relation\+Manager} class gère l\textquotesingle{}ensemble des relations singleton.  
+
+
+
+
+{\ttfamily \#include $<$relation.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_relation_manager_1_1iterator}{iterator}
+\begin{DoxyCompactList}\small\item\em The iterator class iterator pour se deplacer dans les relations normales de \hyperlink{class_relation_manager}{Relation\+Manager}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const Q\+String \hyperlink{class_relation_manager_a471597e36dfca1a02f44b2a9f9d78905}{make\+Relation\+Id} ()
+\begin{DoxyCompactList}\small\item\em make\+Relation\+Id \end{DoxyCompactList}\item 
+\hyperlink{class_relation_normale}{Relation\+Normale} $\ast$ \hyperlink{class_relation_manager_adff441859bebfc8d5397fee9115648e9}{get\+Relation\+Normal} (const Q\+String \&id)
+\begin{DoxyCompactList}\small\item\em get\+Relation\+Normal \end{DoxyCompactList}\item 
+\hyperlink{class_relation_preexistente}{Relation\+Preexistente} $\ast$ \hyperlink{class_relation_manager_a156576cea308ab2c9762fad3424d9a10}{get\+Relation\+Ref} ()
+\begin{DoxyCompactList}\small\item\em get\+Relation\+Ref \end{DoxyCompactList}\item 
+void \hyperlink{class_relation_manager_aa888ef6c6fe5842b178488fab0ffbec2}{add\+Relation} (Q\+String id, Q\+String titre, Q\+String desc, bool orientation)
+\begin{DoxyCompactList}\small\item\em add\+Relation \end{DoxyCompactList}\item 
+\hyperlink{class_relation_manager_1_1iterator}{iterator} \hyperlink{class_relation_manager_a3f648b67fc2b56c3b568cd4401d71ec9}{begin\+\_\+relation\+Manager} ()
+\begin{DoxyCompactList}\small\item\em begin\+\_\+relation\+Manager \end{DoxyCompactList}\item 
+\hyperlink{class_relation_manager_1_1iterator}{iterator} \hyperlink{class_relation_manager_aec143df4ff23e6f2c03e0fe3102728c9}{end\+\_\+relation\+Manager} ()
+\begin{DoxyCompactList}\small\item\em end\+\_\+relation\+Manager \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_relation_manager}{Relation\+Manager} \& \hyperlink{class_relation_manager_a35c3622f29ccfbda84be848503041396}{get\+Instance} ()
+\begin{DoxyCompactList}\small\item\em get\+Instance \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_relation_manager_a64126ecfdd2046d9c9797e80427bcba3}\label{class_relation_manager_a64126ecfdd2046d9c9797e80427bcba3}} 
+static void \hyperlink{class_relation_manager_a64126ecfdd2046d9c9797e80427bcba3}{liberer\+Instance} ()
+\begin{DoxyCompactList}\small\item\em liberer\+Instance singleton \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_relation_manager}{Relation\+Manager} class gère l\textquotesingle{}ensemble des relations singleton. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_relation_manager_aa888ef6c6fe5842b178488fab0ffbec2}\label{class_relation_manager_aa888ef6c6fe5842b178488fab0ffbec2}} 
+\index{Relation\+Manager@{Relation\+Manager}!add\+Relation@{add\+Relation}}
+\index{add\+Relation@{add\+Relation}!Relation\+Manager@{Relation\+Manager}}
+\subsubsection{\texorpdfstring{add\+Relation()}{addRelation()}}
+{\footnotesize\ttfamily void Relation\+Manager\+::add\+Relation (\begin{DoxyParamCaption}\item[{Q\+String}]{id,  }\item[{Q\+String}]{titre,  }\item[{Q\+String}]{desc,  }\item[{bool}]{orientation }\end{DoxyParamCaption})}
+
+
+
+add\+Relation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em titre} & \\
+\hline
+{\em desc} & \\
+\hline
+{\em orientation} & crée et ajoute une relation normale au tableau relations \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_relation_manager_a3f648b67fc2b56c3b568cd4401d71ec9}\label{class_relation_manager_a3f648b67fc2b56c3b568cd4401d71ec9}} 
+\index{Relation\+Manager@{Relation\+Manager}!begin\+\_\+relation\+Manager@{begin\+\_\+relation\+Manager}}
+\index{begin\+\_\+relation\+Manager@{begin\+\_\+relation\+Manager}!Relation\+Manager@{Relation\+Manager}}
+\subsubsection{\texorpdfstring{begin\+\_\+relation\+Manager()}{begin\_relationManager()}}
+{\footnotesize\ttfamily \hyperlink{class_relation_manager_1_1iterator}{iterator} Relation\+Manager\+::begin\+\_\+relation\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+begin\+\_\+relation\+Manager 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_manager_aec143df4ff23e6f2c03e0fe3102728c9}\label{class_relation_manager_aec143df4ff23e6f2c03e0fe3102728c9}} 
+\index{Relation\+Manager@{Relation\+Manager}!end\+\_\+relation\+Manager@{end\+\_\+relation\+Manager}}
+\index{end\+\_\+relation\+Manager@{end\+\_\+relation\+Manager}!Relation\+Manager@{Relation\+Manager}}
+\subsubsection{\texorpdfstring{end\+\_\+relation\+Manager()}{end\_relationManager()}}
+{\footnotesize\ttfamily \hyperlink{class_relation_manager_1_1iterator}{iterator} Relation\+Manager\+::end\+\_\+relation\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+end\+\_\+relation\+Manager 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_manager_a35c3622f29ccfbda84be848503041396}\label{class_relation_manager_a35c3622f29ccfbda84be848503041396}} 
+\index{Relation\+Manager@{Relation\+Manager}!get\+Instance@{get\+Instance}}
+\index{get\+Instance@{get\+Instance}!Relation\+Manager@{Relation\+Manager}}
+\subsubsection{\texorpdfstring{get\+Instance()}{getInstance()}}
+{\footnotesize\ttfamily \hyperlink{class_relation_manager}{Relation\+Manager} \& Relation\+Manager\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get\+Instance 
+
+\begin{DoxyReturn}{Returns}
+singleton 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_manager_adff441859bebfc8d5397fee9115648e9}\label{class_relation_manager_adff441859bebfc8d5397fee9115648e9}} 
+\index{Relation\+Manager@{Relation\+Manager}!get\+Relation\+Normal@{get\+Relation\+Normal}}
+\index{get\+Relation\+Normal@{get\+Relation\+Normal}!Relation\+Manager@{Relation\+Manager}}
+\subsubsection{\texorpdfstring{get\+Relation\+Normal()}{getRelationNormal()}}
+{\footnotesize\ttfamily \hyperlink{class_relation_normale}{Relation\+Normale} $\ast$ Relation\+Manager\+::get\+Relation\+Normal (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{id }\end{DoxyParamCaption})}
+
+
+
+get\+Relation\+Normal 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointeur sur \hyperlink{class_relation_normale}{Relation\+Normale} qui correspond à l\textquotesingle{}id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_manager_a156576cea308ab2c9762fad3424d9a10}\label{class_relation_manager_a156576cea308ab2c9762fad3424d9a10}} 
+\index{Relation\+Manager@{Relation\+Manager}!get\+Relation\+Ref@{get\+Relation\+Ref}}
+\index{get\+Relation\+Ref@{get\+Relation\+Ref}!Relation\+Manager@{Relation\+Manager}}
+\subsubsection{\texorpdfstring{get\+Relation\+Ref()}{getRelationRef()}}
+{\footnotesize\ttfamily \hyperlink{class_relation_preexistente}{Relation\+Preexistente}$\ast$ Relation\+Manager\+::get\+Relation\+Ref (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Relation\+Ref 
+
+\begin{DoxyReturn}{Returns}
+pointeur sur attribut reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_relation_manager_a471597e36dfca1a02f44b2a9f9d78905}\label{class_relation_manager_a471597e36dfca1a02f44b2a9f9d78905}} 
+\index{Relation\+Manager@{Relation\+Manager}!make\+Relation\+Id@{make\+Relation\+Id}}
+\index{make\+Relation\+Id@{make\+Relation\+Id}!Relation\+Manager@{Relation\+Manager}}
+\subsubsection{\texorpdfstring{make\+Relation\+Id()}{makeRelationId()}}
+{\footnotesize\ttfamily const Q\+String Relation\+Manager\+::make\+Relation\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+make\+Relation\+Id 
+
+\begin{DoxyReturn}{Returns}
+fabrique id unique pour relation 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+relation.\+h\item 
+relation.\+cpp\end{DoxyCompactItemize}

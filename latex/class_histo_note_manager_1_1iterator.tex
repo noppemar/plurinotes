@@ -1,0 +1,106 @@
+\hypertarget{class_histo_note_manager_1_1iterator}{}\section{Histo\+Note\+Manager\+:\+:iterator$<$ X $>$ Class Template Reference}
+\label{class_histo_note_manager_1_1iterator}\index{Histo\+Note\+Manager\+::iterator$<$ X $>$@{Histo\+Note\+Manager\+::iterator$<$ X $>$}}
+
+
+The iterator class Classe permettant de parcourir tous les tableaux de pointeur de \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} sans que la structure des données utilisée soit revelée Pour cela nous avons surcharger plusieurs operateurs et créer des fonctions permettant d\textquotesingle{}accéder au début ou à la fin de la structure de donnée.  
+
+
+
+
+{\ttfamily \#include $<$histonotes.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_histo_note_manager_1_1iterator_a3b43451f77d1dd4055d6689ab93e7ff9}\label{class_histo_note_manager_1_1iterator_a3b43451f77d1dd4055d6689ab93e7ff9}} 
+\hyperlink{class_histo_note_manager_1_1iterator_a3b43451f77d1dd4055d6689ab93e7ff9}{iterator} ()
+\begin{DoxyCompactList}\small\item\em iterator \end{DoxyCompactList}\item 
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$ X $>$ $\ast$ \hyperlink{class_histo_note_manager_1_1iterator_a7bdc515ebe62b710ec796452bc8a4e1b}{get\+Current} ()
+\begin{DoxyCompactList}\small\item\em get\+Current \end{DoxyCompactList}\item 
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$ X $>$ \& \hyperlink{class_histo_note_manager_1_1iterator_a9069f8396167a1e36d0b018403a49ab6}{operator$\ast$} ()
+\begin{DoxyCompactList}\small\item\em operator $\ast$ \end{DoxyCompactList}\item 
+\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ X $>$ \& \hyperlink{class_histo_note_manager_1_1iterator_a8154f56529c02508425568db0cecccaf}{operator++} ()
+\begin{DoxyCompactList}\small\item\em operator ++ \end{DoxyCompactList}\item 
+bool \hyperlink{class_histo_note_manager_1_1iterator_a960a22fd8f1f6a1140bd94bd2a311cb8}{operator!=} (\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ X $>$ it) const
+\begin{DoxyCompactList}\small\item\em operator != \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_histo_note_manager_1_1iterator_add410ceb538a9963f9282fe3c1db096d}\label{class_histo_note_manager_1_1iterator_add410ceb538a9963f9282fe3c1db096d}} 
+class {\bfseries Histo\+Note\+Manager}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class X$>$\newline
+class Histo\+Note\+Manager\+::iterator$<$ X $>$}
+
+The iterator class Classe permettant de parcourir tous les tableaux de pointeur de \hyperlink{class_histo_note_manager}{Histo\+Note\+Manager} sans que la structure des données utilisée soit revelée Pour cela nous avons surcharger plusieurs operateurs et créer des fonctions permettant d\textquotesingle{}accéder au début ou à la fin de la structure de donnée. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_histo_note_manager_1_1iterator_a7bdc515ebe62b710ec796452bc8a4e1b}\label{class_histo_note_manager_1_1iterator_a7bdc515ebe62b710ec796452bc8a4e1b}} 
+\index{Histo\+Note\+Manager\+::iterator@{Histo\+Note\+Manager\+::iterator}!get\+Current@{get\+Current}}
+\index{get\+Current@{get\+Current}!Histo\+Note\+Manager\+::iterator@{Histo\+Note\+Manager\+::iterator}}
+\subsubsection{\texorpdfstring{get\+Current()}{getCurrent()}}
+{\footnotesize\ttfamily template$<$class X$>$ \\
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$X$>$$\ast$ \hyperlink{class_histo_note_manager_1_1iterator}{Histo\+Note\+Manager\+::iterator}$<$ X $>$\+::get\+Current (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get\+Current 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_1_1iterator_a960a22fd8f1f6a1140bd94bd2a311cb8}\label{class_histo_note_manager_1_1iterator_a960a22fd8f1f6a1140bd94bd2a311cb8}} 
+\index{Histo\+Note\+Manager\+::iterator@{Histo\+Note\+Manager\+::iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Histo\+Note\+Manager\+::iterator@{Histo\+Note\+Manager\+::iterator}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily template$<$class X$>$ \\
+bool \hyperlink{class_histo_note_manager_1_1iterator}{Histo\+Note\+Manager\+::iterator}$<$ X $>$\+::operator!= (\begin{DoxyParamCaption}\item[{\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$ X $>$}]{it }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator != 
+
+
+\begin{DoxyParams}{Parameters}
+{\em it} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_1_1iterator_a9069f8396167a1e36d0b018403a49ab6}\label{class_histo_note_manager_1_1iterator_a9069f8396167a1e36d0b018403a49ab6}} 
+\index{Histo\+Note\+Manager\+::iterator@{Histo\+Note\+Manager\+::iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Histo\+Note\+Manager\+::iterator@{Histo\+Note\+Manager\+::iterator}}
+\subsubsection{\texorpdfstring{operator$\ast$()}{operator*()}}
+{\footnotesize\ttfamily template$<$class X$>$ \\
+\hyperlink{class_histo_notes}{Histo\+Notes}$<$X$>$\& \hyperlink{class_histo_note_manager_1_1iterator}{Histo\+Note\+Manager\+::iterator}$<$ X $>$\+::operator$\ast$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator $\ast$ 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_histo_note_manager_1_1iterator_a8154f56529c02508425568db0cecccaf}\label{class_histo_note_manager_1_1iterator_a8154f56529c02508425568db0cecccaf}} 
+\index{Histo\+Note\+Manager\+::iterator@{Histo\+Note\+Manager\+::iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Histo\+Note\+Manager\+::iterator@{Histo\+Note\+Manager\+::iterator}}
+\subsubsection{\texorpdfstring{operator++()}{operator++()}}
+{\footnotesize\ttfamily template$<$class X$>$ \\
+\hyperlink{class_histo_note_manager_1_1iterator}{iterator}$<$X$>$\& \hyperlink{class_histo_note_manager_1_1iterator}{Histo\+Note\+Manager\+::iterator}$<$ X $>$\+::operator++ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+operator ++ 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+histonotes.\+h\end{DoxyCompactItemize}
