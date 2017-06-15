@@ -1,132 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<notes>
+
+<pluri>
     <histoArticle>
-        <id>Article1</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>article1</titre>
-        <texte>test1</texte>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-    </histoArticle>
-    <histoArticle>
-        <id>Article2</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>article2</titre>
-        <texte>test2</texte>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-    </histoArticle>
-    <histoArticle>
-        <id>Article3</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>hgjbknl</titre>
-        <texte>jhbkn</texte>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-    </histoArticle>
-    <histoArticle>
-        <id>Article4</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>marie</titre>
-        <texte>noppe</texte>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-    </histoArticle>
-    <histoArticle>
-        <id>Article5</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>coucou</titre>
-        <texte>coucou</texte>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-    </histoArticle>
-    <histoArticle>
-        <id>Article6</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>roman</titre>
-        <texte>esquerre</texte>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-    </histoArticle>
-    <histoArticle>
-        <id>Article7</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>yann</titre>
-        <texte>maillet</texte>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-    </histoArticle>
-    <histoArticle>
-        <id>Article8</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>coucoucocucouc</titre>
-        <texte>coucocucoucocuc</texte>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
+        <article>
+            <id>Article1</id>
+            <titre>hjk</titre>
+            <dateCrea>jeu. juin 15 2017</dateCrea>
+            <dateModif>jeu. juin 15 2017</dateModif>
+            <texte>jk</texte>
+        </article>
     </histoArticle>
     <histoTache>
-        <id>Tache1</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>hgjk</titre>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-        <dateEcheance>sam. janv. 1 2000</dateEcheance>
-        <prio></prio>
-        <action>hjkl</action>
-        <statut></statut>
+        <tache>
+            <id>Tache1</id>
+            <titre>hjkl</titre>
+            <dateCrea>jeu. juin 15 2017</dateCrea>
+            <dateModif>jeu. juin 15 2017</dateModif>
+            <action>jkl</action>
+            <statut>ça ne presse pas</statut>
+            <prio>enAttente</prio>
+            <dateEcheance>sam. janv. 1 2000</dateEcheance>
+        </tache>
+        <tache>
+            <id>Tache1</id>
+            <titre>hjkl</titre>
+            <dateCrea>jeu. juin 15 2017</dateCrea>
+            <dateModif>jeu. juin 15 2017</dateModif>
+            <action>VERSION2</action>
+            <statut>enAttente</statut>
+            <prio>ça ne presse pas</prio>
+            <dateEcheance>sam. janv. 1 2000</dateEcheance>
+        </tache>
     </histoTache>
-    <histoTache>
-        <id>Tache2</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>ghj</titre>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-        <dateEcheance>sam. janv. 1 2000</dateEcheance>
-        <prio>ça ne presse pas</prio>
-        <action>hjkl</action>
-        <statut></statut>
-    </histoTache>
-    <histoMultimedia>
-        <id>Multimedia1</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>hgjk</titre>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-        <type>Image</type>
-        <fichier>kjl</fichier>
-        <description>hjkl</description>
-    </histoMultimedia>
-    <histoMultimedia>
-        <id>Multimedia2</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>fghjkl</titre>
-        <dateCrea>mer. juin 14 2017</dateCrea>
-        <dateModif>mer. juin 14 2017</dateModif>
-        <type>Image</type>
-        <fichier>hgjk</fichier>
-        <description>fghjk</description>
-    </histoMultimedia>
-    <histoMultimedia>
-        <id>Multimedia3</id>
-        <nbVersion>1</nbVersion>
-        <nbMaxVersion>5</nbMaxVersion>
-        <titre>coucou</titre>
-        <dateCrea>jeu. juin 15 2017</dateCrea>
-        <dateModif>jeu. juin 15 2017</dateModif>
-        <type>Image</type>
-        <fichier>noppe</fichier>
-        <description>marie</description>
-    </histoMultimedia>
-</notes>
+</pluri>

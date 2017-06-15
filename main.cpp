@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     
     QString filename= QFileDialog::getOpenFileName();   //chercher le fichier xml
     HistoNoteManager &m=HistoNoteManager::getInstance(); //créer une instance de NotesManager
-    RelationManager &rm=RelationManager::getInstance();  //créer une instance de RelationManager
+    //RelationManager &rm=RelationManager::getInstance();  //créer une instance de RelationManager
 
     m.setFilename(filename); //fixer le nom du fichier dans l'instance NotesManager
     m.load();   //charger le fichier

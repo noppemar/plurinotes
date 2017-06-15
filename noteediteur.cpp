@@ -392,7 +392,7 @@ void ArticleEditeur::saveArticle(){
     HistoNoteManager& m=HistoNoteManager::getInstance();
     m.getHistoArticle(article->getId())->addVersion(article->getId(),getTitre(),text->toPlainText());
     getPere()->updateArticles();
-    //m.save();
+    m.save();
     this->close();
 }
 
@@ -401,7 +401,7 @@ void TacheEditeur::saveTache(){
     HistoNoteManager& m=HistoNoteManager::getInstance();
     m.getHistoTache(tache->getId())->addVersion(tache->getId(),getTitre(),act->toPlainText(),statut->currentText(), dateEcheance->date(), priorite->currentText());
     getPere()->updateTaches();
-    //m.save();
+    m.save();
     this->close();
 }
 
@@ -409,7 +409,7 @@ void MultiEditeur::saveMulti(){
     HistoNoteManager& m=HistoNoteManager::getInstance();
     m.getHistoMulti(multimedia->getId())->addVersion(multimedia->getId(),getTitre(),desc->toPlainText(),fichier->text(),type->text());
     getPere()->updateMulti();
-    //m.save();
+    m.save();
     this->close();
 }
 

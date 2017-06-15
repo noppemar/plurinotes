@@ -283,6 +283,7 @@ void HistoNoteManager::save() {
         stream.writeStartElement("histoTache");
         for(unsigned int j=0; j<taches[i]->getNbVersions(); j++){
             stream.writeStartElement("tache");
+            stream.writeTextElement("id",taches[i]->getVersion(j)->getId());
             stream.writeTextElement("titre",taches[i]->getVersion(j)->getTitre());
             stream.writeTextElement("dateCrea",taches[i]->getVersion(j)->getCrea().toString());
             stream.writeTextElement("dateModif",taches[i]->getVersion(j)->getModif().toString());
@@ -299,6 +300,7 @@ void HistoNoteManager::save() {
         stream.writeStartElement("histoMultimedia");
         for(unsigned int j=0; j<multimedias[i]->getNbVersions(); j++){
             stream.writeStartElement("multimedia");
+            stream.writeTextElement("id",multimedias[i]->getVersion(j)->getId());
             stream.writeTextElement("titre",multimedias[i]->getVersion(j)->getTitre());
             stream.writeTextElement("dateCrea",multimedias[i]->getVersion(j)->getCrea().toString());
             stream.writeTextElement("dateModif",multimedias[i]->getVersion(j)->getModif().toString());
