@@ -21,26 +21,7 @@ void Multimedia::afficher(){
 
 }
 
-void Article::save(QFile* f) const
-                    {QXmlStreamWriter stream(f);
-                    stream.writeStartElement("article");
-                    stream.writeTextElement("dateArticle",getModif().toString());
-                    stream.writeTextElement("texte",texte );
-}
 
-void Tache::save(QFile* f) const
-                    {QXmlStreamWriter stream(f);
-                    stream.writeStartElement("tache");
-                    stream.writeTextElement("dateVersion",getModif().toString());
-                    stream.writeTextElement("action", action);
-}
-
-void Multimedia::save(QFile* f) const
-                    {QXmlStreamWriter stream(f);
-                    stream.writeStartElement("multimedia");
-                    stream.writeTextElement("dateVersion",getModif().toString());
-                   // stream.writeTextElement("action", action);
-}
 
 
 
