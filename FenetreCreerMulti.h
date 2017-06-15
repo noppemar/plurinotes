@@ -7,11 +7,18 @@
 #include "histonotes.h"
 #include "fenprincipale.h"
 
-
+/*!
+ * \brief The FenetreCreerMulti class
+ * fenetre pour creer un multimedia
+ */
 class FenetreCreerMulti : public QWidget
 {
     Q_OBJECT
 public:
+    /*!
+     * \brief FenetreCreerMulti
+     * \param p
+     */
     FenetreCreerMulti(FenetrePrincipale *p);
 
 private:
@@ -26,6 +33,10 @@ signals:
 
 
 public slots:
+    /*!
+     * \brief ajouterMulti
+     * gere insertion du multimedia dans HistoNoteManager
+     */
     void ajouterMulti();
 
 
@@ -35,3 +46,4 @@ public slots:
 
 
 #endif // FENETRECREERMULTI_H
+
