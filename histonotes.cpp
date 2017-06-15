@@ -4,9 +4,10 @@
 #include <QtXml>
 #include <QString>
 
-HistoNoteManager::HistoNoteManager():filename(""), nbArticles(0),nbTaches(0),nbMultimedias(0), nbMaxArticles(0),nbMaxTaches(0),nbMaxMultimedias(0){
+HistoNoteManager::HistoNoteManager():filename(""), nbArticles(0),nbTaches(0),nbMultimedias(0), nbMaxArticles(0),nbMaxTaches(0),nbMaxMultimedias(0),archives(new Archive){
 
 }
+
 
 HistoNoteManager::~HistoNoteManager(){
     for(unsigned int i=0; i<nbArticles; i++) delete articles[i];
@@ -17,11 +18,16 @@ HistoNoteManager::~HistoNoteManager(){
 
     for(unsigned int i=0; i<nbMultimedias; i++) delete multimedias[i];
     delete[] multimedias;
+
+    delete archives;
 }
+
+
 
 //SINGLETON
 HistoNoteManager* HistoNoteManager::instance = 0; //initialisation + définition à nullptr
-HistoNoteManager* HistoNoteManager::archives = 0;
+
+
 
 HistoNoteManager& HistoNoteManager::getInstance(){ //méthode qui vérifie qu'il n'y ait qu'une seule instance de NotesManager
     if(HistoNoteManager::instance==0)
@@ -29,11 +35,6 @@ HistoNoteManager& HistoNoteManager::getInstance(){ //méthode qui vérifie qu'il
     return *HistoNoteManager::instance;
 }
 
-HistoNoteManager& HistoNoteManager::getArchive(){ 
-    if(HistoNoteManager::archives==0)
-        HistoNoteManager::archives = new HistoNoteManager; 
-    return *HistoNoteManager::archives;
-}
 
 void HistoNoteManager::libererInstance(){
     if(HistoNoteManager::instance !=0) //si instance existe
@@ -41,11 +42,7 @@ void HistoNoteManager::libererInstance(){
     HistoNoteManager::instance=0; //réinitialisation à nullptr
 }
 
-void HistoNoteManager::libererArchive(){
-    if(HistoNoteManager::archives !=0) //si instance existe
-        delete HistoNoteManager::archives; // supprime
-    HistoNoteManager::archives=0; //réinitialisation à nullptr
-}
+
 
 void HistoNoteManager::addHistoArticle(HistoNotes<Article>* h){
     if(nbArticles==nbMaxArticles){
@@ -190,7 +187,7 @@ const QString HistoNoteManager::makeMultiId(){
 }
 
 void HistoNoteManager::archiver(HistoNotes<Article>* ha){
-   archives->addHistoArticle(ha);
+   archives->addHistoArticle(ha); //changer
    removeHistoArticle(ha);
 
 }
@@ -640,5 +637,8 @@ void HistoNoteManager::load() {
     xml.clear();
     qDebug()<<"fin load\n";
 }
+
+
+
 
 
