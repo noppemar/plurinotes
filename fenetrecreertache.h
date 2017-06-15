@@ -6,6 +6,11 @@
 #include "histonotes.h"
 #include "fenprincipale.h"
 
+/*!
+ * \brief The FenetreCreerTache class
+ * fenetre pour creer une tache
+ */
+
 class FenetreCreerTache : public QWidget
 {
     Q_OBJECT
@@ -27,6 +32,10 @@ signals:
 
 
 public slots:
+    /*!
+     * \brief ajouterTache
+     * gere insertion tache dans HistoNoteManager
+     */
     void ajouterTache();
 
 
@@ -34,3 +43,4 @@ public slots:
 
 
 #endif // FENETRECREERTACHE_H
+
