@@ -5,11 +5,19 @@
 #include "notes.h"
 #include "fenprincipale.h"
 #include "relation.h"
+/*!
+ * \brief The FenetreCreerRelation class
+ * fenetre pour creer une relation
+ */
 
 class FenetreCreerRelation : public QWidget
 {
     Q_OBJECT
 public:
+    /*!
+     * \brief FenetreCreerRelation
+     * \param p
+     */
     FenetreCreerRelation(FenetrePrincipale *p);
 private:
     QLineEdit *titre;
@@ -22,6 +30,10 @@ signals:
 
 
 public slots:
+    /*!
+     * \brief ajouterRelation
+     * gere insertion dans HistoNoteManager
+     */
     void ajouterRelation();
 
 
